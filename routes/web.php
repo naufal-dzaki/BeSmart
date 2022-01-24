@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('layouts.index');
 });
 
-Route::get('/login', function () {
+Route::get('/loginsa', function () {
     return view('login.index');
 });
 
@@ -50,11 +50,15 @@ Route::get('/materi', function(){
 });
 
 
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth'])->name('dashboard');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
-// require __DIR__.'/auth.php';
+require __DIR__.'/auth.php';
+
+Route::get('/coba', function(){
+    return view('dashboard.index');
+});
 
 // Route::get('/besmart', function(){
 //     return view('layouts.master');

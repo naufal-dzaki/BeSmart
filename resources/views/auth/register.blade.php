@@ -2,7 +2,11 @@
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+                {{-- <x-application-logo class="w-20 h-20 fill-current text-gray-500" /> --}}
+                <div class="flex mt-8">
+                    <img src="{{ asset('img/logo.png') }}" class="lg:w-20 md:w-16 w-12 h-full" alt="">
+                    <h1 class="font-bserif text-bblue lg:text-6xl md:text-4xl sm:text-2xl text-xl font-bold">BeSmart</h1>
+                </div>
             </a>
         </x-slot>
 

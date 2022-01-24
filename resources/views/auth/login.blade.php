@@ -1,9 +1,18 @@
 <x-guest-layout>
     <x-auth-card>
-        <x-slot name="logo">
+        {{-- <x-slot name="logo">
             <a href="/">
                 <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
             </a>
+        </x-slot> --}}
+
+        <x-slot name="logo">
+            <div class="flex mt-12">
+                <img src="{{ asset('img/logo.png') }}" class="lg:w-24 md:w-20 w-14 h-full" alt="">
+                <h1 class="font-bserif text-bblue lg:text-7xl md:text-6xl sm:text-5xl text-4xl font-bold">BeSmart</h1>
+            </div>
+            <p class="font-bsans text-bblack lg:text-xl md:text-lg sm:text-base text-sm text-center ">Rasakan pengalaman
+                belajar <br> dimana saja dan kapan saja</p>
         </x-slot>
 
         <!-- Session Status -->
@@ -39,6 +48,9 @@
                     <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
                 </label>
             </div>
+            <small class="d-block text-center">
+                Not registered? <a href="/register">Register Now!</a>
+            </small>
 
             <div class="flex items-center justify-end mt-4">
                 @if (Route::has('password.request'))
