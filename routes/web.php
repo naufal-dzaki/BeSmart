@@ -23,6 +23,7 @@ Route::get('/', function () {
 // });
 
 Route::get('/home', [HomeController::class, 'index']);
+Route::get('/home/{subject:slug}', [HomeController::class, 'show']);
 
 Route::get('/tugas', function(){
     return view('contents.tugas', [
