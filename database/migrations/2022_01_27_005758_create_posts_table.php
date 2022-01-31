@@ -15,10 +15,11 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->varchar('judul');
-            $table->varchar('slug')->unique();
+            $table->string('judul');
+            $table->string('slug')->unique();
+            $table->string('image')->nullable();
             $table->text('body');
-            $table->link('link');
+            $table->string('link');
             $table->boolean('type');
             $table->foreignId('subject_id');
             $table->timestamps();

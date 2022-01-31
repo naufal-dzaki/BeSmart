@@ -54,8 +54,9 @@
                     {{ __('Already registered?') }}
                 </a>
 
-                <x-button class="ml-4">
-                    {{ __('Register') }}
+                <x-button class="ml-4" >
+                    <a href="{{  route('login') }}">
+                    {{ __('Register') }}</a>
                 </x-button>
             </div>
         </form>

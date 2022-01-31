@@ -399,8 +399,8 @@
                 <h1 class="font-semibold pb-3">Subscribe</h1>
                 <p class="text-gray-500 pb-3">subscribe to get the latest news from us</p>
                 <div
-                    class="flex w-full col-span-2 mt-5 md:mt-0 md:col-span-1 mx-auto md:order-2 bg-white rounded-lg shadow-md pl-3 pr- py-3 row-start-2 row-end-3 md:row-span-2 justify-between">
-                    <input class="focus:outline-none" type="text" placeholder="Email Address" onchange="inputTyping">
+                    class="md:flex hidden w-full col-span-2 mt-5 md:mt-0 md:col-span-1 mx-auto md:order-2 bg-white rounded-lg shadow-md pl-3 pr- py-3 row-start-2 row-end-3 md:row-span-2 justify-between">
+                    <input class="focus:outline-none" type="text" placeholder="Email Address " onchange="inputTyping">
                     <i class="fa fa-arrow-right  justify-center mr-3"></i>
                 </div>
             </div>

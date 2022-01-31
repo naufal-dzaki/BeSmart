@@ -16,8 +16,9 @@ class CreateSubjectsTable extends Migration
         Schema::create('subjects', function (Blueprint $table) {
             $table->id();
             $table->foreignId('grade_id');
-            $table->varchar('name');
-            $table->varchar('slug')->unique();
+            $table->string('image')->nullable();
+            $table->string('name');
+            $table->string('slug')->unique();
             $table->timestamps();
         });
     }

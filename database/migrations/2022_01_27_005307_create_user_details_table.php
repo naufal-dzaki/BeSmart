@@ -20,9 +20,9 @@ class CreateUserDetailsTable extends Migration
             $table->date('TTL');
             $table->text('alamat');
             $table->integer('NISN');
-            $table->varchar('jenis_kelamin');
-            $table->varchar('name_ayah');
-            $table->varchar('name_ibu');
+            $table->string('jenis_kelamin');
+            $table->string('name_ayah');
+            $table->string('name_ibu');
             $table->timestamps();
         });
     }
