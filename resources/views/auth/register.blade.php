@@ -23,6 +23,20 @@
                 <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
             </div>
 
+            {{-- grade --}}
+            <div class="mt-3">
+                <label for="grade" class="form-label">Grade</label>
+                <select class="form-select" name="grade_id">
+                    @foreach ($grades as $grade)
+                    @if ( old('grade_id') == $grade->id)
+                    <option value="{{ $grade->id }}" selected>{{ $grade->grade }}</option>
+                    @else
+                    <option value="{{ $grade->id }}">{{ $grade->grade }}</option>
+                    @endif
+                    @endforeach
+                </select>
+            </div>
+
             <!-- Email Address -->
             <div class="mt-4">
                 <x-label for="email" :value="__('Email')" />
