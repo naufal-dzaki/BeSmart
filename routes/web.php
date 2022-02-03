@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LogoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,12 @@ Route::get('/', function () {
 
 Route::get('/home', [HomeController::class, 'index']);
 Route::get('/home/{subject:slug}', [HomeController::class, 'show']);
+
+Route::get('/subject/detail', function(){
+    return view('home.subject.detail', [
+        'title' => 'subject'
+    ]);
+});
 
 Route::get('/tugas', function(){
     return view('contents.tugas', [
@@ -55,6 +62,8 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+Route::post('/logout', [LogoutController::class, 'logout']);
 
 Route::get('/coba', function(){
     return view('dashboard.index');

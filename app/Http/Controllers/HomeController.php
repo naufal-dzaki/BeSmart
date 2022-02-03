@@ -17,8 +17,8 @@ class HomeController extends Controller
 
     public function show(Subject $Subject){
         return view('contents.materi', [
-            'title' => 'Home | Mata Pelajaran',
-            'posts' => Post::latest()
+            'title' => $Subject->name,
+            'subjects' => $Subject
         ]);
     }
 }

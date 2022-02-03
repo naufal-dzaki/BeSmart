@@ -60,7 +60,7 @@
                 @endif
 
                 <x-button class="ml-3">
-                    <a href="{{ route('HOME') }}"></a>
+                    <a href="{{ route('home') }}"></a>
                     {{ __('Log in') }}
                 </x-button>
             </div>
