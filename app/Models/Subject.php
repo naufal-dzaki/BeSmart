@@ -15,4 +15,9 @@ class Subject extends Model
     {
         return $this->hasMany(Grade::class);
     }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
 }

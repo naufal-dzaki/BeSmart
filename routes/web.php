@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LogoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,37 +16,45 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('layouts.index');
+    return view('layouts.index', [
+        'title' => ' '
+    ]);
 });
 
 // Route::get('/loginsa', function () {
 //     return view('login.index');
 // });
 
-Route::get('/home', [HomeController::class, 'index']);
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/home/{subject:slug}', [HomeController::class, 'show']);
+
+Route::get('/subject/detail', function(){
+    return view('home.subject.detail', [
+        'title' => ' | Subject'
+    ]);
+});
 
 Route::get('/tugas', function(){
     return view('contents.tugas', [
-        'title' => 'tugas'
+        'title' => '| Tugas'
     ]);
 });
 
 Route::get('/absen', function(){
     return view('contents.absen', [
-        'title' => 'absen'
+        'title' => '| Absen'
     ]);
 });
 
 Route::get('/biodata', function(){
     return view('contents.biodata', [
-        'title' => 'biodata'
+        'title' => '| Biodata'
     ]);
 });
 
 Route::get('/materi', function(){
     return view('contents.materi', [
-        'title' => 'Materi'
+        'title' => ' | Materi'
     ]);
 });
 
@@ -55,6 +64,8 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+Route::post('/logout', [LogoutController::class, 'logout']);
 
 Route::get('/coba', function(){
     return view('dashboard.index');

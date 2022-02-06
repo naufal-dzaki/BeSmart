@@ -22,6 +22,7 @@ class CreatePostsTable extends Migration
             $table->string('link');
             $table->boolean('type');
             $table->foreignId('subject_id');
+            $table->foreignId('user_id');
             $table->timestamps();
         });
     }

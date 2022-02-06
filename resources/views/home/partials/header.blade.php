@@ -4,9 +4,16 @@
             <img src="{{ asset('img/user-profille.png') }}" class="lg:w-24 md:w-20 sm:w-16 w-14" alt="">
         </div>
         <div class="block">
-            <h1
-                class="font-bserif lg:text-4xl md:text-3xl sm:text-2xl text-xl text-bblack font-bold md:ml-4 sm:ml-3 ml-2 md:mt-2 mt-1">
-                Hai, Muhammad Bilal</h1>
+            <div class="flex">
+                <h1
+                    class="font-bserif lg:text-4xl md:text-3xl sm:text-2xl text-xl text-bblack font-bold md:ml-4 sm:ml-3 ml-2 md:mt-2 mt-1">
+                    Hai, Muhammad Bilal</h1>
+
+                    <form action="/logout" method="post">
+                        @csrf
+                        <button type="submit" class="border-1 absolute lg:right-8 md:right-7 sm:right-6 right-5  md:top-0 top-3 font-bsans text-bblue md:text-base sm:text-sm text-xs">Logout</button>
+                    </form>
+            </div>
             <div class="flex">
                 <div
                     class="bg-bblue  rounded-md md:w-16 sm:w-14 w-12 py-1 h-auto ml-4 absolute lg:left-28 md:left-24 sm:left-20 left-16 md:bottom-4 sm:bottom-3 bottom-2">
@@ -20,3 +27,4 @@
         </div>
     </div>
 </div>
+

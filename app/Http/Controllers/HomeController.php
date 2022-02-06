@@ -10,15 +10,15 @@ class HomeController extends Controller
 {
     public function index(){
         return view('home.index', [
-            'title' => 'Home',
+            'title' => ' | Home',
             'subjects' => Subject::all()
         ]);
     }
 
     public function show(Subject $Subject){
         return view('contents.materi', [
-            'title' => 'Home | Mata Pelajaran',
-            'posts' => Post::latest()
+            'title' => $Subject->name,
+            'subjects' => $Subject
         ]);
     }
 }
