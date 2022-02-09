@@ -11,7 +11,7 @@ class HomeController extends Controller
     public function index(){
         return view('home.index', [
             'title' => ' | Home',
-            'subjects' => Subject::all()
+            'subjects' => Subject::where('grade_id', auth()->user()->grade_id)->get()
         ]);
     }
 }

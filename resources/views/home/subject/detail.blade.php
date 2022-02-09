@@ -17,7 +17,7 @@
                     {!! $posts -> body !!}
                 </article>
 
-                <div class="border-2 px-2 py-2 rounded-2xl w-4/12 max-h-10 truncate flex flex-wrap content-center">
+                <div class="border-2 px-2 py-2 rounded-2xl w-3/12 max-h-10 truncate flex flex-wrap content-center">
                     <a href="{{ $posts->link }}" class="flex">
                         <i data-feather="link" class="mr-3"></i> {{ $posts->link }}
                     </a>

@@ -23,11 +23,14 @@ Route::get('/', function () {
 });
 
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware('auth');
 // Route::get('/home/{subject:slug}', [HomeController::class, 'show']);
 
-Route::get('/subject/{subject:slug}', [SubjectController::class, 'index']);
-Route::get('/subject/{subject:slug}/detail/{post:slug}', [SubjectController::class, 'show']);
+Route::get('/subject/{subject:slug}', [SubjectController::class, 'index'])->middleware('auth');
+Route::get('/subject/{subject:slug}/detail/{post:slug}', [SubjectController::class, 'show'])->middleware('auth');
+
+Route::get('/tugas', [SubjectController::class, 'tugas'])->middleware('auth');
+Route::get('/tugas/{post:slug}', [SubjectController::class, 'tugas_detail'])->middleware('auth');
 
 // Route::get('/{subject:slug}/{post:slug}', function(){
 //     return view('home.subject.detail', [
@@ -35,29 +38,29 @@ Route::get('/subject/{subject:slug}/detail/{post:slug}', [SubjectController::cla
 //     ]);
 // });
 
-Route::get('/tugas', function(){
-    return view('contents.tugas', [
-        'title' => '| Tugas'
-    ]);
-});
+// Route::get('/tugas', function(){
+//     return view('contents.tugas', [
+//         'title' => '| Tugas'
+//     ]);
+// })->middleware('auth');
 
 Route::get('/absen', function(){
     return view('contents.absen', [
         'title' => '| Absen'
     ]);
-});
+})->middleware('auth');
 
 Route::get('/biodata', function(){
     return view('contents.biodata', [
         'title' => '| Biodata'
     ]);
-});
+})->middleware('auth');
 
 Route::get('/materi', function(){
     return view('contents.materi', [
         'title' => ' | Materi'
     ]);
-});
+})->middleware('auth');
 
 require __DIR__.'/auth.php';
 

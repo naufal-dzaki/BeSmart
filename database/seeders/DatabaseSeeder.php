@@ -26,6 +26,12 @@ class DatabaseSeeder extends Seeder
             'email' => 'naufal@gmail.com',
             'password' => bcrypt('password')
         ]);
+        User::Create([
+            'name' => 'bilal',
+            'grade_id' => '1',
+            'email' => 'bilal@gmail.com',
+            'password' => bcrypt('password')
+        ]);
 
         //kelas
         Grade::create([
@@ -101,9 +107,31 @@ class DatabaseSeeder extends Seeder
             'bab' => '1',
             'body' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex, repellat rem sed inventore a omnis eius vero quaerat porro dolores expedita corporis, totam harum quidem nihil numquam accusamus beatae atque illo quo. Facilis illum perferendis accusantium hic, nesciunt corporis nulla amet obcaecati inventore maxime, corrupti dolore nemo, sed impedit repellat itaque unde incidunt quae asperiores! Similique et error quod adipisci at autem dolore iure reprehenderit? Consequuntur quibusdam quaerat ipsam fugit incidunt eligendi ratione quos ducimus aliquam consequatur. Nesciunt architecto earum alias dolorum quasi, illum enim tenetur sequi repellat beatae hic ab, dicta omnis tempora magni quod eum vitae eos! Ab, id voluptas nulla explicabo magni tempora cupiditate autem, molestiae praesentium voluptatem quod consequuntur quas et! Quo totam ducimus illo optio!',
             'link' => 'https://codingstudio.id/cara-pull-github/',
-            'type' => '0',
+            'tipe' => '0',
             'subject_id' => '2',
             'user_id' => '1'
+        ]);
+        Post::create([
+            'judul' => 'ini adalah mapel pertama',
+            'slug' => 'ini-adalah-mapel-pertama',
+            'image' => 'materi.png',
+            'bab' => '1',
+            'body' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex, repellat rem sed inventore a omnis eius vero quaerat porro dolores expedita corporis, totam harum quidem nihil numquam accusamus beatae atque illo quo. Facilis illum perferendis accusantium hic, nesciunt corporis nulla amet obcaecati inventore maxime, corrupti dolore nemo, sed impedit repellat itaque unde incidunt quae asperiores! Similique et error quod adipisci at autem dolore iure reprehenderit? Consequuntur quibusdam quaerat ipsam fugit incidunt eligendi ratione quos ducimus aliquam consequatur. Nesciunt architecto earum alias dolorum quasi, illum enim tenetur sequi repellat beatae hic ab, dicta omnis tempora magni quod eum vitae eos! Ab, id voluptas nulla explicabo magni tempora cupiditate autem, molestiae praesentium voluptatem quod consequuntur quas et! Quo totam ducimus illo optio!',
+            'link' => 'https://youtu.be/',
+            'tipe' => '0',
+            'subject_id' => '1',
+            'user_id' => '2'
+        ]);
+        Post::create([
+            'judul' => 'ini adalah mapel kedua',
+            'slug' => 'ini-adalah-mapel-kedua',
+            'image' => 'tugas.png',
+            'bab' => '1',
+            'body' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex, repellat rem sed inventore a omnis eius vero quaerat porro dolores expedita corporis, totam harum quidem nihil numquam accusamus beatae atque illo quo. Facilis illum perferendis accusantium hic, nesciunt corporis nulla amet obcaecati inventore maxime, corrupti dolore nemo, sed impedit repellat itaque unde incidunt quae asperiores! Similique et error quod adipisci at autem dolore iure reprehenderit? Consequuntur quibusdam quaerat ipsam fugit incidunt eligendi ratione quos ducimus aliquam consequatur. Nesciunt architecto earum alias dolorum quasi, illum enim tenetur sequi repellat beatae hic ab, dicta omnis tempora magni quod eum vitae eos! Ab, id voluptas nulla explicabo magni tempora cupiditate autem, molestiae praesentium voluptatem quod consequuntur quas et! Quo totam ducimus illo optio!',
+            'link' => 'https://youtu.be/',
+            'tipe' => '1',
+            'subject_id' => '1',
+            'user_id' => '2'
         ]);
     }
 }
