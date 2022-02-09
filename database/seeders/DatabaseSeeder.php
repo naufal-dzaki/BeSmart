@@ -4,7 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\Grade;
+use App\Models\User;
 use App\Models\Subject;
+use App\Models\Post;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,6 +18,14 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
+
+        //user
+        User::Create([
+            'name' => 'naufal',
+            'grade_id' => '2',
+            'email' => 'naufal@gmail.com',
+            'password' => bcrypt('password')
+        ]);
 
         //kelas
         Grade::create([
@@ -83,5 +93,17 @@ class DatabaseSeeder extends Seeder
             'slug' => 'sejarah-x'
         ]);
 
+        //post
+        Post::create([
+            'judul' => 'ini judul',
+            'slug' => 'ini-judul',
+            'image' => 'materi.png',
+            'bab' => '1',
+            'body' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex, repellat rem sed inventore a omnis eius vero quaerat porro dolores expedita corporis, totam harum quidem nihil numquam accusamus beatae atque illo quo. Facilis illum perferendis accusantium hic, nesciunt corporis nulla amet obcaecati inventore maxime, corrupti dolore nemo, sed impedit repellat itaque unde incidunt quae asperiores! Similique et error quod adipisci at autem dolore iure reprehenderit? Consequuntur quibusdam quaerat ipsam fugit incidunt eligendi ratione quos ducimus aliquam consequatur. Nesciunt architecto earum alias dolorum quasi, illum enim tenetur sequi repellat beatae hic ab, dicta omnis tempora magni quod eum vitae eos! Ab, id voluptas nulla explicabo magni tempora cupiditate autem, molestiae praesentium voluptatem quod consequuntur quas et! Quo totam ducimus illo optio!',
+            'link' => 'https://codingstudio.id/cara-pull-github/',
+            'type' => '0',
+            'subject_id' => '2',
+            'user_id' => '1'
+        ]);
     }
 }

@@ -3,6 +3,7 @@
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\SubjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,18 +22,18 @@ Route::get('/', function () {
     ]);
 });
 
-// Route::get('/loginsa', function () {
-//     return view('login.index');
-// });
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-Route::get('/home/{subject:slug}', [HomeController::class, 'show']);
+// Route::get('/home/{subject:slug}', [HomeController::class, 'show']);
 
-Route::get('/subject/detail', function(){
-    return view('home.subject.detail', [
-        'title' => ' | Subject'
-    ]);
-});
+Route::get('/subject/{subject:slug}', [SubjectController::class, 'index']);
+Route::get('/subject/{subject:slug}/detail/{post:slug}', [SubjectController::class, 'show']);
+
+// Route::get('/{subject:slug}/{post:slug}', function(){
+//     return view('home.subject.detail', [
+//         'title' => ' | Subject'
+//     ]);
+// });
 
 Route::get('/tugas', function(){
     return view('contents.tugas', [
@@ -58,22 +59,18 @@ Route::get('/materi', function(){
     ]);
 });
 
+require __DIR__.'/auth.php';
+
+Route::post('/logout', [LogoutController::class, 'logout']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-require __DIR__.'/auth.php';
-
-Route::post('/logout', [LogoutController::class, 'logout']);
 
 Route::get('/coba', function(){
     return view('dashboard.index');
 });
-
-// Route::get('/besmart', function(){
-//     return view('layouts.master');
-// });
 
 
 

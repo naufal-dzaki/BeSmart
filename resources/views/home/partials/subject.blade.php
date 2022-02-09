@@ -5,7 +5,7 @@ class="text-bblue font-bold font-bserif lg:text-4xl md:text-3xl sm:text-2xl text
 @foreach ($subjects as $subject)
     <div class="w-1/4 lg:mb-5 md:mb-4 sm:mb-3 mb-2">
         <div class="flex flex-col justify-center items-center">
-            <a href="/home/{{ $subject->slug }}">
+            <a href="/subject/{{ $subject->slug }}">
                 <div
                     class="flex items-center justify-center bg-bblue lg:w-28 md:w-24 sm:w-20 w-16 lg:h-28 md:h-24 sm:h-20 h-16 rounded-full">
                     <img src="img/{{ $subject->image }}" class="lg:w-16 md:w-14 sm:w-12 w-10" alt="">

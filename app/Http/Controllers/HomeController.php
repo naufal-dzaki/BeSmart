@@ -14,11 +14,4 @@ class HomeController extends Controller
             'subjects' => Subject::all()
         ]);
     }
-
-    public function show(Subject $Subject){
-        return view('contents.materi', [
-            'title' => $Subject->name,
-            'subjects' => $Subject
-        ]);
-    }
 }
