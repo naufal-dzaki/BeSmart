@@ -11,14 +11,7 @@ class HomeController extends Controller
     public function index(){
         return view('home.index', [
             'title' => ' | Home',
-            'subjects' => Subject::all()
-        ]);
-    }
-
-    public function show(Subject $Subject){
-        return view('contents.materi', [
-            'title' => $Subject->name,
-            'subjects' => $Subject
+            'subjects' => Subject::where('grade_id', auth()->user()->grade_id)->get()
         ]);
     }
 }

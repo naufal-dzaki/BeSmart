@@ -26,7 +26,7 @@
             {{-- grade --}}
             <div class="mt-3">
                 {{-- <label for="grade_id" class="form-label">Grade</label> --}}
-                <x-label for="grade_id" :value="__('Grade')" />
+                <x-label for="grade_id" :value="__('grade_id')" />
                 <select class="rounded-md shadow-sm border-gray-300" name="grade_id">
                     @foreach ($grades as $grade)
                     @if ( old('grade_id') == $grade->id)

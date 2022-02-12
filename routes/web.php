@@ -3,6 +3,7 @@
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\SubjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,7 @@ Route::get('/', function () {
         'title' => ' '
     ]);
 });
+
 require __DIR__.'/auth.php';
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard', function () {return view('dashboard');})->name('dashboard');

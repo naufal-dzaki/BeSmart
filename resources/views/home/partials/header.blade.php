@@ -7,7 +7,7 @@
             <div class="flex">
                 <h1
                     class="font-bserif lg:text-4xl md:text-3xl sm:text-2xl text-xl text-bblack font-bold md:ml-4 sm:ml-3 ml-2 md:mt-2 mt-1">
-                    Hai, Muhammad Bilal</h1>
+                    Hai, {{ auth()->user()->name }}</h1>
 
                     <form action="/logout" method="post">
                         @csrf
@@ -22,7 +22,7 @@
                 </div>
                 <h1
                     class="absolute lg:right-8 md:right-7 sm:right-6 right-5 md:bottom-4 sm:bottom-3 bottom-2 font-bsans text-bblue md:text-xl sm:text-base text-sm">
-                    XII RPL 2</h1>
+                    {{ auth()->user()->grade->grade }}</h1>
             </div>
         </div>
     </div>
