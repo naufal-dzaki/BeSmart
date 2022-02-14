@@ -1,3 +1,4 @@
+{{-- @dd($biodata) --}}
 <h1
 class="text-bblue font-bold font-bserif lg:text-4xl md:text-3xl sm:text-2xl text-xl lg:mt-10 md:mt-9 sm:mt-8 mt-7 md:mb-6 sm:mb-5 mb-4">
 Menu</h1>

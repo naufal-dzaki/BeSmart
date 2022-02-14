@@ -30,7 +30,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/subject/detail', function(){return view('home.subject.detail', ['title' => ' | Subject']);});
     Route::get('/tugas', function(){return view('contents.tugas', ['title' => '| Tugas']);});
     Route::get('/absen', function(){return view('contents.absen', ['title' => '| Absen']);});
-    Route::get('/biodata', function(){return view('contents.biodata', ['title' => '| Biodata']);});
+    Route::get('/biodata', function(){return view('home.biodata.index', ['title' => '| Biodata']);});
     Route::get('/materi', function(){return view('contents.materi', ['title' => ' | Materi']);});
     Route::get('/coba', function(){return view('dashboard.index');});
     Route::post('/logout', [LogoutController::class, 'logout']);

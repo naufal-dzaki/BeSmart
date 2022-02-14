@@ -7,6 +7,7 @@ use App\Models\Grade;
 use App\Models\User;
 use App\Models\Subject;
 use App\Models\Post;
+use App\Models\User_detail;
 
 class DatabaseSeeder extends Seeder
 {
@@ -31,6 +32,32 @@ class DatabaseSeeder extends Seeder
             'grade_id' => '1',
             'email' => 'bilal@gmail.com',
             'password' => bcrypt('password')
+    ]);
+
+        //user detail
+        User_detail::Create([
+            'user_id' => '1',
+            'slug' => 'muhammad-naufal',
+            'image' => 'user-profille.png',
+            'TTL' => 'Surabaya, 9 Mei 2003',
+            'nisn' => '988123098',
+            'no_hp' => '08154567981221',
+            'jenis_kelamin' => 'laki-laki',
+            'agama' => 'islam',
+            'nama_ayah' => 'Ini nama ayahnya',
+            'nama_ibu' => 'ini nama ibunya'
+        ]);
+        User_detail::Create([
+            'user_id' => '2',
+            'slug' => 'muhammad-bilal',
+            'image' => 'user-profille.png',
+            'TTL' => 'Surabaya, 9 Mei 2004',
+            'nisn' => '988123098',
+            'no_hp' => '0815456798122551',
+            'jenis_kelamin' => 'laki-laki',
+            'agama' => 'islam',
+            'nama_ayah' => 'Ini nama ayahnya',
+            'nama_ibu' => 'ini nama ibunya'
         ]);
 
         //kelas

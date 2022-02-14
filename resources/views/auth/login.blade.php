@@ -1,11 +1,5 @@
 <x-guest-layout>
     <x-auth-card>
-        {{-- <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot> --}}
-
         <x-slot name="logo">
             <div class="flex mt-12">
                 <img src="{{ asset('img/logo.png') }}" class="lg:w-24 md:w-20 w-14 h-full" alt="">
