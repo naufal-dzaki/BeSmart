@@ -24,16 +24,15 @@ Route::get('/', function () {
 
 require __DIR__.'/auth.php';
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/dashboard', function () {return view('dashboard');})->name('dashboard');
     Route::get('/home', [HomeController::class, 'index'])->name('home');
-    Route::get('/home/{subject:slug}', [HomeController::class, 'show']);
-    Route::get('/subject/detail', function(){return view('home.subject.detail', ['title' => ' | Subject']);});
-    Route::get('/tugas', function(){return view('contents.tugas', ['title' => '| Tugas']);});
+    Route::get('/subject/{subject:slug}', [SubjectController::class, 'index']);
+    Route::get('/subject/{subject:slug}/detail/{post:slug}', [SubjectController::class, 'show']);
+    Route::get('/tugas', [SubjectController::class, 'tugas']);
+    Route::get('/tugas/{post:slug}', [SubjectController::class, 'tugas_detail']);
+    Route::resource('/biodata', UserDetailController::class)->except(['create', 'store','destroy']);
     Route::get('/absen', function(){return view('contents.absen', ['title' => '| Absen']);});
-    Route::get('/biodata', function(){return view('home.biodata.index', ['title' => '| Biodata']);});
     Route::get('/materi', function(){return view('contents.materi', ['title' => ' | Materi']);});
-    Route::get('/coba', function(){return view('dashboard.index');});
     Route::post('/logout', [LogoutController::class, 'logout']);
-    // absen
-    Route::get('/absen', function(){return view('presensi.absen', ['title' => ' | Absen']);});
+    Route::get('/dashboard', function () {return view('dashboard');})->name('dashboard');
+    Route::get('/coba', function(){return view('dashboard.index');});
 });
