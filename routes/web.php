@@ -1,8 +1,11 @@
 <?php
 
+use Illuminate\Http\Request;
+use App\Http\Controllers\BiodataController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\MotivationController;
 use App\Http\Controllers\SubjectController;
 
 /*
@@ -24,15 +27,24 @@ Route::get('/', function () {
 
 require __DIR__.'/auth.php';
 Route::group(['middleware' => 'auth'], function () {
+    Route::post('/logout', [LogoutController::class, 'logout']);
+
     Route::get('/home', [HomeController::class, 'index'])->name('home');
+
     Route::get('/subject/{subject:slug}', [SubjectController::class, 'index']);
     Route::get('/subject/{subject:slug}/detail/{post:slug}', [SubjectController::class, 'show']);
+
     Route::get('/tugas', [SubjectController::class, 'tugas']);
     Route::get('/tugas/{post:slug}', [SubjectController::class, 'tugas_detail']);
-    Route::resource('/biodata', UserDetailController::class)->except(['create', 'store','destroy']);
+
+    Route::get('/biodata', [BiodataController::class, 'index'])->name('biodata.show');
+    Route::get('/biodata/{biodata:slug}/edit', [BiodataController::class, 'edit'])->name('biodata.edit');
+    Route::put('/biodata/{biodata:slug}', [BiodataController::class, 'update'])->name('biodata.update');
+
     Route::get('/absen', function(){return view('contents.absen', ['title' => '| Absen']);});
-    Route::get('/materi', function(){return view('contents.materi', ['title' => ' | Materi']);});
-    Route::post('/logout', [LogoutController::class, 'logout']);
+
+    Route::get('/home/{motivation:slug}', [MotivationController::class, 'index'])->name('motivation');
+
     Route::get('/dashboard', function () {return view('dashboard');})->name('dashboard');
     Route::get('/coba', function(){return view('dashboard.index');});
 });

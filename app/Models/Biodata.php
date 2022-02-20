@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class User_detail extends Model
+class Biodata extends Model
 {
     use HasFactory;
 
@@ -13,10 +13,5 @@ class User_detail extends Model
 
     public function user(){
         return $this->belongsTo(User::class);
-    }
-
-    public function getRouteKeyName()
-    {
-        return 'slug';
     }
 }

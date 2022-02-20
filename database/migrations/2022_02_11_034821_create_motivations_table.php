@@ -15,7 +15,7 @@ class CreateMotivationsTable extends Migration
     {
         Schema::create('motivations', function (Blueprint $table) {
             $table->id();
-            $table->string('titile');
+            $table->string('judul');
             $table->string('slug')->unique();
             $table->string('image')->nullable();
             $table->text('body');

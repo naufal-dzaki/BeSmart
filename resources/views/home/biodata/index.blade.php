@@ -1,13 +1,13 @@
-{{-- @dd($biodata ?? '') --}}
+{{-- @dd($biodata) --}}
 @extends('layouts.default')
 
 @section('content')
+
+    @foreach ($biodata as $data)
+
     <div class="container w-10/12 border border-gray-200 rounded-lg my-8 py-8">
-
-        @foreach ($biodata ?? '' as $data)
-
-            <div class="relative w-full">
-                <div class="absolute lg:right-8 md:right-7 sm:right-6 right-5  md:top-0 top-3 bg-bblue  rounded-2xl
+        <div class="relative w-full">
+            <div class="absolute lg:right-8 md:right-7 sm:right-6 right-5  md:top-0 top-3 bg-bblue  rounded-2xl
                 w-auto py-1 h-auto ml-4 mt-3">
                     <a href="/biodata/{{ $data->slug }}/edit" class="flex text-center text-bwhite font-bold px-4 py-1"><i data-feather="edit" class="mr-1 text-bwhite "></i> Edit</a>
                 </div>
@@ -21,7 +21,7 @@
                     <div class="block">
                         <h1
                         class="font-bserif lg:text-4xl md:text-3xl sm:text-2xl text-xl text-bblue font-bold md:ml-4 sm:ml-3 ml-2 md:mt-2 mt-1">
-                        {{ $data->user->name }}</h1>
+                        bilal</h1>
                         <div class="flex">
                             <div
                             class="bg-bblue  rounded-md md:w-16 sm:w-14 w-12 py-1 h-auto ml-4 mt-3">
@@ -39,12 +39,12 @@
                     <tr>
                         <td>TTL</td>
                         <td>:</td>
-                        <td> {{ $data->TTL }}</td>
+                        <td> {{ $data->tgl_lahir }}</td>
                     </tr>
                     <tr>
                         <td>NISN</td>
                         <td>:</td>
-                        <td> {{ $data->NISN }}</td>
+                        <td> {{ $data->nisn }}</td>
                     </tr>
                     <tr>
                         <td>No. Telp</td>
@@ -77,6 +77,10 @@
                 </table>
             </div>
 
-        @endforeach
-    </div>
+        </div>
+        {{-- back button --}}
+        <div class="container bg-bblue w-24 rounded-2xl mt-8 lg:mx-16 md:mx-14 sm:mx-10 mx-8 px-2 py-2 ">
+            <a href="/home" class="flex text-center text-bwhite font-bold"><i data-feather="chevron-left" class="mr-1 text-bwhite "></i> Back</a>
+        </div>
+    @endforeach
 @endsection
