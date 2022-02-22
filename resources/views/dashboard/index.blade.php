@@ -12,6 +12,7 @@
   <link href="{{ asset('css/nucleo-icons.css') }}" rel="stylesheet" />
   <link href="{{ asset('css/nucleo-svg.css') }}" rel="stylesheet" />
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/feather-icons"></script>
   <link id="pagestyle" href="{{ asset('css/soft-ui-dashboard.css?v=1.0.3') }}" rel="stylesheet" />
 </head>
 

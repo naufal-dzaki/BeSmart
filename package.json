@@ -21,6 +21,7 @@
         "tailwindcss": "^2.0.2"
     },
     "dependencies": {
+        "daisyui": "^2.1.0",
         "feather-icons": "^4.28.0"
     }
 }
