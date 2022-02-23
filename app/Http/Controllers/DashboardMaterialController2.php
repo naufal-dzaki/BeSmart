@@ -58,8 +58,6 @@ class DashboardMaterialController extends Controller
         Post::create($validatedData);
 
         return redirect('/dashboard/materials')->with('success', 'New post has been added!');
-
-        // return $request;
     }
 
     /**
@@ -70,18 +68,23 @@ class DashboardMaterialController extends Controller
      */
     public function show(Post $post)
     {
-        //
-    }
+        return view('dashboard.materi.show', compact('post'));
+        }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Post  $post
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Post $post)
-    {
-        //
+        /**
+         * Show the form for editing the specified resource.
+         *
+         * @param  \App\Models\Post  $post
+         * @return \Illuminate\Http\Response
+         */
+        public function edit(Post $post)
+        {
+           return $post;
+        $subject = Subject::where('grade_id', auth()->user()->grade_id)->get();
+        return view('dashboard.materi.edit', [
+            'post' => $post,
+            'subjects' => $subject
+        ]);
     }
 
     /**
@@ -104,7 +107,9 @@ class DashboardMaterialController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        Post::destroy($post->id);
+
+        return redirect('/dashboard/posts')->with('success', 'Post has been deleted!');
     }
 
     public function checkSlug(Request $request)

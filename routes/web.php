@@ -49,6 +49,6 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/dashboard', function () {return view('dashboard.index');})->name('dashboard');
 
-    Route::get('/dashboard/materials/checkSlug', [DashboardMaterialController::class, 'checkSlug']);
-    Route::resource('/dashboard/materials', DashboardMaterialController::class);
+    Route::get('/dashboard/materials/checkSlug', [DashboardMaterialController2::class, 'checkSlug']);
+    Route::resource('/dashboard/materials', DashboardMaterialController2::class);
 });
