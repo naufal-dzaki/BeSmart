@@ -45,6 +45,7 @@ class DashboardMaterialController extends Controller
         $validatedData = $request->validate([
             'judul' => 'required|max:255',
             'slug' =>  'required|unique:posts',
+            'image' =>  'required',
             'bab' => 'required',
             'body' => 'required',
             'link' => 'required',
@@ -57,6 +58,8 @@ class DashboardMaterialController extends Controller
         Post::create($validatedData);
 
         return redirect('/dashboard/materials')->with('success', 'New post has been added!');
+
+        // return $request;
     }
 
     /**

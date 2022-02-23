@@ -3,6 +3,9 @@
 
 @section('DashboardContent')
 <h1 class="text-3xl text-black pb-4">Dashboard</h1>
+
+<a href="/dashboard/materials/create" class="btn btn-active btn-primary"><i data-feather="file-plus" class="mr-2 text-bwhite "></i>Buat Materi Baru</a>
+
 <div class="overflow-x-auto w-full bg-bwhite">
     <table class="table table-compact w-full">
       <thead>
