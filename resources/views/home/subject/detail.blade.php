@@ -18,15 +18,20 @@
                 </article>
 
                 <div class="border-2 px-2 py-2 rounded-2xl w-3/12 max-h-10 truncate flex flex-wrap content-center">
-                    <a href="{{ $posts->link }}" class="flex">
+                    <a href="{{ $posts->link }}" target="_blank" class="flex">
                         <i data-feather="link" class="mr-3"></i> {{ $posts->link }}
+                    </a>
+                </div>
+
+                {{-- cht --}}
+                <div class="mt-10">
+                    <textarea name="" id="" rows="3" class="w-full mb-5"></textarea>
+                    <a href="" class="mt-10 border-2 border-blue-500 rounded-lg font-bold text-white px-4 py-3 transition duration-300 ease-in-out bg-blue-500 hover:bg-white hover:text-black">
+                        Kirim 
                     </a>
                 </div>
             </div>
         </div>
-
-
-        {{-- </div> --}}
     </div>
 </div>
 @endsection

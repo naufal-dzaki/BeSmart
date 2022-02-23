@@ -46,5 +46,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/home/{motivation:slug}', [MotivationController::class, 'index'])->name('motivation');
 
     Route::get('/dashboard', function () {return view('dashboard');})->name('dashboard');
-    Route::get('/coba', function(){return view('dashboard.index');});
 });
+
+Route::get('/coba', function(){return view('dashboard.index');});
