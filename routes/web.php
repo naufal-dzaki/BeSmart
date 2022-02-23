@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\BiodataController;
+use App\Http\Controllers\DashboardMaterialController;
+use App\Http\Controllers\DashboardSubjectController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LogoutController;
@@ -45,6 +47,8 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/home/{motivation:slug}', [MotivationController::class, 'index'])->name('motivation');
 
-    Route::get('/dashboard', function () {return view('dashboard');})->name('dashboard');
-    Route::get('/coba', function(){return view('dashboard.index');});
+    Route::get('/dashboard', function () {return view('dashboard.index');})->name('dashboard');
+
+    Route::get('/dashboard/materials/checkSlug', [DashboardMaterialController::class, 'checkSlug']);
+    Route::resource('/dashboard/materials', DashboardMaterialController::class);
 });
