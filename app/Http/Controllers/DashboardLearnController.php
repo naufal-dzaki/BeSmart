@@ -7,7 +7,7 @@ use App\Models\Subject;
 use Illuminate\Http\Request;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
 
-class DashboardMaterialController extends Controller
+class DashboardLearnController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +17,7 @@ class DashboardMaterialController extends Controller
     public function index()
     {
         return view('dashboard.materi.index', [
-            'materials' => Post::where('user_id', auth()->user()->id)->where('tipe', 0)->get()
+            'learns' => Post::where('user_id', auth()->user()->id)->get()
         ]);
     }
 
@@ -57,7 +57,7 @@ class DashboardMaterialController extends Controller
 
         Post::create($validatedData);
 
-        return redirect('/dashboard/materials')->with('success', 'New post has been added!');
+        return redirect('/dashboard/learns')->with('success', 'New post has been added!');
     }
 
     /**
@@ -68,23 +68,20 @@ class DashboardMaterialController extends Controller
      */
     public function show(Post $post)
     {
-        return view('dashboard.materi.show', compact('post'));
+        return view('dashboard.materi.show', [
+            'posts' => $post
+        ]);
     }
 
-        /**
-         * Show the form for editing the specified resource.
-         *
-         * @param  \App\Models\Post  $post
-         * @return \Illuminate\Http\Response
-         */
-        public function edit(Post $post)
-        {
-           return $post;
-        $subject = Subject::where('grade_id', auth()->user()->grade_id)->get();
-        return view('dashboard.materi.edit', [
-            'post' => $post,
-            'subjects' => $subject
-        ]);
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\Post  $post
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Post $post)
+    {
+        //
     }
 
     /**

@@ -3,6 +3,7 @@
 // use Illuminate\Http\Request;
 use App\Http\Controllers\BiodataController;
 use App\Http\Controllers\ChatController;
+use App\Http\Controllers\DashboardLearnController;
 use App\Http\Controllers\DashboardMaterialController;
 use App\Http\Controllers\DashboardSubjectController;
 use App\Http\Controllers\HomeController;
@@ -55,13 +56,11 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/dashboard', function () {return view('dashboard.index');})->name('dashboard');
 
-<<<<<<< HEAD
-    Route::get('/dashboard/materials/checkSlug', [DashboardMaterialController::class, 'checkSlug']);
-    Route::resource('/dashboard/materials', DashboardMaterialController::class);
+    // Route::get('/dashboard/materials/checkSlug', [DashboardMaterialController::class, 'checkSlug']);
+    // Route::resource('/dashboard/materials', DashboardMaterialController::class);
+
+    Route::get('/dashboard/learns/checkSlug', [DashboardLearnController::class, 'checkSlug']);
+    Route::resource('/dashboard/learns', DashboardLearnController::class);
 
     Route::post('chat/store', [ChatController::class, 'store'])->name('chat.store');
-=======
-    Route::get('/dashboard/materials/checkSlug', [DashboardMaterialController2::class, 'checkSlug']);
-    Route::resource('/dashboard/materials', DashboardMaterialController2::class);
->>>>>>> 8e6f7b4c6c9fa9de3ff09305f823f9aca1bf74e2
 });

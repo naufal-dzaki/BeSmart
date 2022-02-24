@@ -1,4 +1,4 @@
-@dd($post)
+@dd($posts)
 @extends('dashboard.main')
 
 @section('DashboardContent')
