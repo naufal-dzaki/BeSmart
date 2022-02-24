@@ -66,10 +66,11 @@ class DashboardMaterialController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show($slug)
     {
+        $post = Post::where('slug', $slug)->first();
         return view('dashboard.materi.show', compact('post'));
-        }
+    }
 
         /**
          * Show the form for editing the specified resource.
@@ -77,8 +78,8 @@ class DashboardMaterialController extends Controller
          * @param  \App\Models\Post  $post
          * @return \Illuminate\Http\Response
          */
-        public function edit(Post $post)
-        {
+    public function edit(Post $post)
+    {
            return $post;
         $subject = Subject::where('grade_id', auth()->user()->grade_id)->get();
         return view('dashboard.materi.edit', [
@@ -115,6 +116,6 @@ class DashboardMaterialController extends Controller
     public function checkSlug(Request $request)
     {
         $slug = SlugService::createSlug(Post::class, 'slug', $request->judul);
-        return response()->json(['slug' => $slug]);
+        // return response()->json(['slug' => $slug]);
     }
 }
