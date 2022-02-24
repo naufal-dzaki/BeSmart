@@ -3,6 +3,7 @@
 // use Illuminate\Http\Request;
 use App\Http\Controllers\BiodataController;
 use App\Http\Controllers\ChatController;
+use App\Http\Controllers\DashboardLearnController;
 use App\Http\Controllers\DashboardMaterialController;
 use App\Http\Controllers\DashboardSubjectController;
 use App\Http\Controllers\HomeController;

@@ -4,7 +4,7 @@
     <h1 class="text-3xl text-black pb-4">Membuat Materi Baru</h1>
 
     <div class="form-control ">
-        <form method="post" action="/dashboard/materials">
+        <form method="post" action="/dashboard/learns">
             @csrf
             <div class="w-full mb-3 mt-4">
                 <label class="label label-text mb-1 pb-1" for="judul">
@@ -95,7 +95,7 @@
         const slug = document.querySelector('#slug');
 
         judul.addEventListener('change', function(){
-            fetch('/dashboard/materials/checkSlug?judul=' + judul.value)
+            fetch('/dashboard/learns/checkSlug?judul=' + judul.value)
                 .then(response => response.json())
                 .then(data => slug.value = data.slug)
         });
