@@ -26,11 +26,17 @@
                         </a>
                     </div>
 
+                    <hr class="mt-3">
                     <div class="mt-5">
                         @foreach ($posts->chats as $item)
-                            <div>
-                                <h3 class="font-semibold">{{ $item->user->name }}</h3>
-                                <p>{{ $item->message }}</p>
+                            <div class="flex gap-x-5 my-4">
+                                <div>
+                                    <img src="{{ asset('img/user-profille.png') }}">
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold">{{ $item->user->name }}</h3>
+                                    <p>{{ $item->message }}</p>
+                                </div>
                             </div>
                         @endforeach
                     </div>

@@ -29,11 +29,6 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('discuss', function () {
-    return view('discuss');
-});
-
-
 require __DIR__.'/auth.php';
 Route::group(['middleware' => 'auth'], function () {
     Route::post('/logout', [LogoutController::class, 'logout']);
@@ -63,4 +58,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('/dashboard/learns', DashboardLearnController::class);
 
     Route::post('chat/store', [ChatController::class, 'store'])->name('chat.store');
+
 });
