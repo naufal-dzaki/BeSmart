@@ -25,15 +25,24 @@
                 <td>{{ $material->judul }}</td>
                 <td>{{ $material->bab }}</td>
                 <td class="flex">
-                        <a href="/dashboard/materials/{{ $material->slug }}" class="badge badge-md bg-info w-2"><i data-feather="eye"></i></a>
-                        <a href="/dashboard/materials/{{ $material->slug }}/edit" class="badge badge-md bg-warning w-2"><i data-feather="edit"></i></a>
-                        <form action="/dashboard/materials/{{ $material->slug }}" method="post" class="d-inline">
-                            @method('delete')
-                            @csrf
-                            <button class="badge badge-md bg-danger border-0" onclick="return confirm('are you sure?')">
-                                <i data-feather="trash-2"></i>
-                            </button>
-                        </form>
+
+                        <div class="bg-blue-400 p-1.5 mr-1 rounded-full">
+                            <a href="/dashboard/materials/{{ $material->slug }}" class="flex text-center text-bwhite font-bold"><i data-feather="eye" class="text-bwhite"></i></a>
+                        </div>
+
+                        <div class="bg-yellow-400 p-1.5 mr-1 rounded-full">
+                            <a href="/dashboard/materials/{{ $material->slug }}/edit" class="flex text-center text-bwhite font-bold"><i data-feather="edit" class="text-bwhite"></i></a>
+                        </div>
+
+                        <div class="bg-red-400 p-1.5 rounded-full">
+                            <form action="/dashboard/materials/{{ $material->slug }}">
+                                @method('delete')
+                                @csrf
+                                <button class="flex text-center text-bwhite font-bold border-0">
+                                    <i data-feather="trash-2" class="text-bwhite"></i>
+                                </button>
+                            </form>
+                        </div>
                     </td>
             </tr>
         @endforeach
