@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <!--#######  css slick #######-->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/slick.css') }}">
+    {{-- daisyui --}}
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.1.0/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="bg-bwhite lg:mx-12 md:mx-10 sm:mx-8 mx-6 lg:my-6 md:my-5 sm:my-4 my-3">

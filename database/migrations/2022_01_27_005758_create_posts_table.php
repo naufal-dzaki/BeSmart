@@ -18,9 +18,10 @@ class CreatePostsTable extends Migration
             $table->string('judul');
             $table->string('slug')->unique();
             $table->string('image')->nullable();
+            $table->integer('bab');
             $table->text('body');
             $table->string('link');
-            $table->boolean('type');
+            $table->boolean('tipe')->default(0);// 0 = false untuk materi, 1 = true untuk tugas
             $table->foreignId('subject_id');
             $table->foreignId('user_id');
             $table->timestamps();
