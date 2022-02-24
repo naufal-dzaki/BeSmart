@@ -4,13 +4,14 @@
     <h1 class="text-3xl text-black pb-4">Edit Materi</h1>
 
     <div class="form-control ">
-        <form method="post" action="/dashboard/learns">
+        <form method="post" action="/dashboard/materi/{{ $post->slug }}">
+            @method('put')
             @csrf
             <div class="w-full mb-3 mt-4">
                 <label class="label label-text mb-1 pb-1" for="judul">
                   Judul
                 </label>
-                <input type="text" placeholder="Type here" class="input input-bordered w-10/12" id="judul" name="judul" required autofocus value="{{ old('judul') }}">
+                <input type="text" placeholder="Type here" class="input input-bordered w-10/12" id="judul" name="judul" required autofocus value="{{ old('judul', $post->judul) }}">
                 @error('judul')
                 <div class="alert-error">
                     {{ $message }}
@@ -22,7 +23,7 @@
                 <label class="label label-text mb-1 pb-1" for="slug">
                   slug
                 </label>
-                <input type="text" class="input input-bordered w-10/12" id="slug" name="slug" value="{{ old('slug') }}" disabled>
+                <input type="text" class="input input-bordered w-10/12" id="slug" name="slug" value="{{ old('slug', $post->slug) }}">
                 @error('slug')
                 <div class="alert-error">
                     {{ $message }}
@@ -38,7 +39,7 @@
                 </label>
                 <select class="select select-bordered" name="subject_id">
                     @foreach ($subjects as $subject)
-                    @if ( old('subject_id') == $subject->id)
+                    @if ( old('subject_id', $post->subject_id) == $subject->id)
                     <option value="{{ $subject->id }}" selected>{{ $subject->name }}</option>
                     @else
                     <option value="{{ $subject->id }}">{{ $subject->name }}</option>
@@ -51,7 +52,7 @@
                 <label class="label label-text mb-1 pb-1" for="bab">
                   bab
                 </label>
-                <input type="number" placeholder="Type here" class="input input-bordered w-10/12" id="bab" name="bab" required value="{{ old('bab') }}">
+                <input type="number" placeholder="Type here" class="input input-bordered w-10/12" id="bab" name="bab" required value="{{ old('bab', $post->bab) }}">
                 @error('bab')
                 <div class="alert-error">
                     {{ $message }}
@@ -63,7 +64,7 @@
                 <label class="label label-text mb-1 pb-1" for="body">
                   body
                 </label>
-                <input type="hidden" id="body" name="body" value="{{ old('body') }}">
+                <input type="hidden" id="body" name="body" value="{{ old('body', $post->body) }}">
                 <trix-editor input="body"></trix-editor>
                 @error('body')
                 <div class="alert-error">
@@ -78,7 +79,7 @@
                 <label class="label label-text mb-1 pb-1" for="link">
                   link
                 </label>
-                <input type="text" placeholder="Type here" class="input input-bordered w-10/12" id="link" name="link" required value="{{ old('link') }}">
+                <input type="text" placeholder="Type here" class="input input-bordered w-10/12" id="link" name="link" required value="{{ old('link', $post->link) }}">
                 @error('link')
                 <div class="alert-error">
                     {{ $message }}
@@ -86,8 +87,7 @@
                 @enderror
             </div>
 
-            <button class="btn btn-primary"><i data-feather="file-plus" class="mr-2 text-bwhite "></i>Buat Materi</button>
-
+            <button class="btn btn-primary">Simpan Materi</button>
         </form>
     </div>
 
@@ -96,7 +96,7 @@
         const slug = document.querySelector('#slug');
 
         judul.addEventListener('change', function(){
-            fetch('/dashboard/learns/checkSlug?judul=' + judul.value)
+            fetch('/dashboard/materi/checkSlug?judul=' + judul.value)
                 .then(response => response.json())
                 .then(data => slug.value = data.slug)
         });
