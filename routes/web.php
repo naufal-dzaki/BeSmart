@@ -28,11 +28,6 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('discuss', function () {
-    return view('discuss');
-});
-
-
 require __DIR__.'/auth.php';
 Route::group(['middleware' => 'auth'], function () {
     Route::post('/logout', [LogoutController::class, 'logout']);
@@ -55,13 +50,9 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/dashboard', function () {return view('dashboard.index');})->name('dashboard');
 
-<<<<<<< HEAD
-    Route::get('/dashboard/materials/checkSlug', [DashboardMaterialController::class, 'checkSlug']);
-    Route::resource('/dashboard/materials', DashboardMaterialController::class);
-
-    Route::post('chat/store', [ChatController::class, 'store'])->name('chat.store');
-=======
     Route::get('/dashboard/materials/checkSlug', [DashboardMaterialController2::class, 'checkSlug']);
     Route::resource('/dashboard/materials', DashboardMaterialController2::class);
->>>>>>> 8e6f7b4c6c9fa9de3ff09305f823f9aca1bf74e2
+
+    Route::post('chat/store', [ChatController::class, 'store'])->name('chat.store');
+
 });
