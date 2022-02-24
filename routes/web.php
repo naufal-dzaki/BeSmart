@@ -2,6 +2,7 @@
 
 // use Illuminate\Http\Request;
 use App\Http\Controllers\BiodataController;
+use App\Http\Controllers\ChatController;
 use App\Http\Controllers\DashboardMaterialController;
 use App\Http\Controllers\DashboardSubjectController;
 use App\Http\Controllers\HomeController;
@@ -27,6 +28,11 @@ Route::get('/', function () {
     ]);
 });
 
+Route::get('discuss', function () {
+    return view('discuss');
+});
+
+
 require __DIR__.'/auth.php';
 Route::group(['middleware' => 'auth'], function () {
     Route::post('/logout', [LogoutController::class, 'logout']);
@@ -51,6 +57,6 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/dashboard/materials/checkSlug', [DashboardMaterialController::class, 'checkSlug']);
     Route::resource('/dashboard/materials', DashboardMaterialController::class);
-});
 
-Route::get('/coba', function(){return view('dashboard.index');});
+    Route::post('chat/store', [ChatController::class, 'store'])->name('chat.store');
+});

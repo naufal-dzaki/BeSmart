@@ -22,7 +22,7 @@
                 <label class="label label-text mb-1 pb-1" for="slug">
                   slug
                 </label>
-                <input type="text" class="input input-bordered w-10/12" id="slug" name="slug" value="{{ old('slug') }}" disabled>
+                <input type="text" class="input input-bordered w-10/12" id="slug" name="slug" value="{{ old('slug') }}">
                 @error('slug')
                 <div class="alert-error">
                     {{ $message }}
@@ -87,7 +87,6 @@
             </div>
 
             <button class="btn btn-primary"><i data-feather="file-plus" class="mr-2 text-bwhite "></i>Buat Materi</button>
-
         </form>
     </div>
 
