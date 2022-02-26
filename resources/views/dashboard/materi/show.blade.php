@@ -6,7 +6,11 @@
 
     <div class="mt-4 w-10/12">
         <div class="flex">
+            @if($posts->image)
+            <img src="{{ asset('storage/' . $posts->image) }}" class=" lg:w-20 md:w-16 sm:w-14 w-12 lg:h-20 md:h-16 sm:h-14 h-12 bg-balt rounded-full px-2 py-2" alt="">
+            @else
             <img src="{{ asset('img/materi.png') }}" class=" lg:w-20 md:w-16 sm:w-14 w-12 lg:h-20 md:h-16 sm:h-14 h-12 bg-balt rounded-full px-2 py-2" alt="">
+            @endif
 
             <div class="block">
                 <h1 class="mb-1 font-bold text-3xl ml-5">{{ $posts->judul }}</h1>

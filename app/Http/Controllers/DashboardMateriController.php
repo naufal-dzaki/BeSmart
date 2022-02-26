@@ -30,13 +30,17 @@ class DashboardMateriController extends Controller
         $validatedData = $request->validate([
             'judul' => 'required|max:255',
             'slug' =>  'required|unique:posts',
-            'image' =>  'required',
+            'image' =>  'image|file|max:2048',
             'bab' => 'required',
             'body' => 'required',
             'link' => 'required',
             'tipe' => 'required',
             'subject_id' => 'required'
         ]);
+
+        if($request->file('image')){
+            $validatedData['image'] = $request->file('image')->store('post-images');
+        }
 
         $validatedData['user_id'] = auth()->user()->id;
 

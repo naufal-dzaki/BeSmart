@@ -4,7 +4,7 @@
     <h1 class="text-3xl text-black pb-4">Membuat Materi Baru</h1>
 
     <div class="form-control ">
-        <form method="post" action="/dashboard/materi">
+        <form method="post" action="/dashboard/materi" enctype="multipart/form-data">
             @csrf
             <div class="w-full mb-3 mt-4">
                 <label class="label label-text mb-1 pb-1" for="judul">
@@ -29,6 +29,32 @@
                 </div>
                 @enderror
             </div>
+
+            <div class="flex justify-start">
+                <div class="mb-3">
+                  <label for="image" class="form-label inline-block mb-2 text-gray-700">Gambar</label>
+                  <input class="form-control
+                  block
+                  w-full
+                  px-3
+                  py-1.5
+                  text-base
+                  font-normal
+                  text-gray-700
+                  bg-white
+                  border border-solid border-gray-300
+                  rounded
+                  transition
+                  ease-in-out
+                  m-0
+                  focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" type="file" id="image" name="image">
+                  @error('image')
+                    <div class="alert-error">
+                        {{ $message }}
+                    </div>
+                  @enderror
+                </div>
+              </div>
 
             <input type="hidden" id="image" name="image" value="materi.png">
 
