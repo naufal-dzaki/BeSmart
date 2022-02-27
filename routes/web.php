@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\MotivationController;
 use App\Http\Controllers\SubjectController;
+use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
