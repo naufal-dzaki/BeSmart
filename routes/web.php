@@ -9,6 +9,7 @@ use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\MotivationController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\DashboardMateriController;
+use App\Http\Controllers\DashboardTaskController;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,5 +60,14 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard/materi/{post:slug}/edit', [DashboardMateriController::class, 'edit'])->name('materi.edit');
     Route::put('/dashboard/materi/{post:slug}', [DashboardMateriController::class, 'update'])->name('materi.update');
     Route::delete('/dashboard/materi/{post:slug}', [DashboardMateriController::class, 'destroy'])->name('materi.destroy');
+
+    Route::get('/dashboard/task/checkSlug', [DashboardTaskController::class, 'checkSlug']);
+    Route::get('/dashboard/task', [DashboardTaskController::class, 'index'])->name('task.index');
+    Route::get('/dashboard/task/create', [DashboardTaskController::class, 'create'])->name('task.create');
+    Route::post('/dashboard/task', [DashboardTaskController::class, 'store'])->name('task.store');
+    Route::get('/dashboard/task/{post:slug}', [DashboardTaskController::class, 'show'])->name('task.show');
+    Route::get('/dashboard/task/{post:slug}/edit', [DashboardTaskController::class, 'edit'])->name('task.edit');
+    Route::put('/dashboard/task/{post:slug}', [DashboardTaskController::class, 'update'])->name('task.update');
+    Route::delete('/dashboard/task/{post:slug}', [DashboardTaskController::class, 'destroy'])->name('task.destroy');
 
 });

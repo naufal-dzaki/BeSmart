@@ -8,20 +8,19 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
 
-class DashboardMateriController extends Controller
+class DashboardTaskController extends Controller
 {
-
     public function index()
     {
-        return view('dashboard.materi.index', [
-            'posts' => Post::where('user_id', auth()->user()->id)->where('tipe', 0)->get()
+        return view('dashboard.tugas.index', [
+            'posts' => Post::where('user_id', auth()->user()->id)->where('tipe', 1)->get()
         ]);
     }
 
     public function create()
     {
         $subject = Subject::where('grade_id', auth()->user()->grade_id)->get();
-        return view('dashboard.materi.create', [
+        return view('dashboard.tugas.create', [
             'subjects' => $subject
         ]);
     }
@@ -47,12 +46,12 @@ class DashboardMateriController extends Controller
 
         Post::create($validatedData);
 
-        return redirect('/dashboard/materi')->with('success', 'New post has been added!');
+        return redirect('/dashboard/task')->with('success', 'New post has been added!');
     }
 
     public function show(Post $post)
     {
-        return view('dashboard.materi.show', [
+        return view('dashboard.tugas.show', [
             'posts' => $post
         ]);
     }
@@ -60,7 +59,7 @@ class DashboardMateriController extends Controller
     public function edit(Post $post)
     {
         $subject = Subject::where('grade_id', auth()->user()->grade_id)->get();
-        return view('dashboard.materi.edit', [
+        return view('dashboard.tugas.edit', [
             'post' => $post,
             'subjects' => $subject
         ]);
@@ -96,7 +95,7 @@ class DashboardMateriController extends Controller
         Post::where('id', $post->id)
             ->update($validatedData);
 
-        return redirect('/dashboard/materi')->with('success', 'Post has been Updated!');
+        return redirect('/dashboard/task')->with('success', 'Post has been Updated!');
     }
 
     public function destroy(Post $post)
@@ -107,7 +106,7 @@ class DashboardMateriController extends Controller
 
         Post::destroy($post->id);
 
-        return redirect('/dashboard/materi')->with('success', 'Post has been deleted!');
+        return redirect('/dashboard/task')->with('success', 'Post has been deleted!');
     }
 
     public function checkSlug(Request $request)

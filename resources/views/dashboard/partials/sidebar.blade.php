@@ -12,7 +12,7 @@
             <i data-feather="users" class="mr-3 text-bwhite "></i>
             Biodata Siswa
         </a>
-        <a href="/dashboard/tugas" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+        <a href="/dashboard/task" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
             <i data-feather="edit-3" class="mr-3 text-bwhite "></i>
             Tugas
         </a>
