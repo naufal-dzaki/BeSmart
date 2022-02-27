@@ -9,6 +9,13 @@ module.exports = {
 
     theme: {
         extend: {
+            maxWidth: {
+                '1/2': '50%',
+                '20' : '80px'
+            },
+            maxHeight: {
+                '1/2': '50%',
+            },
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
                 'bsans': ['poppins'],

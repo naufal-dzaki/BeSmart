@@ -33,6 +33,7 @@
             <div class="flex justify-start">
                 <div class="mb-3">
                   <label for="image" class="form-label inline-block mb-2 text-gray-700">Gambar</label>
+                  <img class="img-preview mb-2 max-w-1/2  overflow-hidden">
                   <input class="form-control
                   block
                   w-full
@@ -47,7 +48,7 @@
                   transition
                   ease-in-out
                   m-0
-                  focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" type="file" id="image" name="image">
+                  focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" type="file" id="image" name="image" onchange="previewImage()">
                   @error('image')
                     <div class="alert-error">
                         {{ $message }}
@@ -55,8 +56,6 @@
                   @enderror
                 </div>
               </div>
-
-            <input type="hidden" id="image" name="image" value="materi.png">
 
             <div class="w-10/12">
                 <label class="label" for="subject">
@@ -129,5 +128,19 @@
         document.addEventListener('trix-file-accept', function(e){
             e.preventDefault();
         })
+
+        function previewImage(){
+            const image = document.querySelector('#image');
+            const ImgPreview = document.querySelector('.img-preview');
+
+            ImgPreview.style.display = 'block';
+
+            const oFReader = new FileReader();
+            oFReader.readAsDataURL(image.files[0]);
+
+            oFReader.onload = function(oFREvent) {
+                ImgPreview.src = oFREvent.target.result;
+            }
+        }
     </script>
 @endsection
