@@ -70,7 +70,6 @@ class DashboardMateriController extends Controller
     {
         $rules = ([
             'judul' => 'required|max:255',
-            'slug' =>  'required|unique:posts',
             'image' =>  'image|file|max:2048',
             'bab' => 'required',
             'body' => 'required',

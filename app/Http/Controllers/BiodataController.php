@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Biodata;
 use App\Models\User;
+use Illuminate\Support\Facades\Storage;
 
 class BiodataController extends Controller
 {
@@ -24,8 +25,7 @@ class BiodataController extends Controller
 
     public function update(Request $request, Biodata $biodata){
         $rules = ([
-            'slug' => 'required',
-            'image' => 'required',
+            'image' =>  'image|file|max:2048',
             'tgl_lahir' => 'required',
             'nisn' => 'required|min:8|max:12',
             'no_hp' => 'required|min:11|max:14',
@@ -35,11 +35,14 @@ class BiodataController extends Controller
             'nama_ibu' => 'required|max:30',
         ]);
 
-        // if($request->slug != $biodata->slug){
-        //     $rules['slug'] = 'required|unique:$biodatas';
-        // }
-
         $validatedData = $request->validate($rules);
+
+        if($request->file('image')){
+            if($request->oldImage){
+                Storage::delete($request->oldImage);
+            }
+            $validatedData['image'] = $request->file('image')->store('post-images');
+        }
 
         $validatedData['user_id'] = auth()->user()->id;
 

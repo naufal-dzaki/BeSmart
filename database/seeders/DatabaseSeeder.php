@@ -39,7 +39,6 @@ class DatabaseSeeder extends Seeder
         Biodata::Create([
             'user_id' => '1',
             'slug' => 'muhammad-naufal',
-            'image' => 'user-profille.png',
             'tgl_lahir' => 'Surabaya, 9 Mei 2003',
             'nisn' => '988123098',
             'no_hp' => '08154567984',
@@ -51,7 +50,6 @@ class DatabaseSeeder extends Seeder
         Biodata::Create([
             'user_id' => '2',
             'slug' => 'muhammad-bilal',
-            'image' => 'user-profille.png',
             'tgl_lahir' => 'Surabaya, 9 Mei 2004',
             'nisn' => '988123098',
             'no_hp' => '0815456798129',

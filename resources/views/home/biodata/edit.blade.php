@@ -5,49 +5,41 @@
 
 <div class="container w-10/12 border border-gray-200 rounded-lg my-8 py-4">
 
-    <div class=" w-full h-auto px-2 py-1 ml-4 mt-5 mb-4">
-        <div class="flex">
-            <div class="bg-balt lg:w-24 md:w-20 sm:w-16 w-14 my-1 mr-1">
-                <img src="/img/{{ $biodata->image }}" class="lg:w-24 md:w-20 sm:w-16 w-14" alt="">
-            </div>
-            <div class="block">
-                <h1
-                class="font-bserif lg:text-4xl md:text-3xl sm:text-2xl text-xl text-bblue font-bold md:ml-4 sm:ml-3 ml-2 md:mt-2 mt-1">
-                {{ $biodata->user->name }}</h1>
-                <div class="flex">
-                    <div
-                    class="bg-bblue  rounded-md md:w-16 sm:w-14 w-12 py-1 h-auto ml-4 mt-3">
-                    <p class="font-bsans md:text-base sm:text-sm text-xs font-bold text-bwhite text-center">Siswa
-                    </p>
-                </div>
-            </div>
-        </div>
-        </div>
-    </div>
-
-    <form method="post" action="{{ route('biodata.update', $biodata) }}">
+    <form method="post" action="{{ route('biodata.update', $biodata) }}" enctype="multipart/form-data">
         @method('put')
         @csrf
         <div class="w-10/12 ml-6">
 
-            <div class="my-4">
-                <label for="slug" class="block font-medium text-sm text-gray-700"> slug </label>
-                <input type="text" class="w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" id="slug" name="slug" required autofocus value="{{ old('slug', $biodata->slug) }}">
-                @error('slug')
-                <div class="alert-error">
-                    {{ $message }}
+            <div class="flex justify-start">
+                <div class="mb-3">
+                  <label for="image" class="form-label inline-block mb-2 text-gray-700">Gambar</label>
+                  <input type="hidden" name="oldImage" value="{{ $biodata->image }}">
+                  @if ($biodata->image)
+                  <img src="{{ asset('storage/' . $biodata->image) }}" class="img-preview mb-2 max-w-1/2  overflow-hidden block">
+                  @else
+                  <img class="img-preview mb-2 max-w-1/2  overflow-hidden">
+                  @endif
+                  <input class="form-control
+                  block
+                  w-full
+                  px-3
+                  py-1.5
+                  text-base
+                  font-normal
+                  text-gray-700
+                  bg-white
+                  border border-solid border-gray-300
+                  rounded
+                  transition
+                  ease-in-out
+                  m-0
+                  focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" type="file" id="image" name="image" onchange="previewImage()">
+                  @error('image')
+                    <div class="alert-error">
+                        {{ $message }}
+                    </div>
+                  @enderror
                 </div>
-                @enderror
-            </div>
-
-            <div class="my-4">
-                <label for="image" class="block font-medium text-sm text-gray-700"> image </label>
-                <input type="text" class="w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" id="image" name="image" required autofocus value="{{ old('image', $biodata->image) }}">
-                @error('image')
-                <div class="alert-error">
-                    {{ $message }}
-                </div>
-                @enderror
             </div>
 
             <div class="my-4">
@@ -127,11 +119,21 @@
     </form>
 </div>
 
+<script>
+    function previewImage(){
+        const image = document.querySelector('#image');
+        const ImgPreview = document.querySelector('.img-preview');
 
+        ImgPreview.style.display = 'block';
 
+        const oFReader = new FileReader();
+        oFReader.readAsDataURL(image.files[0]);
 
-
-
+        oFReader.onload = function(oFREvent) {
+            ImgPreview.src = oFREvent.target.result;
+        }
+    }
+</script>
 @endsection
 
 
