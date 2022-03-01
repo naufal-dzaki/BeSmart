@@ -270,6 +270,7 @@
     <script src="{{ asset('js/slick.js') }}"></script>
     <script src="{{ asset('js/slick.min.js') }}"></script>
 
+    <script src="{{ mix('js/app.js') }}"></script>
 
     <script>
         $('.slick_one').slick({

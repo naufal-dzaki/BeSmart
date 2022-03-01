@@ -24,6 +24,8 @@
 <script>
     feather.replace()
 </script>
+<script src="{{ mix('js/app.js') }}"></script>
+
 </body>
 
 </html>
