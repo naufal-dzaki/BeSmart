@@ -15,7 +15,7 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('grade_id');
+            $table->unsignedBigInteger('grade_id');
             $table->string('name');
             $table->string('level')->nullable();
             $table->string('email')->unique();
@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+
         });
     }
 

@@ -1,17 +1,14 @@
 <?php
 
-// use Illuminate\Http\Request;
+use Illuminate\Http\Request;
 use App\Http\Controllers\BiodataController;
 use App\Http\Controllers\ChatController;
-use App\Http\Controllers\DashboardLearnController;
-use App\Http\Controllers\DashboardMaterialController;
-use App\Http\Controllers\DashboardSubjectController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\MotivationController;
 use App\Http\Controllers\SubjectController;
-use Illuminate\Support\Facades\DB;
+// use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,11 +47,17 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/home/{motivation:slug}', [MotivationController::class, 'index'])->name('motivation');
 
+    Route::post('chat/store', [ChatController::class, 'store'])->name('chat.store');
+
     Route::get('/dashboard', function () {return view('dashboard.index');})->name('dashboard');
 
-    Route::get('/dashboard/materials/{slug}', [DashboardMaterialController::class, 'show']);
-    Route::resource('/dashboard/materials', DashboardMaterialController::class);
-
-    Route::post('chat/store', [ChatController::class, 'store'])->name('chat.store');
+    Route::get('/dashboard/materi/checkSlug', [DashboardMateriController::class, 'checkSlug']);
+    Route::get('/dashboard/materi', [DashboardMateriController::class, 'index'])->name('materi.index');
+    Route::get('/dashboard/materi/create', [DashboardMateriController::class, 'create'])->name('materi.create');
+    Route::post('/dashboard/materi', [DashboardMateriController::class, 'store'])->name('materi.store');
+    Route::get('/dashboard/materi/{post:slug}', [DashboardMateriController::class, 'show'])->name('materi.show');
+    Route::get('/dashboard/materi/{post:slug}/edit', [DashboardMateriController::class, 'edit'])->name('materi.edit');
+    Route::put('/dashboard/materi/{post:slug}', [DashboardMateriController::class, 'update'])->name('materi.update');
+    Route::delete('/dashboard/materi/{post:slug}', [DashboardMateriController::class, 'destroy'])->name('materi.destroy');
 
 });

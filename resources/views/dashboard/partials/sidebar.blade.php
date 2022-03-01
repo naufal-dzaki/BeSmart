@@ -16,7 +16,7 @@
             <i data-feather="edit-3" class="mr-3 text-bwhite "></i>
             Tugas
         </a>
-        <a href="/dashboard/learns" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item {{ Request::is('dashboard/learns*') ? 'active-nav-link' : '' }}">
+        <a href="/dashboard/materi" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item {{ Request::is('dashboard/materi*') ? 'active-nav-link' : '' }}">
             <i data-feather="book-open" class="mr-3 text-bwhite "></i>
             Materi
         </a>

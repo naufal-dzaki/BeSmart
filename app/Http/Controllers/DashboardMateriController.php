@@ -7,25 +7,16 @@ use App\Models\Subject;
 use Illuminate\Http\Request;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
 
-class DashboardLearnController extends Controller
+class DashboardMateriController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         return view('dashboard.materi.index', [
-            'learns' => Post::where('user_id', auth()->user()->id)->get()
+            'posts' => Post::where('user_id', auth()->user()->id)->get()
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $subject = Subject::where('grade_id', auth()->user()->grade_id)->get();
@@ -34,15 +25,49 @@ class DashboardLearnController extends Controller
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $validatedData = $request->validate([
+            'judul' => 'required|max:255',
+            'slug' =>  'required|unique:posts',
+            'image' =>  'image|file|max:2048',
+            'bab' => 'required',
+            'body' => 'required',
+            'link' => 'required',
+            'tipe' => 'required',
+            'subject_id' => 'required'
+        ]);
+
+        if($request->file('image')){
+            $validatedData['image'] = $request->file('image')->store('post-images');
+        }
+
+        $validatedData['user_id'] = auth()->user()->id;
+
+        Post::create($validatedData);
+
+        return redirect('/dashboard/materi')->with('success', 'New post has been added!');
+    }
+
+    public function show(Post $post)
+    {
+        return view('dashboard.materi.show', [
+            'posts' => $post
+        ]);
+    }
+
+    public function edit(Post $post)
+    {
+        $subject = Subject::where('grade_id', auth()->user()->grade_id)->get();
+        return view('dashboard.materi.edit', [
+            'post' => $post,
+            'subjects' => $subject
+        ]);
+    }
+
+    public function update(Request $request, Post $post)
+    {
+        $rules = ([
             'judul' => 'required|max:255',
             'slug' =>  'required|unique:posts',
             'image' =>  'required',
@@ -53,60 +78,25 @@ class DashboardLearnController extends Controller
             'subject_id' => 'required'
         ]);
 
+        if($request->slug != $post->slug){
+            $rules['slug'] = 'required|unique:posts';
+        }
+
+        $validatedData = $request->validate($rules);
+
         $validatedData['user_id'] = auth()->user()->id;
 
-        Post::create($validatedData);
+        Post::where('id', $post->id)
+            ->update($validatedData);
 
-        return redirect('/dashboard/learns')->with('success', 'New post has been added!');
+        return redirect('/dashboard/materi')->with('success', 'Post has been Updated!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Post  $post
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Post $post)
-    {
-        return view('dashboard.materi.show', [
-            'posts' => $post
-        ]);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Post  $post
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Post $post)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Post  $post
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Post $post)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Post  $post
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Post $post)
     {
         Post::destroy($post->id);
 
-        return redirect('/dashboard/posts')->with('success', 'Post has been deleted!');
+        return redirect('/dashboard/materi')->with('success', 'Post has been deleted!');
     }
 
     public function checkSlug(Request $request)

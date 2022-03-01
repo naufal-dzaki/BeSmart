@@ -22,8 +22,8 @@ class CreatePostsTable extends Migration
             $table->text('body');
             $table->string('link');
             $table->boolean('tipe')->default(0);// 0 = false untuk materi, 1 = true untuk tugas
-            $table->foreignId('subject_id');
-            $table->foreignId('user_id');
+            $table->unsignedBigInteger('subject_id');
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
         });
     }

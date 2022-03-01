@@ -23,12 +23,14 @@ class DatabaseSeeder extends Seeder
 
         //user
         User::Create([
+            'id' => 1,
             'name' => 'naufal',
             'grade_id' => '2',
             'email' => 'naufal@gmail.com',
             'password' => bcrypt('password')
         ]);
         User::Create([
+            'id' => 2,
             'name' => 'bilal',
             'grade_id' => '1',
             'email' => 'bilal@gmail.com',
@@ -37,7 +39,7 @@ class DatabaseSeeder extends Seeder
 
         // user detail
         Biodata::Create([
-            'user_id' => '1',
+            'user_id' => 1,
             'slug' => 'muhammad-naufal',
             'image' => 'user-profille.png',
             'tgl_lahir' => 'Surabaya, 9 Mei 2003',
@@ -49,7 +51,7 @@ class DatabaseSeeder extends Seeder
             'nama_ibu' => 'ini nama ibunya'
         ]);
         Biodata::Create([
-            'user_id' => '2',
+            'user_id' => 2,
             'slug' => 'muhammad-bilal',
             'image' => 'user-profille.png',
             'tgl_lahir' => 'Surabaya, 9 Mei 2004',
@@ -60,6 +62,33 @@ class DatabaseSeeder extends Seeder
             'nama_ayah' => 'Ini nama ayahnya',
             'nama_ibu' => 'ini nama ibunya'
         ]);
+
+        $faker = \Faker\Factory::create();
+
+        $total = User::count();
+
+        for ($i = $total+1; $i <= $total+10; $i++) {
+            $user = User::Create([
+                'id' => $i,
+                'name' => $faker->name,
+                'grade_id' => '2',
+                'email' => $faker->email,
+                'password' => bcrypt('password')
+            ]);
+
+            Biodata::Create([
+                'user_id' => $user->id,
+                'slug' => \Str::slug($user->name),
+                'image' => 'user-profille.png',
+                'tgl_lahir' => $faker->date($format = 'Y-m-d', $max = 'now'),
+                'nisn' => rand(100000000, 999999999),
+                'no_hp' => $faker->phoneNumber,
+                'jenis_kelamin' =>  $faker->randomElements(['male', 'female'])[0],
+                'agama' => $faker->randomElements(['islam', 'kristen', 'hindu', 'budha'])[0],
+                'nama_ayah' => $faker->name,
+                'nama_ibu' => $faker->name
+            ]);
+        }
 
         //kelas
         Grade::create([
