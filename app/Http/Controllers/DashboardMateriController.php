@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\Subject;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
 
 class DashboardMateriController extends Controller
@@ -13,7 +14,7 @@ class DashboardMateriController extends Controller
     public function index()
     {
         return view('dashboard.materi.index', [
-            'posts' => Post::where('user_id', auth()->user()->id)->get()
+            'posts' => Post::where('user_id', auth()->user()->id)->where('tipe', 0)->get()
         ]);
     }
 
@@ -69,8 +70,7 @@ class DashboardMateriController extends Controller
     {
         $rules = ([
             'judul' => 'required|max:255',
-            'slug' =>  'required|unique:posts',
-            'image' =>  'required',
+            'image' =>  'image|file|max:2048',
             'bab' => 'required',
             'body' => 'required',
             'link' => 'required',
@@ -84,6 +84,13 @@ class DashboardMateriController extends Controller
 
         $validatedData = $request->validate($rules);
 
+        if($request->file('image')){
+            if($request->oldImage){
+                Storage::delete($request->oldImage);
+            }
+            $validatedData['image'] = $request->file('image')->store('post-images');
+        }
+
         $validatedData['user_id'] = auth()->user()->id;
 
         Post::where('id', $post->id)
@@ -94,6 +101,10 @@ class DashboardMateriController extends Controller
 
     public function destroy(Post $post)
     {
+        if($post->image){
+            Storage::delete($post->image);
+        }
+
         Post::destroy($post->id);
 
         return redirect('/dashboard/materi')->with('success', 'Post has been deleted!');

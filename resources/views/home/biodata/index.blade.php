@@ -16,7 +16,11 @@
             <div class=" w-full h-auto px-2 py-1 ml-4">
                 <div class="flex">
                     <div class="bg-balt lg:w-24 md:w-20 sm:w-16 w-14 my-1 mr-1">
-                        <img src="img/{{ $data->image }}" class="lg:w-24 md:w-20 sm:w-16 w-14" alt="">
+                        @if($data->image)
+                        <img src="{{ asset('storage/' . $data->image) }}" class="lg:w-24 md:w-20 sm:w-16 w-14" alt="">
+                        @else
+                        <img src="img/user-profille.png" class="lg:w-24 md:w-20 sm:w-16 w-14" alt="">
+                        @endif
                     </div>
                     <div class="block">
                         <h1
