@@ -61,9 +61,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('/dashboard/materi/{post:slug}', [DashboardMateriController::class, 'update'])->name('materi.update');
     Route::delete('/dashboard/materi/{post:slug}', [DashboardMateriController::class, 'destroy'])->name('materi.destroy');
 
-<<<<<<< HEAD
-});
-=======
     Route::get('/dashboard/task/checkSlug', [DashboardTaskController::class, 'checkSlug']);
     Route::get('/dashboard/task', [DashboardTaskController::class, 'index'])->name('task.index');
     Route::get('/dashboard/task/create', [DashboardTaskController::class, 'create'])->name('task.create');
@@ -74,4 +71,3 @@ Route::group(['middleware' => 'auth'], function () {
     Route::delete('/dashboard/task/{post:slug}', [DashboardTaskController::class, 'destroy'])->name('task.destroy');
 
 });
->>>>>>> 382050ca9136d411855f7dd97e7ed9bdba1a9a9f
