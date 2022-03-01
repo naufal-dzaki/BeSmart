@@ -406,6 +406,8 @@
         <p class="mt-10 text-center">Copy right, by Bilal</p>
 
     </footer>
+    <!-- javascript -->
+    <script src="{{ mix('js/app.js') }}"></script>
 
     <script>
         var slideIndex = 1;
