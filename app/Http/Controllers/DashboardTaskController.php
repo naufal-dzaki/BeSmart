@@ -33,7 +33,6 @@ class DashboardTaskController extends Controller
             'image' =>  'image|file|max:2048',
             'bab' => 'required',
             'body' => 'required',
-            'link' => 'required',
             'tipe' => 'required',
             'subject_id' => 'required'
         ]);
@@ -72,7 +71,6 @@ class DashboardTaskController extends Controller
             'image' =>  'image|file|max:2048',
             'bab' => 'required',
             'body' => 'required',
-            'link' => 'required',
             'tipe' => 'required',
             'subject_id' => 'required'
         ]);

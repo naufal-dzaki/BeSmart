@@ -20,7 +20,6 @@ class CreatePostsTable extends Migration
             $table->string('image')->nullable();
             $table->integer('bab');
             $table->text('body');
-            $table->string('link');
             $table->boolean('tipe')->default(0);// 0 = false untuk materi, 1 = true untuk tugas
             $table->unsignedBigInteger('subject_id');
             $table->unsignedBigInteger('user_id');

@@ -15,19 +15,13 @@
 
                 <div class="block">
                     <h1 class="mb-1 font-bold text-3xl ml-6">{{ $posts->judul }}</h1>
-                    <p class="ml-6 text-base text-gray-500">{{ $posts->author->name }}
+                    <p class="ml-6 text-base text-gray-500">Dibuat oleh {{ $posts->author->name }}
                         {{ $posts->created_at->diffForHumans() }}
                     <div class="w-full bg-bblue h-px my-6"></div>
 
                     <article class="my-3 fs-5">
                         {!! $posts->body !!}
                     </article>
-
-                    <div class="border-2 px-2 py-2 rounded-2xl w-3/12 max-h-10 truncate flex flex-wrap content-center">
-                        <a href="{{ $posts->link }}" target="_blank" class="flex">
-                            <i data-feather="link" class="mr-3"></i> {{ $posts->link }}
-                        </a>
-                    </div>
 
                     <hr class="mt-3">
                     <div class="mt-5">
