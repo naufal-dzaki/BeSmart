@@ -28,7 +28,6 @@
                     </div>
                 </a>
             </div>
-
         @endforeach
 
         {{-- <div class=" w-full sm:w-1/2 lg:mb-5 md:mb-4 sm:mb-3 mb-2 px-3">
