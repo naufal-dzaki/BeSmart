@@ -30,12 +30,10 @@ class SubjectController extends Controller
         // $tugas = $tugascondition->where('subject_id', $subjectCondition)->all();
         $tugas = Post::where('tipe', 1)->get();
 
-        if($tugas->subject->grade_id == auth()->user()->grade_id){
-            return view('home.task.tugas', [
-                'title' => 'Tugas',
-                'posts' => $tugas
-            ]);
-        }
+        return view('home.task.tugas', [
+            'title' => 'Tugas',
+            'posts' => $tugas
+        ]);
     }
     public function tugas_detail(Post $Post){
         return view('home.subject.detail', [

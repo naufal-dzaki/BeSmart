@@ -6,6 +6,7 @@
     <div class="flex sm:flex-row flex-col sm:flex-wrap">
 
         @foreach ($posts as $post)
+        @if($post->subject->grade_id == auth()->user()->grade_id)
 
             <div class=" w-full sm:w-1/2 lg:mb-5 md:mb-4 sm:mb-3 mb-2 px-3">
                 <a href="/tugas/{{ $post->slug }}">
@@ -28,6 +29,7 @@
                     </div>
                 </a>
             </div>
+        @endif
         @endforeach
 
         {{-- <div class=" w-full sm:w-1/2 lg:mb-5 md:mb-4 sm:mb-3 mb-2 px-3">
