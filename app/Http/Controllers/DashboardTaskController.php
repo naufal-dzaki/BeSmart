@@ -13,7 +13,7 @@ class DashboardTaskController extends Controller
     public function index()
     {
         return view('dashboard.tugas.index', [
-            'posts' => Post::where('user_id', auth()->user()->id)->where('tipe', 1)->get()
+            'posts' => Post::where('user_id', auth()->user()->id)->where('tipe', 1)->with('subject')->get()
         ]);
     }
 
