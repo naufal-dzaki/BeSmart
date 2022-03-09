@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use App\Http\Controllers\BiodataController;
 use App\Http\Controllers\ChatController;
+use App\Http\Controllers\DashboardBiodataController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LogoutController;
@@ -10,6 +11,7 @@ use App\Http\Controllers\MotivationController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\DashboardMateriController;
 use App\Http\Controllers\DashboardTaskController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -69,5 +71,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard/task/{post:slug}/edit', [DashboardTaskController::class, 'edit'])->name('task.edit');
     Route::put('/dashboard/task/{post:slug}', [DashboardTaskController::class, 'update'])->name('task.update');
     Route::delete('/dashboard/task/{post:slug}', [DashboardTaskController::class, 'destroy'])->name('task.destroy');
+
+    Route::get('/dashboard/biodata', [DashboardBiodataController::class, 'index'])->name('biodata.index');
 
 });

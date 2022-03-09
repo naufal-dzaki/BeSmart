@@ -99,18 +99,6 @@
 
             <input type="hidden" id="tipe" name="tipe" value="1">
 
-            <div class="w-full mb-3 mt-4">
-                <label class="label label-text mb-1 pb-1" for="link">
-                  link
-                </label>
-                <input type="text" placeholder="Type here" class="input input-bordered w-10/12" id="link" name="link" required value="{{ old('link') }}">
-                @error('link')
-                <div class="alert-error">
-                    {{ $message }}
-                </div>
-                @enderror
-            </div>
-
             <button class="btn btn-primary"><i data-feather="file-plus" class="mr-2 text-bwhite "></i>Buat Tugas</button>
         </form>
     </div>
