@@ -25,12 +25,17 @@ class SubjectController extends Controller
     }
 
     public function tugas(){
+        // $tugascondition = Post::where('tipe', 1)->get();
+        // $subjectCondition = Subject::where('grade_id', auth()->user()->grade_id)->get('id');
+        // $tugas = $tugascondition->where('subject_id', $subjectCondition)->all();
         $tugas = Post::where('tipe', 1)->get();
 
-        return view('home.task.tugas', [
-            'title' => 'Tugas',
-            'posts' => $tugas
-        ]);
+        if($tugas->subject->grade_id == auth()->user()->grade_id){
+            return view('home.task.tugas', [
+                'title' => 'Tugas',
+                'posts' => $tugas
+            ]);
+        }
     }
     public function tugas_detail(Post $Post){
         return view('home.subject.detail', [
