@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Biodata;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 use App\Models\Grade;
 use App\Models\User;
 use App\Models\Subject;
@@ -76,7 +77,7 @@ class DatabaseSeeder extends Seeder
 
             Biodata::Create([
                 'user_id' => $user->id,
-                'slug' => \Str::slug($user->name),
+                'slug' => Str::slug($user->name),
                 'image' => 'user-profille.png',
                 'tgl_lahir' => $faker->date($format = 'Y-m-d', $max = 'now'),
                 'nisn' => rand(100000000, 999999999),
@@ -102,56 +103,6 @@ class DatabaseSeeder extends Seeder
         Grade::create([
             'grade' => 'XII',
             'slug' => 'xii'
-        ]);
-
-        //mapel
-        Subject::create([
-            'grade_id' => '1',
-            'image' => 'matematika.png',
-            'name' => 'Matematika X',
-            'slug' => 'matematika-x'
-        ]);
-        Subject::create([
-            'grade_id' => '1',
-            'image' => 'Kimia.png',
-            'name' => 'Kimia X',
-            'slug' => 'kimia-x'
-        ]);
-        Subject::create([
-            'grade_id' => '1',
-            'image' => 'B Indo.png',
-            'name' => 'B. Indonesia X',
-            'slug' => 'b-indo-x'
-        ]);
-        Subject::create([
-            'grade_id' => '1',
-            'image' => 'Biologi.png',
-            'name' => 'Biologi X',
-            'slug' => 'biologi-x'
-        ]);
-        Subject::create([
-            'grade_id' => '1',
-            'image' => 'English.png',
-            'name' => 'B Inggris X',
-            'slug' => 'b-inggris-x'
-        ]);
-        Subject::create([
-            'grade_id' => '1',
-            'image' => 'Fisika.png',
-            'name' => 'Fisika X',
-            'slug' => 'fisika-x'
-        ]);
-        Subject::create([
-            'grade_id' => '1',
-            'image' => 'Penjas.png',
-            'name' => 'Penjas X',
-            'slug' => 'penjas-x'
-        ]);
-        Subject::create([
-            'grade_id' => '1',
-            'image' => 'Sejarah.png',
-            'name' => 'Sejarah X',
-            'slug' => 'sejarah-x'
         ]);
 
         //post

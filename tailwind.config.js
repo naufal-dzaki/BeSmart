@@ -9,6 +9,11 @@ module.exports = {
 
     theme: {
         extend: {
+            zIndex: {
+                'min-1': -1,
+                'min-2': -2,
+                'min-99': -99,
+            },
             maxWidth: {
                 '1/2': '50%',
                 '20' : '80px'

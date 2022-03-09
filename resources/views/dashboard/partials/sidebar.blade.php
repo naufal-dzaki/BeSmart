@@ -1,4 +1,4 @@
-<aside class="relative bg-sidebar h-screen w-64 hidden sm:block shadow-xl">
+<aside class="relative bg-sidebar h-screen w-64 hidden sm:block shadow-xl z-10">
     <div class="flex py-4 pl-6">
         <img src="{{ asset('img/white-logo.png') }}" class="w-20 mr-2" alt="">
         <a href="index.html" class="text-bwhite text-2xl font-semibold uppercase hover:text-gray-300">BeSmart</a>
