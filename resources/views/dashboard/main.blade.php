@@ -38,7 +38,7 @@
         .account-link:hover { background: #3d68ff; }
     </style>
 </head>
-<body class="bg-gray-100 font-family-karla flex">
+<body class="bg-gray-100 font-family-karla flex min-h-screen">
 
     {{-- sidebar --}}
     @include('dashboard.partials.sidebar')

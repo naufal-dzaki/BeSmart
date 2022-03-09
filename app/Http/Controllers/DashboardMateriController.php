@@ -14,7 +14,7 @@ class DashboardMateriController extends Controller
     public function index()
     {
         return view('dashboard.materi.index', [
-            'posts' => Post::where('user_id', auth()->user()->id)->where('tipe', 0)->get()
+            'posts' => Post::where('user_id', auth()->user()->id)->where('tipe', 0)->with('subject')->get()
         ]);
     }
 
