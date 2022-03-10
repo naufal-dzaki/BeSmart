@@ -7,6 +7,7 @@ use App\Models\Post;
 use App\Models\Subject;
 use App\Models\Biodata;
 use App\Models\Motivation;
+use Illuminate\Support\Facades\Storage;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Str;
 
@@ -42,8 +43,13 @@ class DashboardMotivasiController extends Controller
         $validatedData = $request->validate([
             'judul' => 'required|max:50',
             'slug' => 'required|unique:posts',
+            'image' =>  'image|file|max:2048',
             'body' => 'required'
         ]);
+
+        if($request->file('image')){
+            $validatedData['image'] = $request->file('image')->store('post-images');
+        }
 
         Motivation::create($validatedData);
         return redirect('/dashboard/motivasi')->with('success', 'New post has been added');
@@ -62,15 +68,18 @@ class DashboardMotivasiController extends Controller
     {
         $rules = $request->validate([
             'judul' => 'required|max:150',
-            // 'slug' => 'required|unique:posts',
+            'image' =>  'image|file|max:2048',
             'body' => 'required'
         ]);
-        // $motivation = Motivation::find($request->id);
 
-        // if ($request->slug != $motivation->slug) {
-        //     $rules['slug'] = 'required|unique:posts';
-        // }
-        $rules['slug'] = Str::slug('judul');
+        if($request->file('image')){
+            if($request->oldImage){
+                Storage::delete($request->oldImage);
+            }
+            $rules['image'] = $request->file('image')->store('post-images');
+        }
+
+        $rules['slug'] = Str::slug($rules['judul']);
 
         Motivation::where('id', $request->id)
             ->update($rules);
