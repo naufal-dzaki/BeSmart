@@ -3,7 +3,7 @@
 
 @section('DashboardContent')
 <div class="overflow-x-auto">
-    <table class="table w-full">
+    <table class="table w-full mb-5">
       <!-- head -->
       <thead>
         <tr>

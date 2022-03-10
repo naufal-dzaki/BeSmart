@@ -8,7 +8,7 @@
             <i class="fas fa-tachometer-alt mr-3"></i>
             Dashboard
         </a>
-        <a href="/dashboard/biodata" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+        <a href="/dashboard/biodata" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item {{ Request::is('dashboard/biodata') ? 'active-nav-link' : '' }}">
             <i data-feather="users" class="mr-3 text-bwhite "></i>
             Biodata Siswa
         </a>
@@ -20,9 +20,9 @@
             <i data-feather="book-open" class="mr-3 text-bwhite "></i>
             Materi
         </a>
-        <a href="/dashboard/berita" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+        <a href="/dashboard/motivasi" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
             <i data-feather="file-text" class="mr-3 text-bwhite "></i>
-            Berita
+            Motivasi
         </a>
         <a href="/dashboard/absensi" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
             <i class="fas fa-tablet-alt mr-3"></i>

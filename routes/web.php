@@ -11,7 +11,8 @@ use App\Http\Controllers\MotivationController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\DashboardMateriController;
 use App\Http\Controllers\DashboardTaskController;
-
+use App\Http\Controllers\DashboardMotivasiController;
+use App\Models\Motivation;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,7 +31,7 @@ Route::get('/', function () {
     ]);
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 Route::group(['middleware' => 'auth'], function () {
     Route::post('/logout', [LogoutController::class, 'logout']);
 
@@ -46,13 +47,17 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/biodata/{biodata:slug}/edit', [BiodataController::class, 'edit'])->name('biodata.edit');
     Route::put('/biodata/{biodata:slug}', [BiodataController::class, 'update'])->name('biodata.update');
 
-    Route::get('/absen', function(){return view('contents.absen', ['title' => '| Absen']);});
+    Route::get('/absen', function () {
+        return view('contents.absen', ['title' => '| Absen']);
+    });
 
     Route::get('/home/{motivation:slug}', [MotivationController::class, 'index'])->name('motivation');
 
     Route::post('chat/store', [ChatController::class, 'store'])->name('chat.store');
 
-    Route::get('/dashboard', function () {return view('dashboard.index');})->name('dashboard');
+    Route::get('/dashboard', function () {
+        return view('dashboard.index');
+    })->name('dashboard');
 
     Route::get('/dashboard/materi/checkSlug', [DashboardMateriController::class, 'checkSlug']);
     Route::get('/dashboard/materi', [DashboardMateriController::class, 'index'])->name('materi.index');
@@ -73,5 +78,11 @@ Route::group(['middleware' => 'auth'], function () {
     Route::delete('/dashboard/task/{post:slug}', [DashboardTaskController::class, 'destroy'])->name('task.destroy');
 
     Route::get('/dashboard/biodata', [DashboardBiodataController::class, 'index'])->name('biodata.index');
+
+    // motivasi
+    Route::get('/dashboard/motivasi/checkSlug', [DashboardMotivasiController::class, 'checkSlug']);
+    Route::delete('/dashboard/motivasi/{motivation}', [DashboardMotivasiController::class, 'destroy'])->name('motivation.destroy');
+    Route::resource('dashboard/motivasi', DashboardMotivasiController::class);
+    Route::get('/dashboard/{motivation:slug}', [DashboardMotivasiController::class, 'show'])->name('motivation');
 
 });
