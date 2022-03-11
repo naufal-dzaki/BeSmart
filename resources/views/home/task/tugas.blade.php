@@ -12,7 +12,11 @@
                 <a href="/tugas/{{ $post->slug }}">
                     <div class="flex bg-bwhite filter drop-shadow-md rounded-md p-2 md:p-3">
                         <div class="bg-balt px-2 py-2">
-                            <img src="/img/{{ $post->image }}" class=" lg:w-20 md:w-16 sm:w-14 w-12" alt="">
+                            @if($post->image)
+                            <img src="{{ asset('storage/' . $post->image) }}" class=" lg:w-20 md:w-16 sm:w-14 w-12 lg:h-20 md:h-16 sm:h-14 h-12 bg-balt px-2 py-2" alt="">
+                            @else
+                            <img src="{{ asset('img/ttugass.png') }}" class=" lg:w-20 md:w-16 sm:w-14 w-12 lg:h-20 md:h-16 sm:h-14 h-12 bg-balt px-2 py-2" alt="">
+                            @endif
                         </div>
                         <div class="block">
                             <h1

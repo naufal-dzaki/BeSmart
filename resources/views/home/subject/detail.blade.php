@@ -17,7 +17,7 @@
                     <h1 class="mb-1 font-bold text-3xl ml-6">{{ $posts->judul }}</h1>
                     <p class="ml-6 text-base text-gray-500">Dibuat oleh {{ $posts->author->name }}
                         {{ $posts->created_at->diffForHumans() }}
-                    <div class="w-full bg-bblue h-px my-6"></div>
+                    <div class="w-full bg-bblue h-px my-6 min-w-full"></div>
 
                     <article class="my-3 fs-5">
                         {!! $posts->body !!}
