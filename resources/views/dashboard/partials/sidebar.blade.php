@@ -24,9 +24,9 @@
             <i data-feather="file-text" class="mr-3 text-bwhite "></i>
             Motivasi
         </a>
-        <a href="/dashboard/absensi" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
-            <i class="fas fa-tablet-alt mr-3"></i>
-            Laporan Absensi
+        <a href="/dashboard/presensi" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+            <i data-feather="clock" class="mr-3 text-bwhite "></i>
+            Laporan Presensi
         </a>
     </nav>
 </aside>

@@ -14,6 +14,9 @@ module.exports = {
                 'min-2': -2,
                 'min-99': -99,
             },
+            minWidth: {
+                'screen' : '100vw'
+            },
             maxWidth: {
                 '1/2': '50%',
                 '20' : '80px'

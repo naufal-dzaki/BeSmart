@@ -20,6 +20,7 @@ class UserSeeder extends Seeder
                 User::Create([
                     'id' => 1,
                     'name' => 'naufal',
+                    'level' => 'siswa',
                     'grade_id' => '2',
                     'email' => 'naufal@gmail.com',
                     'password' => bcrypt('password')
@@ -27,6 +28,7 @@ class UserSeeder extends Seeder
                 User::Create([
                     'id' => 2,
                     'name' => 'bilal',
+                    'level' => 'siswa',
                     'grade_id' => '1',
                     'email' => 'bilal@gmail.com',
                     'password' => bcrypt('password')
