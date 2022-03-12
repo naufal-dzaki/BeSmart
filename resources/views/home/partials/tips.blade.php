@@ -6,7 +6,7 @@ Tips & Motivasi Belajar</h1>
         <div class="bg-bblue filter drop-shadow-md rounded-2xl">
             <a href="/home/{{ $motivation->slug }}" class="flex">
                 <div class="bg-bwhite rounded-full md:px-3 px-2 md:py-3 py-2 md:mx-3 mx-2 md:my-3 my-2">
-                    <img src="/img/{{ $motivation->image }}" class="lg:w-16 md:w-14 sm:w-12 xsm:w-10 w-8" alt="">
+                    <img src="/img/optimis.png" class="lg:w-16 md:w-14 sm:w-12 xsm:w-10 w-8" alt="">
                 </div>
                 <h1
                 class="font-bdisplay text-bblack lg:text-3xl md:text-2xl sm:text-xl xsm:text-lg text-base font-bold ml-5 my-auto">

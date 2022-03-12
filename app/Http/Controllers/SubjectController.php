@@ -9,7 +9,7 @@ use App\Models\Post;
 class SubjectController extends Controller
 {
     public function index(Subject $Subject){
-        $materi = $Subject->posts->where('tipe', 0)->all();
+        $materi = $Subject->posts->where('tipe', 0)->with('subject')->all();
 
         return view('home.subject.materi', [
             'title' => $Subject->name,
@@ -20,12 +20,12 @@ class SubjectController extends Controller
     public function show(Subject $Subject, Post $Post){
         return view('home.subject.detail', [
             'title' => ' | Subject',
-            'posts' => $Post,
+            'posts' => $Post->load('author'),
         ]);
     }
 
     public function tugas(){
-        $tugas = Post::where('tipe', 1)->get();
+        $tugas = Post::where('tipe', 1)->with('subject')->get();
 
         return view('home.task.tugas', [
             'title' => 'Tugas',
@@ -35,7 +35,7 @@ class SubjectController extends Controller
     public function tugas_detail(Post $Post){
         return view('home.subject.detail', [
             'title' => 'Tugas',
-            'posts' => $Post,
+            'posts' => $Post->load('author'),
         ]);
     }
 }

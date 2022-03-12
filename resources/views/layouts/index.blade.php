@@ -10,12 +10,10 @@
             <!-- Content -->
             <div class="flex flex-1 flex-col items-center lg:items-start">
                 <h2 class="text-bookmark-blue text-3xl md:text-4 lg:text-5xl text-center lg:text-left mb-6">
-                    Lorem, ipsum dolor.`
+                    BeSmart
                 </h2>
                 <p class="text-bookmark-grey text-lg text-center lg:text-left mb-6">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, accusantium sunt quos sapiente
-                    beatae vel totam delectus sed quo, dolore corrupti asperiores quasi iure! Atque repudiandae
-                    consequatur provident ullam quo.
+                    Besmart is an online learning application that provides the best and largest tutoring service in Indonesia, which will help students and teachers in learning and teaching.
                 </p>
                 <div class="flex justify-center flex-wrap gap-6">
                     <button type="button"
@@ -40,8 +38,8 @@
         {{-- item kiri --}}
         <div class="px-10 pb-10 md:pb-10">
             <h1 class="text-3xl font-bold">Why Choose</h1>
-            <h1 class="text-3xl font-bold text-purple-700">namaLogo</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, omnis?</p>
+            <h1 class="text-3xl font-bold text-purple-700">BeSmart</h1>
+            <p>BeSmart is the best application in the world of education and can make it easier for students and teachers to learn and teach</p>
         </div>
 
         {{-- item kanan --}}
@@ -408,6 +406,8 @@
         <p class="mt-10 text-center">Copy right, by Bilal</p>
 
     </footer>
+    <!-- javascript -->
+    <script src="{{ mix('js/app.js') }}"></script>
 
     <script>
         var slideIndex = 1;

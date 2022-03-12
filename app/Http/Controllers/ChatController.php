@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 class ChatController extends Controller
 {
+    
+
     public function store(Request $request){
         $data = $request->validate([
             'user_id' => 'required',

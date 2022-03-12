@@ -19,6 +19,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'level',
         'grade_id',
         'email',
         'password',
@@ -48,12 +49,12 @@ class User extends Authenticatable
         return $this->belongsTo(Grade::class);
     }
 
-    public function user_detail(){
-        return $this->hasOne(User_detail::class);
-    }
-
     public function posts()
     {
         return $this->hasMany(Post::class);
+    }
+
+    public function presensi() {
+        return $this->hasMany(Presensi::class);
     }
 }

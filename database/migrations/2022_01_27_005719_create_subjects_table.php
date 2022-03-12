@@ -15,7 +15,7 @@ class CreateSubjectsTable extends Migration
     {
         Schema::create('subjects', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('grade_id');
+            $table->unsignedBigInteger('grade_id');
             $table->string('image')->nullable();
             $table->string('name');
             $table->string('slug')->unique();

@@ -9,6 +9,21 @@ module.exports = {
 
     theme: {
         extend: {
+            zIndex: {
+                'min-1': -1,
+                'min-2': -2,
+                'min-99': -99,
+            },
+            minWidth: {
+                'screen' : '100vw'
+            },
+            maxWidth: {
+                '1/2': '50%',
+                '20' : '80px'
+            },
+            maxHeight: {
+                '1/2': '50%',
+            },
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
                 'bsans': ['poppins'],

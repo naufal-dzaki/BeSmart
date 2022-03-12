@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     {{-- feather icon --}}
     <script src="{{ asset('https://unpkg.com/feather-icons') }}"></script>
+
+
     <title>{{ $title }}</title>
 </head>
 
@@ -22,6 +24,8 @@
 <script>
     feather.replace()
 </script>
+<script src="{{ mix('js/app.js') }}"></script>
+
 </body>
 
 </html>
