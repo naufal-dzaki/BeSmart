@@ -115,7 +115,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/rekap-presensi', [PresensiController::class, 'rekapPresensiKaryawan'])
         ->name('rekap-presensi');
 
-    Route::get('/rekap-presensi-admin', [DashboardPresensiController::class, 'rekapPresensiKaryawan'])
+    Route::get('/dashboard/presensi', [DashboardPresensiController::class, 'rekapPresensiKaryawan'])
         ->name('rekap-presensi-admin');
     Route::get('/cetak-laporan', [DashboardPresensiController::class, 'cetakLaporan'])
         ->name('cetak-laporan');

@@ -11,12 +11,12 @@ class DashboardPresensiController extends Controller
 {
     public function rekapPresensiKaryawan() {
         $presensi = Presensi::with('user')->get();
-        return view('admin.laporan-keseluruhan', compact('presensi'));
+        return view('dashboard.presensi.index', compact('presensi'));
       }
 
       public function cetakLaporan() {
         $presensi = Presensi::with('user')->get();
-        $html =  view('admin.cetak-laporan', compact('presensi'));
+        $html =  view('dashboard.presensi.cetak', compact('presensi'));
 
         $dompdf = new Dompdf();
         $dompdf->loadHtml($html);

@@ -16,12 +16,6 @@ class PresensiController extends Controller
         ]);
     }
 
-    public function presensiMasuk() {
-        return view('user.presensi-masuk');
-    }
-    public function presensiKeluar() {
-        return view('user.presensi-keluar');
-    }
 
     public function postPresensiMasuk() {
         $timezone = 'Asia/Jakarta';
