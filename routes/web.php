@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\BiodataController;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\DashboardBiodataController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LogoutController;
@@ -55,9 +56,9 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::post('chat/store', [ChatController::class, 'store'])->name('chat.store');
 
-    Route::get('/dashboard', function () {
-        return view('dashboard.index');
-    })->name('dashboard');
+    // Route::get('/dashboard', function () {return view('dashboard.index');})->name('dashboard');
+    // Route::get('/dashboard', [DashboardController::class, 'index']);
+    Route::get('/dashboard', [DashboardController::class, 'index']);
 
     Route::get('/dashboard/materi/checkSlug', [DashboardMateriController::class, 'checkSlug']);
     Route::get('/dashboard/materi', [DashboardMateriController::class, 'index'])->name('materi.index');
