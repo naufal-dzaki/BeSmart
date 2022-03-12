@@ -5,7 +5,7 @@
         <a href="/dashboard/motivasi/create" class="btn btn-active btn-primary"><i data-feather="file-plus"
                 class="mr-2 text-bwhite "></i>Buat Tugas Baru</a>
 
-        <div class="overflow-x-auto w-full bg-bwhite">
+        <div class="text-blue bg-white lg:order-1 p-3 lg:row-span-1 2xl:row-span-1 lg:col-span-2 rounded-lg shadow-xl mb-3 lg:mb-0">
             <table class="table table-compact w-full">
                 <thead>
                     <tr>

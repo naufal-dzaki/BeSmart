@@ -60,6 +60,7 @@
 
     </div>
 
+    <script src="{{ mix('js/app.js') }}"></script>
     <!-- AlpineJS -->
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <!-- Font Awesome -->
@@ -71,5 +72,7 @@
     <script>
         feather.replace()
     </script>
+
+
 </body>
 </html>

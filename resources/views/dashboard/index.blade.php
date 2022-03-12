@@ -10,27 +10,29 @@
                     <h1 class="text-bold font-xl">Siswa</h1>
                     <p>{{ $count['user'] }} </p>
                 </div>
-                <div>
+                <div class="ml-10">
                     <img src="{{ asset('img/user-profille.png') }} " alt="">
                 </div>
             </div>
+            {{-- materi --}}
             <div
                 class="flex gap-x-5 text-blue bg-white lg:order-1 p-3 lg:row-span-1 2xl:row-span-1 lg:col-span-2 rounded-lg shadow-xl mb-3 lg:mb-0">
                 <div>
                     <h1 class="text-bold font-xl">Materi</h1>
                     {{ $count['materi'] }}
                 </div>
-                <div>
+                <div class="ml-10">
                     <img src="{{ asset('img/efisien.png') }} " class="w-3/5">
                 </div>
             </div>
+            {{-- tugas --}}
             <div
                 class="flex gap-x-5 text-blue bg-white lg:order-1 p-3 lg:row-span-1 2xl:row-span-1 lg:col-span-2 rounded-lg shadow-xl mb-3 lg:mb-0">
                 <div>
                     <h1 class="text-bold font-xl">Tugas</h1>
                     {{ $count['tugas'] }}
                 </div>
-                <div>
+                <div class="ml-10">
                     <img src="{{ asset('img/materi.png') }} " class="w-12">
                 </div>
             </div>

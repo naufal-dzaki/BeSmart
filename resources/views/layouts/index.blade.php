@@ -5,10 +5,10 @@
 @section('content')
 
     {{-- hero --}}
-    <section class="relative content" id="home">
+    <section class="relative content " id="home">
         <div class="container flex flex-col-reverse lg:flex-row items-center gap-12 mt-14 lg:mt-28">
             <!-- Content -->
-            <div class="flex flex-1 flex-col items-center lg:items-start">
+            <div class="flex flex-1 flex-col items-center lg:items-start" data-aos="fade-up-right" data-aos-duration="1500">
                 <h2 class="text-bookmark-blue text-3xl md:text-4 lg:text-5xl text-center lg:text-left mb-6">
                     BeSmart
                 </h2>
@@ -24,7 +24,7 @@
                 </div>
             </div>
             <!-- Image -->
-            <div class=" flex-1 mb-10 md:mb-16 lg:mb-0 z-10">
+            <div class=" flex-1 mb-10 md:mb-16 lg:mb-0 z-10" data-aos="fade-up-left" data-aos-duration="1500">
                 <img class="w-5/6 h-5/6 sm:w-3/4 sm:h-3/4 md:w-full md:h-full" src="{{ asset('img/section.png') }}"
                     alt="" />
                 {{-- Illustration by <a href="https://icons8.com/illustrations/author/5eb2a7bd01d0360019f124e7">Olha Khomich</a>
@@ -34,7 +34,7 @@
     </section>
 
     {{-- feature --}}
-    <section class="flex flex-col lg:flex-row my-36">
+    <section class="flex flex-col lg:flex-row my-36" data-aos="fade-up" data-aos-duration="1500">
         {{-- item kiri --}}
         <div class="px-10 pb-10 md:pb-10">
             <h1 class="text-3xl font-bold">Why Choose</h1>
@@ -82,14 +82,14 @@
     <section class="relative content" id="home">
         <div class="container flex flex-col lg:flex-row items-center gap-12 mt-14 lg:mt-28">
             <!-- Image -->
-            <div class=" flex-1 mb-10 md:mb-16 lg:mb-0 z-10">
+            <div class=" flex-1 mb-10 md:mb-16 lg:mb-0 z-10" data-aos="fade-up-right" data-aos-duration="1500">
                 <img class="w-5/6 h-5/6 sm:w-3/4 sm:h-3/4 md:w-full md:h-full" src="{{ asset('img/section2.png') }}"
                     alt="" />
                 {{-- Illustration by <a href="https://icons8.com/illustrations/author/5eb2a7bd01d0360019f124e7">Olha Khomich</a>
                 from <a href="https://icons8.com/illustrations">Ouch!</a> --}}
             </div>
             <!-- Content -->
-            <div class="flex flex-1 flex-col items-center lg:items-start justify-items-center items-center">
+            <div class="flex flex-1 flex-col items-center lg:items-start justify-items-center items-center" data-aos="fade-up-left" data-aos-duration="1500">
                 <h2 class="text-bookmark-blue text-3xl md:text-4 lg:text-5xl text-center lg:text-left mb-10">
                     Lorem, ipsum dolor.`
                 </h2>
@@ -117,7 +117,7 @@
     </section>
 
     {{-- content 4 --}}
-    <section class="py-40">
+    <section class="py-40" data-aos="fade-up" data-aos-duration="2500">
         <div class="text-2xl font-bold pb-14 pl-10 md:pl-28">
             <h1>Discus The Variety</h1>
             <h1>Of Cources Here</h1>
@@ -326,14 +326,14 @@
     <section class="relative content" id="home">
         <div class="container flex flex-col lg:flex-row items-center gap-12 mt-14 lg:mt-28">
             <!-- Image -->
-            <div class=" flex-1 mb-10 md:mb-16 lg:mb-0 z-10">
+            <div class=" flex-1 mb-10 md:mb-16 lg:mb-0 z-10" data-aos="fade-up-right" data-aos-duration="1500">
                 <img class="w-5/6 h-5/6 sm:w-3/4 sm:h-3/4 md:w-full md:h-full" src="{{ asset('img/section3.png') }}"
                     alt="" />
                 {{-- Illustration by <a href="https://icons8.com/illustrations/author/5eb2a7bd01d0360019f124e7">Olha Khomich</a>
                 from <a href="https://icons8.com/illustrations">Ouch!</a> --}}
             </div>
             <!-- Content -->
-            <div class="flex flex-1 flex-col items-center lg:items-start justify-items-center items-center">
+            <div class="flex flex-1 flex-col items-center lg:items-start justify-items-center items-center" data-aos="fade-up-left" data-aos-duration="1500">
                 <h2 class="text-bookmark-blue text-3xl md:text-4 lg:text-5xl text-center lg:text-left mb-10">
                     Lorem, ipsum dolor.`
                 </h2>
@@ -349,7 +349,7 @@
         </div>
     </section>
 
-    <section class="container pt-32">
+    <section class="container pt-32" data-aos="zoom-in" data-aos-duration="1500">
         <div
             class="flex flex-col md:flex-row bg-gradient-to-r
                                                                                                                                                                                                                                                                                                                                                                                                                                             from-purple-600 to-blue-500 px-16 py-20 rounded-3xl justify-between max-w-6xl mx-auto">
@@ -369,7 +369,7 @@
 
     {{-- footer --}}
 
-    <footer class="pt-36 mb-10">
+    <footer class="pt-36 mb-10" data-aos="fade-up" data-aos-duration="1500">
         <div class="flex flex-col md:flex-row justify-between text-center md:text-start">
             <div>
                 <h1 class="text-2xl font-semibold pt-5">logo.</h1>

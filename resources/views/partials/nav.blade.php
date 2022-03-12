@@ -16,7 +16,7 @@
                                 from-purple-600 to-blue-500 text-white font-semibold">Login</button> --}}
             <a href="/login" class="btn bg-gradient-to-r
                                 from-purple-600 to-blue-500 text-white font-semibold">Login</a>
-            <a href="/register" class="btn rounded-none">Register</a>
+            <a href="/register" class="btn-primary">Register</a>
         </div>
     </nav>
 </header>
