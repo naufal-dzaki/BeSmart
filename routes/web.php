@@ -15,6 +15,7 @@ use App\Http\Controllers\DashboardMateriController;
 use App\Http\Controllers\DashboardPresensiController;
 use App\Http\Controllers\DashboardTaskController;
 use App\Http\Controllers\DashboardMotivasiController;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Biodata;
 
 /*
@@ -29,14 +30,21 @@ use App\Models\Biodata;
 */
 
 Route::get('/', function () {
+    if(Auth::user()){
+        if (auth()->user()->level == 'guru') { // Role Guru
+            return redirect()->intended('dashboard');
+        } elseif (auth()->user()->level == 'siswa') { // Role siswa
+            return redirect()->intended('home');
+        }
+    }
     return view('layouts.index', [
         'title' => ' '
     ]);
 });
 
 require __DIR__ . '/auth.php';
-Route::group(['middleware' => 'auth'], function () {
-    Route::post('/logout', [LogoutController::class, 'logout']);
+Route::post('/logout', [LogoutController::class, 'logout']);
+Route::group(['middleware' =>  ['auth','ceklevel:siswa']], function () {
 
     Route::get('/home', [HomeController::class, 'index'])
         ->name('home');
@@ -54,17 +62,27 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('/biodata/{biodata:slug}', [BiodataController::class, 'update'])
         ->name('biodata.update');
 
-    Route::get('/absen', function () {
-        return view('contents.absen', ['title' => '| Absen']);
-    });
-
     Route::get('/home/{motivation:slug}', [MotivationController::class, 'index'])
         ->name('motivation');
 
     Route::post('chat/store', [ChatController::class, 'store'])
         ->name('chat.store');
 
+        Route::get('/presensi', [PresensiController::class, 'index'])
+        ->name('presensi');
+    Route::get('/presensi-masuk', [PresensiController::class, 'presensiMasuk'])
+        ->name('presensi-masuk');
+    Route::post('/post-presensi-masuk', [PresensiController::class, 'postPresensiMasuk'])
+        ->name('post-presensi-masuk');
+    Route::get('/presensi-keluar', [PresensiController::class, 'presensiKeluar'])
+        ->name('presensi-keluar');
+    Route::post('/post-presensi-keluar', [PresensiController::class, 'postPresensiKeluar'])
+        ->name('post-presensi-keluar');
+    Route::get('/rekap-presensi', [PresensiController::class, 'rekapPresensiKaryawan'])
+        ->name('rekap-presensi');
+});
 
+Route::group(['middleware' => ['auth','ceklevel:guru']], function() {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::get('/dashboard/materi/checkSlug', [DashboardMateriController::class, 'checkSlug']);
@@ -101,19 +119,6 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/dashboard/biodata', [DashboardBiodataController::class, 'index'])
         ->name('biodata.index');
-
-    Route::get('/presensi', [PresensiController::class, 'index'])
-        ->name('presensi');
-    Route::get('/presensi-masuk', [PresensiController::class, 'presensiMasuk'])
-        ->name('presensi-masuk');
-    Route::post('/post-presensi-masuk', [PresensiController::class, 'postPresensiMasuk'])
-        ->name('post-presensi-masuk');
-    Route::get('/presensi-keluar', [PresensiController::class, 'presensiKeluar'])
-        ->name('presensi-keluar');
-    Route::post('/post-presensi-keluar', [PresensiController::class, 'postPresensiKeluar'])
-        ->name('post-presensi-keluar');
-    Route::get('/rekap-presensi', [PresensiController::class, 'rekapPresensiKaryawan'])
-        ->name('rekap-presensi');
 
     Route::get('/dashboard/presensi', [DashboardPresensiController::class, 'rekapPresensiKaryawan'])
         ->name('rekap-presensi-admin');
