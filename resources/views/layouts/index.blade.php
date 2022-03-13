@@ -14,11 +14,12 @@
                         BeSmart
                     </h2>
                     <p class="text-bookmark-grey text-lg text-center lg:text-left mb-6">
-                        Besmart adalah aplikasi belajar online yang menyediakan layanan bimbingan belajar terbaik dan terbesar di Indonesia, yang akan membantu siswa dan guru dalam belajar dan mengajar.
+                        Besmart is an online learning application that provides the best and largest tutoring service in
+                        Indonesia, which will help students and teachers in learning and teaching.
                     </p>
                     <div class="flex justify-center flex-wrap gap-6">
                         <button type="button" class="btn bg-gradient-to-r from-purple-600 to-blue-500 text-white hover:bg-white hover:text-black">
-                            Daftar Sekarang ->
+                            Email now ->
                         </button>
                     </div>
                 </div>
@@ -36,43 +37,43 @@
         <section class="flex flex-col gap-x-5 lg:flex-row my-36" data-aos="fade-up" data-aos-duration="1500">
             {{-- item kiri --}}
             <div class="px-10 mt-24">
-                <h1 class="text-3xl font-bold">Mengapa Memilih</h1>
+                <h1 class="text-3xl font-bold">Why Choose</h1>
                 <h1 class="text-3xl font-bold text-purple-700">BeSmart</h1>
-                    <p>BeSmart merupakan aplikasi terbaik di dunia pendidikan dan dapat memudahkan siswa dan
-                        Guru untuk belajar dan mengajar</p>
+                <p>BeSmart is the best application in the world of education and can make it easier for students and
+                    teachers to learn and teach</p>
             </div>
             {{-- item kanan --}}
             <div
                 class="grid grid-flow-row md:grid-cols-3 md:grid-rows-3 gap-4 md:my-0 mx-10 md:mx-0 justify-items-stretch inset-x-0">
                 <div>
                     <img class="w-14 my-4 rounded-full" src="{{ asset('img/01.png') }}" alt="">
-                    <h1 class="font-bold font-xl">Platfrom belajar online pertama di Indonesia</h1>
-                    <p>dirancang oleh 2 murid berprestasi dari SMKN 1 Surabaya Bilal dan Naufal</p>
+                    <h1 class="font-bold font-xl">Platfrom learn online first in Indonesia</h1>
+                    <p>designed by 2 outstanding students from SMKN 1 Surabaya Bilal and Naufal</p>
                 </div>
                 <div>
                     <img class="w-14 my-4 rounded-full" src="{{ asset('img/02.png') }}" alt="">
-                    <h1 class="font-bold font-xl">Besmart terbuka untuk umum</h1>
-                    <p>Kamu bisa daftar via website BeSmart.com. Jika ada hal yang kurang jelas bisa kamu tanyakan langsung via chat</p>
+                    <h1 class="font-bold font-xl">Besmart is open to the public</h1>
+                    <p>You can register via BeSmart.com website. If there are things that are not clear you can ask directly via chat</p>
                 </div>
                 <div>
                     <img class="w-14 my-4 rounded-full" src="{{ asset('img/03.png') }}" alt="">
-                    <h1 class="font-bold font-xl">Biaya yang relatif murah</h1>
-                    <p>Untuk harganya bisa kamu liat langsung di website BeSmart, sering-sering chechk ya lumayan loh! ada banyak promo yang tersedia</p>
+                    <h1 class="font-bold font-xl"> Relatively cheap cost</h1>
+                    <p>For the price you can see directly on the BeSmart website, often chechk ya quite loh! there are many promos available</p>
                 </div>
                 <div>
                     <img class="w-14 my-4 rounded-full" src="{{ asset('img/04.png') }}" alt="">
-                    <h1 class="font-bold font-xl">Materi pembelajaran tidak perlu di ragukan </h1>
-                    <p>BeSmart terpilih jadi master theacer di kampus ternama di Indonesia loh</p>
+                    <h1 class="font-bold font-xl">The learningmate is not in doubt </h1>
+                    <p>BeSmart was selected as a master theacer at a renowned campus in Indonesia loh</p>
                 </div>
                 <div>
                     <img class="w-14 my-4 rounded-full" src="{{ asset('img/05.png') }}" alt="">
-                    <h1 class="font-bold font-xl">Anak bisa belajar dengan fleksibel</h1>
-                    <p>Bimbel online BeSmart adalah metode belajar terbaru yang kekinian karena menggunakan gadget. Selain itu, karena hadir dalam </p>
+                    <h1 class="font-bold font-xl">Anak can learn flexibly</h1>
+                    <p>BeSmart online bimbel is the latest learning method that is current because it uses gadgets. In addition, because it is present in </p>
                 </div>
                 <div>
                     <img class="w-14 my-4 rounded-full" src="{{ asset('img/06.png') }}" alt="">
-                    <h1 class="font-bold font-xl">Materi pelajaran lengkap tersedia</h1>
-                    <p>Anda tak perlu khawatir, BeSmart menyediakan materi pelajaran secara lengkap. Mulai dari tingkatan SD, SMP, SMA, hingga SMK!</p>
+                    <h1 class="font-bold font-xl">The full lesson is available</h1>
+                    <p>You don't need to worry, BeSmart provides complete subject matter. Starting from elementary, junior high, high school, to vocational!</p>
                 </div>
             </div>
         </section>
@@ -91,10 +92,10 @@
                 <div class="flex flex-1 flex-col items-center lg:items-start justify-items-center items-center"
                     data-aos="fade-up-left" data-aos-duration="1500">
                     <h2 class="text-bookmark-blue text-3xl md:text-4 lg:text-5xl text-center lg:text-left mb-10">
-                        Sejarah BeSmart
+                        History of BeSmart
                     </h2>
                     <p class="text-bookmark-grey text-lg text-center lg:text-left mb-6">
-                        BeSmart didirikan pada April 2022 oleh Muhammad Bilal dan Muhammad Naufal Dzaki Ardani untuk membantu para pelajar menemukan berbagai pembimbing di dunia maya. Belva merupakan lulusan Universitas Teknologi Nanyang dengan gelar ganda (double degree) di bidang bisnis dan ilmu komputer
+                        History. BeSmart was founded in April 2022 by Muhammad Bilal and Muhammad Naufal Dzaki Ardani to help students find online mentors. Belva is a graduate of Nanyang University of Technology with a double degree in business and computer science.
                     </p>
                     <div class="grid md:grid-flow-ro    w grid-flow-col grid-cols-3 grid-rows-1 gap-12 text-center">
                         <div>
