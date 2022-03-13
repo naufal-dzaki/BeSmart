@@ -18,10 +18,8 @@
                         Indonesia, which will help students and teachers in learning and teaching.
                     </p>
                     <div class="flex justify-center flex-wrap gap-6">
-                        <button type="button"
-                            class="btn bg-gradient-to-r
-                                                                                                                                                                                                                                                                                                                                                                                                                                            from-purple-600 to-blue-500 text-white hover:bg-white hover:text-black">
-                            Email now
+                        <button type="button" class="btn bg-gradient-to-r from-purple-600 to-blue-500 text-white hover:bg-white hover:text-black">
+                            Email now ->
                         </button>
                     </div>
                 </div>
@@ -38,7 +36,7 @@
         {{-- feature --}}
         <section class="flex flex-col gap-x-5 lg:flex-row my-36" data-aos="fade-up" data-aos-duration="1500">
             {{-- item kiri --}}
-            <div class="px-10 pb-10 md:pb-10 mt-24">
+            <div class="px-10 mt-24">
                 <h1 class="text-3xl font-bold">Why Choose</h1>
                 <h1 class="text-3xl font-bold text-purple-700">BeSmart</h1>
                 <p>BeSmart is the best application in the world of education and can make it easier for students and
@@ -46,36 +44,36 @@
             </div>
             {{-- item kanan --}}
             <div
-                class="grid grid-flow-row md:grid-cols-3 md:grid-rows-3 gap-4 md:my-0 my-10 mx-10 md:mx-0 justify-items-stretch inset-x-0">
+                class="grid grid-flow-row md:grid-cols-3 md:grid-rows-3 gap-4 md:my-0 mx-10 md:mx-0 justify-items-stretch inset-x-0">
                 <div>
-                    <img class="w-14 my-4 rounded-full" src="{{ asset('img/contoh.jpg') }}" alt="">
-                    <h1>1 Lorem, ipsum.</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, enim!</p>
+                    <img class="w-14 my-4 rounded-full" src="{{ asset('img/01.png') }}" alt="">
+                    <h1 class="font-bold font-xl">Platfrom belajar online pertama di Indonesia</h1>
+                    <p>dirancang oleh 2 murid berprestasi dari SMKN 1 Surabaya Bilal dan Naufal</p>
                 </div>
                 <div>
-                    <img class="w-14 my-4 rounded-full" src="{{ asset('img/contoh.jpg') }}" alt="">
-                    <h1>1 Lorem, ipsum.</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, enim!</p>
+                    <img class="w-14 my-4 rounded-full" src="{{ asset('img/02.png') }}" alt="">
+                    <h1 class="font-bold font-xl">Besmart terbuka untuk umum</h1>
+                    <p>Kamu bisa daftar via website BeSmart.com. Jika ada hal yang kurang jelas bisa kamu tanyakan langsung via chat</p>
                 </div>
                 <div>
-                    <img class="w-14 my-4 rounded-full" src="{{ asset('img/contoh.jpg') }}" alt="">
-                    <h1>1 Lorem, ipsum.</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, enim!</p>
+                    <img class="w-14 my-4 rounded-full" src="{{ asset('img/03.png') }}" alt="">
+                    <h1 class="font-bold font-xl">Biaya yang relatif murah</h1>
+                    <p>Untuk harganya bisa kamu liat langsung di website BeSmart, sering-sering chechk ya lumayan loh! ada banyak promo yang tersedia</p>
                 </div>
                 <div>
-                    <img class="w-14 my-4 rounded-full" src="{{ asset('img/contoh.jpg') }}" alt="">
-                    <h1>1 Lorem, ipsum.</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, enim!</p>
+                    <img class="w-14 my-4 rounded-full" src="{{ asset('img/04.png') }}" alt="">
+                    <h1 class="font-bold font-xl">Materi pembelajaran tidak perlu di ragukan </h1>
+                    <p>BeSmart terpilih jadi master theacer di kampus ternama di Indonesia loh</p>
                 </div>
                 <div>
-                    <img class="w-14 my-4 rounded-full" src="{{ asset('img/contoh.jpg') }}" alt="">
-                    <h1>1 Lorem, ipsum.</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, enim!</p>
+                    <img class="w-14 my-4 rounded-full" src="{{ asset('img/05.png') }}" alt="">
+                    <h1 class="font-bold font-xl">Anak bisa belajar dengan fleksibel</h1>
+                    <p>Bimbel online BeSmart adalah metode belajar terbaru yang kekinian karena menggunakan gadget. Selain itu, karena hadir dalam </p>
                 </div>
                 <div>
-                    <img class="w-14 my-4 rounded-full" src="{{ asset('img/contoh.jpg') }}" alt="">
-                    <h1>1 Lorem, ipsum.</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, enim!</p>
+                    <img class="w-14 my-4 rounded-full" src="{{ asset('img/06.png') }}" alt="">
+                    <h1 class="font-bold font-xl">Materi pelajaran lengkap tersedia</h1>
+                    <p>Anda tak perlu khawatir, BeSmart menyediakan materi pelajaran secara lengkap. Mulai dari tingkatan SD, SMP, SMA, hingga SMK!</p>
                 </div>
             </div>
         </section>
@@ -94,12 +92,10 @@
                 <div class="flex flex-1 flex-col items-center lg:items-start justify-items-center items-center"
                     data-aos="fade-up-left" data-aos-duration="1500">
                     <h2 class="text-bookmark-blue text-3xl md:text-4 lg:text-5xl text-center lg:text-left mb-10">
-                        Lorem, ipsum dolor.`
+                        Sejarah BeSmart
                     </h2>
                     <p class="text-bookmark-grey text-lg text-center lg:text-left mb-6">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, accusantium sunt quos sapiente
-                        beatae vel totam delectus sed quo, dolore corrupti asperiores quasi iure! Atque repudiandae
-                        consequatur provident ullam quo.
+                        Sejarah. BeSmart didirikan pada April 2022 oleh Muhammad Bilal dan Muhammad Naufal Dzaki Ardani untuk membantu para pelajar menemukan berbagai pembimbing di dunia maya. Belva merupakan lulusan Universitas Teknologi Nanyang dengan gelar ganda (double degree) di bidang bisnis dan ilmu komputer
                     </p>
                     <div class="grid md:grid-flow-ro    w grid-flow-col grid-cols-3 grid-rows-1 gap-12 text-center">
                         <div>
@@ -348,16 +344,13 @@
                 <div class="flex flex-1 flex-col items-center lg:items-start justify-items-center items-center"
                     data-aos="fade-up-left" data-aos-duration="1500">
                     <h2 class="text-bookmark-blue text-3xl md:text-4 lg:text-5xl text-center lg:text-left mb-10">
-                        Lorem, ipsum dolor.`
+                        Apa Keunggulan BeSmart?
                     </h2>
                     <p class="text-bookmark-grey text-lg text-center lg:text-left mb-6">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, accusantium sunt quos sapiente
-                        beatae vel totam delectus sed quo, dolore corrupti asperiores quasi iure! Atque repudiandae
-                        consequatur provident ullam quo.lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Error
-                        odio natus assumenda ullam aut, obcaecati consectetur. Tempore nam unde dignissimos facere ipsam
-                        quae
-                        sit magni fugiat enim, consequuntur voluptatibus magnam?
+                        Besmart adalah aplikasi belajar online yang menyediakan layanan bimbel (bimbingan belajar) terbaik dan terbesar di Indonesia, dimana akan membantu siswa dalam menyelesaikan permasalahan belajar.
                     </p>
+                    <p>
+                        Dengan aplikasi bimbingan belajar online BeSmart, kamu akan dimudahkan dalam memahami beragam materi pelajaran serta dapat diakses kapan pun dan di mana pun. Sampai dengan saat ini 75% total pelajar di Indonesia telah mempercayakan Ruangguru sebagai solusi belajar terbaik.</p>
 
                 </div>
             </div>
@@ -368,7 +361,8 @@
                 class="flex flex-col md:flex-row bg-gradient-to-r
                                                                                                                                                                                                                                                                                                                                                                                                                                             from-purple-600 to-blue-500 px-16 py-20 rounded-3xl justify-between max-w-6xl mx-auto">
                 <div>
-                    <h1 class="text-3xl font-bold text-white">Lorem ipsum dolor, sit amet consectetur adipisicing.</h1>
+                    <h1 class="text-3xl font-bold text-white">Semua kebutuhan belajar kamu ada di BeSmarts!
+                    </h1>
                 </div>
                 <div class="flex flex-col md:flex-row justify-center pt-10 md:pt-0" style="width: 24vw">
                     <button type="button" class="btn bg-white" style="width: 120%">Lets Get Started</button>
@@ -382,7 +376,7 @@
         <footer class="pt-36 mb-10" data-aos="fade-up" data-aos-duration="1500">
             <div class="flex flex-col md:flex-row justify-between text-center md:text-start">
                 <div>
-                    <h1 class="text-2xl font-semibold pt-5">logo.</h1>
+                    <h1 class="text-2xl font-semibold pt-5">BeSmart</h1>
                     <p class="text-gray-500 py-5">1920 Holden Street San Deig. CA 9182</p>
                     <p class="pb-5">Call us: +62 918092810</p>
                     <i class="fab fa-facebook"></i>
