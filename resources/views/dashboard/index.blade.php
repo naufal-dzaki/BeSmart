@@ -53,12 +53,14 @@
                             </td>
                             <tbody>
                                 @foreach ($tugas as $tugas)
+                                @if($tugas->subject->grade_id == auth()->user()->grade_id)
                                     <tr>
                                         <th>{{ $loop->iteration }}</th>
                                         <td>{{ $tugas->subject->name }}</td>
                                         <td>{{ $tugas->judul }}</td>
                                         <td>{{ $tugas->bab }}</td>
                                     </tr>
+                                @endif
                                 @endforeach
                             </tbody>
                         </table>
@@ -80,12 +82,14 @@
                             </td>
                             <tbody>
                                 @foreach ($materi as $materi)
+                                @if($materi->subject->grade_id == auth()->user()->grade_id)
                                     <tr>
                                         <th>{{ $loop->iteration }}</th>
                                         <td>{{ $materi->subject->name }}</td>
                                         <td>{{ $materi->judul }}</td>
                                         <td>{{ $materi->bab }}</td>
                                     </tr>
+                                @endif
                                 @endforeach
                             </tbody>
                         </table>
