@@ -4,13 +4,6 @@
         <a href="index.html" class="text-bwhite text-2xl font-semibold uppercase hover:text-gray-300">BeSmart</a>
     </div>
     <nav class="text-white text-base font-semibold pt-3">
-<<<<<<< HEAD
-        <a href="/dashboard/biodata" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item {{ Request::is('dashboard') ? 'active-nav-link' : '' }} {{ Request::is('dashboard/biodata') ? 'active-nav-link' : '' }} ">
-            <i data-feather="users" class="mr-3 text-bwhite "></i>
-            Biodata Siswa
-        </a>
-        <a href="/dashboard/task" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item {{ Request::is('dashboard/task') ? 'active-nav-link' : '' }}">
-=======
         <a href="/dashboard" data-turbolink="true" class="flex items-center text-white py-4 pl-6 nav-item {{ Request::is('dashboard') ? 'active-nav-link' : '' }}">
             <i class="fas fa-tachometer-alt mr-3"></i>
             Dashboard
@@ -20,7 +13,6 @@
             Biodata Siswa
         </a>
         <a href="/dashboard/task" data-turbolink="true" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
->>>>>>> 93c6bd37ad9e8aa9c92af6f4b4e4f7d255044c46
             <i data-feather="edit-3" class="mr-3 text-bwhite "></i>
             Tugas
         </a>
@@ -28,23 +20,12 @@
             <i data-feather="book-open" class="mr-3 text-bwhite "></i>
             Materi
         </a>
-<<<<<<< HEAD
-        <a href="/dashboard/motivasi" data-turbolink="true" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item  {{ Request::is('dashboard/motivasi*') ? 'active-nav-link' : '' }}">
-=======
-<<<<<<< HEAD
-        <a href="/dashboard/motivasi" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item {{ Request::is('dashboard/motivasi') ? 'active-nav-link' : '' }}">
-            <i data-feather="file-text" class="mr-3 text-bwhite "></i>
-            Motivasi
-        </a>
-        <a href="/dashboard/presensi" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item {{ Request::is('dashboard/presensi') ? 'active-nav-link' : '' }}">
-=======
+
         <a href="/dashboard/motivasi" data-turbolink="true" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
->>>>>>> 49e4b188a97e5dc2ebd8e1bd2ac0bd3010ac5f01
             <i data-feather="file-text" class="mr-3 text-bwhite "></i>
             Motivasi
         </a>
         <a href="/dashboard/presensi" data-turbolink="true" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
->>>>>>> 93c6bd37ad9e8aa9c92af6f4b4e4f7d255044c46
             <i data-feather="clock" class="mr-3 text-bwhite "></i>
             Laporan Presensi
         </a>

@@ -64,17 +64,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('chat/store', [ChatController::class, 'store'])
         ->name('chat.store');
 
-<<<<<<< HEAD
-    Route::get('/dashboard', function () {
-        return view('dashboard.biodata.index', [
-            'biodata' => Biodata::all()
-        ]);
-    })->name('dashboard');
-=======
-    // Route::get('/dashboard', function () {return view('dashboard.index');})->name('dashboard');
-    // Route::get('/dashboard', [DashboardController::class, 'index']);
-    Route::get('/dashboard', [DashboardController::class, 'index']);
->>>>>>> 93c6bd37ad9e8aa9c92af6f4b4e4f7d255044c46
+
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::get('/dashboard/materi/checkSlug', [DashboardMateriController::class, 'checkSlug']);
     Route::get('/dashboard/materi', [DashboardMateriController::class, 'index'])
