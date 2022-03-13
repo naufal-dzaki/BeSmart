@@ -14,12 +14,11 @@
                         BeSmart
                     </h2>
                     <p class="text-bookmark-grey text-lg text-center lg:text-left mb-6">
-                        Besmart is an online learning application that provides the best and largest tutoring service in
-                        Indonesia, which will help students and teachers in learning and teaching.
+                        Besmart adalah aplikasi belajar online yang menyediakan layanan bimbingan belajar terbaik dan terbesar di Indonesia, yang akan membantu siswa dan guru dalam belajar dan mengajar.
                     </p>
                     <div class="flex justify-center flex-wrap gap-6">
                         <button type="button" class="btn bg-gradient-to-r from-purple-600 to-blue-500 text-white hover:bg-white hover:text-black">
-                            Email now ->
+                            Daftar Sekarang ->
                         </button>
                     </div>
                 </div>
@@ -37,10 +36,10 @@
         <section class="flex flex-col gap-x-5 lg:flex-row my-36" data-aos="fade-up" data-aos-duration="1500">
             {{-- item kiri --}}
             <div class="px-10 mt-24">
-                <h1 class="text-3xl font-bold">Why Choose</h1>
+                <h1 class="text-3xl font-bold">Mengapa Memilih</h1>
                 <h1 class="text-3xl font-bold text-purple-700">BeSmart</h1>
-                <p>BeSmart is the best application in the world of education and can make it easier for students and
-                    teachers to learn and teach</p>
+                    <p>BeSmart merupakan aplikasi terbaik di dunia pendidikan dan dapat memudahkan siswa dan
+                        Guru untuk belajar dan mengajar</p>
             </div>
             {{-- item kanan --}}
             <div
@@ -95,7 +94,7 @@
                         Sejarah BeSmart
                     </h2>
                     <p class="text-bookmark-grey text-lg text-center lg:text-left mb-6">
-                        Sejarah. BeSmart didirikan pada April 2022 oleh Muhammad Bilal dan Muhammad Naufal Dzaki Ardani untuk membantu para pelajar menemukan berbagai pembimbing di dunia maya. Belva merupakan lulusan Universitas Teknologi Nanyang dengan gelar ganda (double degree) di bidang bisnis dan ilmu komputer
+                        BeSmart didirikan pada April 2022 oleh Muhammad Bilal dan Muhammad Naufal Dzaki Ardani untuk membantu para pelajar menemukan berbagai pembimbing di dunia maya. Belva merupakan lulusan Universitas Teknologi Nanyang dengan gelar ganda (double degree) di bidang bisnis dan ilmu komputer
                     </p>
                     <div class="grid md:grid-flow-ro    w grid-flow-col grid-cols-3 grid-rows-1 gap-12 text-center">
                         <div>
