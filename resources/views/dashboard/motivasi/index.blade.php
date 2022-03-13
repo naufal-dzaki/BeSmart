@@ -3,19 +3,10 @@
 @section('DashboardContent')
 @include('dashboard.theme')
     <h1 class="text-3xl text-black pb-4">Motivasi</h1>
-    {{-- @foreach ($motivations as $motivation)
-        <div class="filter drop-shadow-md rounded-2xl">
-            <a href="/home/{{ $motivation->slug }}" class="flex">
-                <h1
-                    class="font-bdisplay text-bblack lg:text-3xl md:text-2xl sm:text-xl xsm:text-lg text-base font-bold ml-5 my-auto">
-                    {{ $motivation->judul }}</h1>
-            </a>
-        </div> --}}
-
         <a href="/dashboard/motivasi/create" class="btn btn-active btn-primary"><i data-feather="file-plus"
                 class="mr-2 text-bwhite "></i>Buat Tugas Baru</a>
 
-        <div class="overflow-x-auto w-full bg-bwhite">
+        <div class="text-blue bg-white lg:order-1 p-3 lg:row-span-1 2xl:row-span-1 lg:col-span-2 rounded-lg shadow-xl mb-3 lg:mb-0">
             <table class="table table-compact w-full">
                 <thead>
                     <tr>

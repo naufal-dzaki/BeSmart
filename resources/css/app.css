@@ -1,3 +1,12 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.btn {
+    @apply shadow-md py-3 px-6 transition duration-300;
+}
+
+.btn-primary {
+    /* @apply hover:bg-white hover:text-prime hover:border-prime hover:border-1 */
+    @apply bg-gradient-to-r from-purple-600 to-blue-500 hover: bg-white text-white hover:text-bblue hover:border-bblue border-0
+}

@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tailwind Admin Template</title>
+<<<<<<< HEAD
+    <title>Admin</title>
+=======
+    <title>Besmart | Admin</title>
+>>>>>>> d04b229c4869fbce02f3f36256b78ec1914abf6e
     <meta name="author" content="David Grzyb">
     <meta name="description" content="">
 
@@ -60,6 +64,7 @@
 
     </div>
 
+    <script src="{{ mix('js/app.js') }}"></script>
     <!-- AlpineJS -->
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <!-- Font Awesome -->
@@ -71,5 +76,7 @@
     <script>
         feather.replace()
     </script>
+
+
 </body>
 </html>

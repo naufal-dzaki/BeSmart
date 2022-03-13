@@ -1,6 +1,11 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
+    content: [
+        "./resources/**/*.blade.php",
+        "./resources/**/*.js",
+        "./resources/**/*.vue",
+    ],
     purge: [
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
         './storage/framework/views/*.php',
@@ -15,11 +20,11 @@ module.exports = {
                 'min-99': -99,
             },
             minWidth: {
-                'screen' : '100vw'
+                'screen': '100vw'
             },
             maxWidth: {
                 '1/2': '50%',
-                '20' : '80px'
+                '20': '80px'
             },
             maxHeight: {
                 '1/2': '50%',
@@ -42,14 +47,14 @@ module.exports = {
             },
             container: {
                 fontFamily: {
-                  Poppins: ["Poppins, sans-serif"]
+                    Poppins: ["Poppins, sans-serif"]
                 },
                 center: true,
                 padding: "1rem",
                 screen: {
-                  lg: "1124px",
-                  xl: "1124px",
-                  "2xl": "1124px",
+                    lg: "1124px",
+                    xl: "1124px",
+                    "2xl": "1124px",
                 },
             },
         },
@@ -61,6 +66,6 @@ module.exports = {
         },
     },
 
-    plugins: [require('@tailwindcss/forms'),],
+    plugins: [require('@tailwindcss/forms'), ],
 
 };
