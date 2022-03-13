@@ -24,6 +24,7 @@
     "dependencies": {
         "daisyui": "^2.1.0",
         "feather-icons": "^4.28.0",
+        "rails-ujs": "^5.2.7",
         "turbolinks": "^5.2.0"
     }
 }
