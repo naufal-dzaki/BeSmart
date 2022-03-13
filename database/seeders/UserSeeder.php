@@ -18,7 +18,15 @@ class UserSeeder extends Seeder
     {
                 //user
                 User::Create([
-                    'id' => 1,
+                    // 'id' => 1,
+                    'name' => 'Pak Arsyad',
+                    'level' => 'guru',
+                    'grade_id' => '1',
+                    'email' => 'pakarsyad@gmail.com',
+                    'password' => bcrypt('password')
+                ]);
+                User::Create([
+                    // 'id' => 1,
                     'name' => 'naufal',
                     'level' => 'siswa',
                     'grade_id' => '2',
@@ -26,7 +34,7 @@ class UserSeeder extends Seeder
                     'password' => bcrypt('password')
                 ]);
                 User::Create([
-                    'id' => 2,
+                    // 'id' => 2,
                     'name' => 'bilal',
                     'level' => 'siswa',
                     'grade_id' => '1',
@@ -64,8 +72,9 @@ class UserSeeder extends Seeder
 
                 for ($i = $total+1; $i <= $total+10; $i++) {
                     $user = User::Create([
-                        'id' => $i,
+                        // 'id' => $i,
                         'name' => $faker->name,
+                        'level' => 'siswa',
                         'grade_id' => '2',
                         'email' => $faker->email,
                         'password' => bcrypt('password')
