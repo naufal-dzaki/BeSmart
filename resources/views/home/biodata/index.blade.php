@@ -25,7 +25,7 @@
                     <div class="block">
                         <h1
                         class="font-bserif lg:text-4xl md:text-3xl sm:text-2xl text-xl text-bblue font-bold md:ml-4 sm:ml-3 ml-2 md:mt-2 mt-1">
-                        bilal</h1>
+                        {{ auth()->user()->name }}</h1>
                         <div class="flex">
                             <div
                             class="bg-bblue  rounded-md md:w-16 sm:w-14 w-12 py-1 h-auto ml-4 mt-3">

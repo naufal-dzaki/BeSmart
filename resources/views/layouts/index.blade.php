@@ -118,8 +118,7 @@
         {{-- content 4 --}}
         <section class="py-40" data-aos="fade-up" data-aos-duration="2500">
             <div class="text-2xl font-bold pb-14 pl-10 md:pl-28">
-                <h1>Discus The Variety</h1>
-                <h1>Of Cources Here</h1>
+                <h1>Fitur Utama BeSmart</h1>
             </div>
 
             {{-- slideshow --}}
@@ -129,191 +128,22 @@
                 <div class="mySlides fade">
                     <div class="flex md:flex-none px-16 justify-center gap-4">
                         <div class="box-border md:box-content max-w-xs hidden md:inline">
-                            <img class="rounded-xl pb-3" src="{{ asset('img/contoh.jpg') }}" alt="">
-                            <h1 class="font-semibold text-xl py-2">judul</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla impedit ratione aut natus?
-                                Quas,
-                                exercitationem!</p>
-                            <div class="flex gap-4 py-3">
-                                <h1 class="font-semibold text-xl">4.5</h1>
-                                <div>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                </div>
-                                <p>(1093)</p>
-                            </div>
-                            <h1 class="font-semibold text-xl text-red-500">$450</h1>
+                            <img class="rounded-xl pb-3 w-36 bg-balt p-5" src="{{ asset('img/Absen.png') }}" alt="">
+                            <h1 class="font-semibold text-xl py-2">Fitur Presensi</h1>
+                            <p>Fitur Utama pada Besmart yaitu presensi. Fitur ini berguna untuk memudahkan guru untuk mengetahui daftar kehadiran siswanya</p>
                         </div>
                         <div class="box-border md:box-content max-w-xs hidden md:inline">
-                            <img class="rounded-xl pb-3" src="{{ asset('img/contoh.jpg') }}" alt="">
-                            <h1 class="font-semibold text-xl py-2">judul</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla impedit ratione aut natus?
-                                Quas,
-                                exercitationem!</p>
-                            <div class="flex gap-4 py-3">
-                                <h1 class="font-semibold text-xl">4.5</h1>
-                                <div>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                </div>
-                                <p>(1093)</p>
-                            </div>
-                            <h1 class="font-semibold text-xl text-red-500">$450</h1>
+                            <img class="rounded-xl pb-3 w-36 bg-balt p-5" src="{{ asset('img/tugas.png') }}" alt="">
+                            <h1 class="font-semibold text-xl py-2">Tugas</h1>
+                            <p>fitur yang kedua yaitu tugas. Fitur ini berguna untuk memudahkan guru memberi tugas kepada siswa-siswanya.</p>
                         </div>
                         <div class="box-border md:box-content max-w-xs">
-                            <img class="rounded-xl pb-3" src="{{ asset('img/contoh.jpg') }}" alt="">
-                            <h1 class="font-semibold text-xl py-2">judul</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla impedit ratione aut natus?
-                                Quas,
-                                exercitationem!</p>
-                            <div class="flex gap-4 py-3">
-                                <h1 class="font-semibold text-xl">4.5</h1>
-                                <div>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                </div>
-                                <p>(1093)</p>
-                            </div>
-                            <h1 class="font-semibold text-xl text-red-500">$450</h1>
+                            <img class="rounded-xl pb-3 w-36 bg-balt p-5" src="{{ asset('img/materi.png') }}" alt="">
+                            <h1 class="font-semibold text-xl py-2">Materi</h1>
+                            <p>Fitur yang ketiga yaitu Materi. Fitur ini berguna untuk memudahkan guru memberi materi kepada siswa-siswanya</p>
                         </div>
                     </div>
                 </div>
-
-                {{-- slide kedua --}}
-                <div class="mySlides fade">
-                    <div class="flex px-16 justify-center gap-4">
-                        <div class="box-border md:box-content max-w-xs hidden md:inline">
-                            <img class="rounded-xl pb-3" src="{{ asset('img/contoh.jpg') }}" alt="">
-                            <h1 class="font-semibold text-xl py-2">judul</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla impedit ratione aut natus?
-                                Quas,
-                                exercitationem!</p>
-                            <div class="flex gap-4 py-3">
-                                <h1 class="font-semibold text-xl">4.5</h1>
-                                <div>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                </div>
-                                <p>(1093)</p>
-                            </div>
-                            <h1 class="font-semibold text-xl text-red-500">$450</h1>
-                        </div>
-                        <div class="box-border md:box-content max-w-xs hidden md:inline">
-                            <img class="rounded-xl pb-3" src="{{ asset('img/contoh.jpg') }}" alt="">
-                            <h1 class="font-semibold text-xl py-2">judul</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla impedit ratione aut natus?
-                                Quas,
-                                exercitationem!</p>
-                            <div class="flex gap-4 py-3">
-                                <h1 class="font-semibold text-xl">4.5</h1>
-                                <div>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                </div>
-                                <p>(1093)</p>
-                            </div>
-                            <h1 class="font-semibold text-xl text-red-500">$450</h1>
-                        </div>
-                        <div class="box-border md:box-content max-w-xs">
-                            <img class="rounded-xl pb-3" src="{{ asset('img/contoh.jpg') }}" alt="">
-                            <h1 class="font-semibold text-xl py-2">judul</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla impedit ratione aut natus?
-                                Quas,
-                                exercitationem!</p>
-                            <div class="flex gap-4 py-3">
-                                <h1 class="font-semibold text-xl">4.5</h1>
-                                <div>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                </div>
-                                <p>(1093)</p>
-                            </div>
-                            <h1 class="font-semibold text-xl text-red-500">$450</h1>
-                        </div>
-                    </div>
-                </div>
-
-                {{-- slide ketiga --}}
-                <div class="mySlides fade">
-                    <div class="flex px-16 justify-center gap-4">
-                        <div class="box-border md:box-content max-w-xs hidden md:inline">
-                            <img class="rounded-xl pb-3" src="{{ asset('img/contoh.jpg') }}" alt="">
-                            <h1 class="font-semibold text-xl py-2">judul</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla impedit ratione aut natus?
-                                Quas,
-                                exercitationem!</p>
-                            <div class="flex gap-4 py-3">
-                                <h1 class="font-semibold text-xl">4.5</h1>
-                                <div>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                </div>
-                                <p>(1093)</p>
-                            </div>
-                            <h1 class="font-semibold text-xl text-red-500">$450</h1>
-                        </div>
-                        <div class="box-border md:box-content max-w-xs hidden md:inline">
-                            <img class="rounded-xl pb-3" src="{{ asset('img/contoh.jpg') }}" alt="">
-                            <h1 class="font-semibold text-xl py-2">judul</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla impedit ratione aut natus?
-                                Quas,
-                                exercitationem!</p>
-                            <div class="flex gap-4 py-3">
-                                <h1 class="font-semibold text-xl">4.5</h1>
-                                <div>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                </div>
-                                <p>(1093)</p>
-                            </div>
-                            <h1 class="font-semibold text-xl text-red-500">$450</h1>
-                        </div>
-                        <div class="box-border md:box-content max-w-xs">
-                            <img class="rounded-xl pb-3" src="{{ asset('img/contoh.jpg') }}" alt="">
-                            <h1 class="font-semibold text-xl py-2">judul</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla impedit ratione aut natus?
-                                Quas,
-                                exercitationem!</p>
-                            <div class="flex gap-4 py-3">
-                                <h1 class="font-semibold text-xl">4.5</h1>
-                                <div>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                </div>
-                                <p>(1093)</p>
-                            </div>
-                            <h1 class="font-semibold text-xl text-red-500">$450</h1>
-                        </div>
-                    </div>
-                </div>
-
 
                 <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                 <a class="next" onclick="plusSlides(1)">&#10095;</a>
