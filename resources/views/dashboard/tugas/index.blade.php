@@ -2,7 +2,8 @@
 @extends('dashboard.main')
 
 @section('DashboardContent')
-    <h1 class="text-3xl text-black pb-4">Dashboard</h1>
+@include('dashboard.theme')
+<h1 class="text-3xl text-black pb-4">Dashboard</h1>
 
     @if (session()->has('success'))
         <div class="alert shadow-lg bg-green-400">

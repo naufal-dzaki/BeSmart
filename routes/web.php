@@ -14,7 +14,7 @@ use App\Http\Controllers\DashboardMateriController;
 use App\Http\Controllers\DashboardPresensiController;
 use App\Http\Controllers\DashboardTaskController;
 use App\Http\Controllers\DashboardMotivasiController;
-use App\Models\Motivation;
+use App\Models\Biodata;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,7 +64,9 @@ Route::group(['middleware' => 'auth'], function () {
         ->name('chat.store');
 
     Route::get('/dashboard', function () {
-        return view('dashboard.index');
+        return view('dashboard.biodata.index', [
+            'biodata' => Biodata::all()
+        ]);
     })->name('dashboard');
 
     Route::get('/dashboard/materi/checkSlug', [DashboardMateriController::class, 'checkSlug']);
@@ -119,6 +121,8 @@ Route::group(['middleware' => 'auth'], function () {
         ->name('rekap-presensi-admin');
     Route::get('/cetak-laporan', [DashboardPresensiController::class, 'cetakLaporan'])
         ->name('cetak-laporan');
+    Route::get('/test', [DashboardPresensiController::class, 'test'])
+        ->name('test');
 
     // motivasi
     Route::get('/dashboard/motivasi/checkSlug', [DashboardMotivasiController::class, 'checkSlug']);

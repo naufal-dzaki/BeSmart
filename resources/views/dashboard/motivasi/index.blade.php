@@ -1,6 +1,7 @@
 @extends('dashboard.main')
 
 @section('DashboardContent')
+@include('dashboard.theme')
     <h1 class="text-3xl text-black pb-4">Motivasi</h1>
     {{-- @foreach ($motivations as $motivation)
         <div class="filter drop-shadow-md rounded-2xl">

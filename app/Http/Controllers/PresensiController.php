@@ -52,7 +52,6 @@ class PresensiController extends Controller
 
         $dt = [
             'jam_keluar' => $localtime,
-            'jam_kerja' => date('H:i:s', strtotime($localtime) - strtotime($presensi->jam_masuk))
         ];
 
         if ($presensi->jam_keluar == "") {
@@ -63,8 +62,8 @@ class PresensiController extends Controller
         }
     }
 
-    public function rekapPresensiKaryawan() {
-        $presensi = Presensi::with('user')->get();
-        return view('user.rekap-presensi', compact('presensi'));
-    }
+    // public function rekapPresensiKaryawan() {
+    //     $presensi = Presensi::with('user')->get();
+    //     return view('user.rekap-presensi', compact('presensi'));
+    // }
 }

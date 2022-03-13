@@ -2,6 +2,7 @@
 @extends('dashboard.main')
 
 @section('DashboardContent')
+@include('dashboard.theme')
 <div class="lg:my-6 md:my-5 sm:my-4 my-3">
 
     <div class="max-w-screen-xl px-4 mx-auto md:items-center md:justify-center md:flex-row md:px-8 lg:px-8 py-5 mt-4 w-10/12">

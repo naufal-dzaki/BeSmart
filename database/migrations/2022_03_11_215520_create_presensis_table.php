@@ -19,7 +19,7 @@ class CreatePresensisTable extends Migration
             $table->date('tgl');
             $table->time('jam_masuk')->nullable();
             $table->time('jam_keluar')->nullable();
-            $table->time('jam_kerja')->nullable();
+            // $table->time('jam_kerja')->nullable();
             $table->timestamps();
         });
     }

@@ -27,4 +27,9 @@ class DashboardPresensiController extends Controller
         // Output the generated PDF to Browser
         $dompdf->stream();
       }
+
+      public function test(){
+        $presensi = Presensi::with('user')->get();
+        return view('dashboard.presensi.cetak', compact('presensi'));
+      }
 }
