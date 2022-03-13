@@ -20,7 +20,7 @@
             <i data-feather="book-open" class="mr-3 text-bwhite "></i>
             Materi
         </a>
-        <a href="/dashboard/motivasi" data-turbolink="true" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+        <a href="/dashboard/motivasi" data-turbolink="true" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item  {{ Request::is('dashboard/motivasi*') ? 'active-nav-link' : '' }}">
             <i data-feather="file-text" class="mr-3 text-bwhite "></i>
             Motivasi
         </a>

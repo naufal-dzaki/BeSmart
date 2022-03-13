@@ -36,15 +36,14 @@
         </section>
 
         {{-- feature --}}
-        <section class="flex flex-col lg:flex-row my-36" data-aos="fade-up" data-aos-duration="1500">
+        <section class="flex flex-col gap-x-5 lg:flex-row my-36" data-aos="fade-up" data-aos-duration="1500">
             {{-- item kiri --}}
-            <div class="px-10 pb-10 md:pb-10">
+            <div class="px-10 pb-10 md:pb-10 mt-24">
                 <h1 class="text-3xl font-bold">Why Choose</h1>
                 <h1 class="text-3xl font-bold text-purple-700">BeSmart</h1>
                 <p>BeSmart is the best application in the world of education and can make it easier for students and
                     teachers to learn and teach</p>
             </div>
-
             {{-- item kanan --}}
             <div
                 class="grid grid-flow-row md:grid-cols-3 md:grid-rows-3 gap-4 md:my-0 my-10 mx-10 md:mx-0 justify-items-stretch inset-x-0">
@@ -83,7 +82,7 @@
 
         {{-- content 3 --}}
         <section class="relative content" id="home">
-            <div class="container flex flex-col lg:flex-row items-center gap-12 mt-14 lg:mt-28">
+            <div class="container flex flex-col lg:flex-row items-center gap-12">
                 <!-- Image -->
                 <div class=" flex-1 mb-10 md:mb-16 lg:mb-0 z-10" data-aos="fade-up-right" data-aos-duration="1500">
                     <img class="w-5/6 h-5/6 sm:w-3/4 sm:h-3/4 md:w-full md:h-full" src="{{ asset('img/section2.png') }}"
@@ -372,12 +371,8 @@
                     <h1 class="text-3xl font-bold text-white">Lorem ipsum dolor, sit amet consectetur adipisicing.</h1>
                 </div>
                 <div class="flex flex-col md:flex-row justify-center pt-10 md:pt-0" style="width: 24vw">
-                    {{-- <div class="pr-0 md:pr-3"> --}}
                     <button type="button" class="btn bg-white" style="width: 120%">Lets Get Started</button>
-                    {{-- </div> --}}
-                    {{-- <div> --}}
-                    <button class="btn hover:bg-white border-2 border-white mt-3 md:mt-0 w-full">Contact us</button>
-                    {{-- </div> --}}
+                    <button class="btn hover:bg-white border-2 border-white mt-3 md:mt-0 w-full text-white hover:text-black">Contact us</button>
                 </div>
             </div>
         </section>
@@ -419,7 +414,7 @@
                     </div>
                 </div>
             </div>
-            <p class="mt-10 text-center">Copy right, by Bilal</p>
+            <p class="mt-10 text-center">Copy right, by BeSmart</p>
 
         </footer>
     </div>
