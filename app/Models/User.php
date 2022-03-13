@@ -57,4 +57,8 @@ class User extends Authenticatable
     public function presensi() {
         return $this->hasMany(Presensi::class);
     }
+
+    public function biodata(){
+        return $this->hasOne(Biodata::class);
+    }
 }

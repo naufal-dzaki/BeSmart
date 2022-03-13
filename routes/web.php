@@ -15,7 +15,7 @@ use App\Http\Controllers\DashboardMateriController;
 use App\Http\Controllers\DashboardPresensiController;
 use App\Http\Controllers\DashboardTaskController;
 use App\Http\Controllers\DashboardMotivasiController;
-use App\Models\Motivation;
+use App\Models\Biodata;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,9 +64,17 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('chat/store', [ChatController::class, 'store'])
         ->name('chat.store');
 
+<<<<<<< HEAD
+    Route::get('/dashboard', function () {
+        return view('dashboard.biodata.index', [
+            'biodata' => Biodata::all()
+        ]);
+    })->name('dashboard');
+=======
     // Route::get('/dashboard', function () {return view('dashboard.index');})->name('dashboard');
     // Route::get('/dashboard', [DashboardController::class, 'index']);
     Route::get('/dashboard', [DashboardController::class, 'index']);
+>>>>>>> 93c6bd37ad9e8aa9c92af6f4b4e4f7d255044c46
 
     Route::get('/dashboard/materi/checkSlug', [DashboardMateriController::class, 'checkSlug']);
     Route::get('/dashboard/materi', [DashboardMateriController::class, 'index'])
@@ -120,6 +128,8 @@ Route::group(['middleware' => 'auth'], function () {
         ->name('rekap-presensi-admin');
     Route::get('/cetak-laporan', [DashboardPresensiController::class, 'cetakLaporan'])
         ->name('cetak-laporan');
+    Route::get('/test', [DashboardPresensiController::class, 'test'])
+        ->name('test');
 
     // motivasi
     Route::get('/dashboard/motivasi/checkSlug', [DashboardMotivasiController::class, 'checkSlug']);

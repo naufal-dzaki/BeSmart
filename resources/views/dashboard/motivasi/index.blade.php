@@ -1,6 +1,7 @@
 @extends('dashboard.main')
 
 @section('DashboardContent')
+@include('dashboard.theme')
     <h1 class="text-3xl text-black pb-4">Motivasi</h1>
     <a href="/dashboard/motivasi/create" class="btn btn-active btn-primary" data-aos="zoom-in" data-aos-duration="1500"><i
             data-feather="file-plus" class="mr-2 text-bwhite"></i>Buat Motivasi Baru</a>

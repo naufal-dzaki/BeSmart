@@ -9,7 +9,11 @@ use App\Models\Post;
 class SubjectController extends Controller
 {
     public function index(Subject $Subject){
+<<<<<<< HEAD
         $materi = $Subject->posts->where('tipe', 0)->all();
+=======
+        $materi = $Subject->posts->where('tipe', 0)->load('subject')->all();
+>>>>>>> 49e4b188a97e5dc2ebd8e1bd2ac0bd3010ac5f01
 
         return view('home.subject.materi', [
             'title' => $Subject->name,

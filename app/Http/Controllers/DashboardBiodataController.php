@@ -11,7 +11,6 @@ class DashboardBiodataController extends Controller
     public function index(){
         return view('dashboard.biodata.index', [
             'biodata' => Biodata::all()
-            // 'biodata' => Biodata::where('grade_id', auth()->user()->grade_id)->get()
         ]);
     }
 }

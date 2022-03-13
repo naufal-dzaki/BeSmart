@@ -20,10 +20,10 @@
     @endif
 
     <div class="overflow-x-auto w-full bg-bwhite">
-        <table class="table table-compact w-full">
+        <table class="table table-compact w-full text-center">
             <thead>
                 <tr>
-                    <th></th>
+                    <th>#</th>
                     <th>Nama</th>
                     <th>Tanggal</th>
                     <th>Jam Masuk</th>
