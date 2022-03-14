@@ -26,10 +26,8 @@ class DashboardPresensiController extends Controller
         $dompdf->render();
         // Output the generated PDF to Browser
         $dompdf->stream();
+
+        return redirect()->intended('cetak-laporan');
       }
 
-      public function test(){
-        $presensi = Presensi::with('user')->get();
-        return view('dashboard.presensi.cetak', compact('presensi'));
-      }
 }

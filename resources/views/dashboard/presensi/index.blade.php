@@ -44,6 +44,6 @@
         </table>
     </div>
     <div class="bg-bblue w-36 rounded-lg mt-2 ml-2 px-2 py-2 ">
-        <a href="{{ route('cetak-laporan') }}" class="flex text-center text-bwhite font-bold"><i data-feather="printer" class="mr-1 text-bwhite "></i> Cetak Laporan </a>
+        <a href="{{ route('cetak-laporan') }}" target="_parent" class="flex text-center text-bwhite font-bold"><i data-feather="printer" class="mr-1 text-bwhite "></i> Cetak Laporan </a>
     </div>
 @endsection

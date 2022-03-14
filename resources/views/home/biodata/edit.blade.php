@@ -113,6 +113,7 @@
             </div>
 
             <button type="submit" class="bg-bblue rounded-2xl mt-6 ml-2 px-3 py-2 flex text-center text-bwhite font-bold">Simpan</button>
+            {{-- <button type="submit" class="bg-bblue rounded-2xl mt-6 ml-2 px-3 py-2 flex text-center text-bwhite font-bold">Simpan</button> --}}
 
         </div>
 
