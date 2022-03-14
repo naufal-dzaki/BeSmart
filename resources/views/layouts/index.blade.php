@@ -125,19 +125,19 @@
 
                 {{-- slide pertama --}}
                 <div class="mySlides fade">
-                    <div class="flex md:flex-none px-16 justify-center gap-4">
+                    <div class="flex md:flex-none px-16 gap-4">
                         <div class="box-border md:box-content max-w-xs hidden md:inline">
-                            <img class="rounded-xl pb-3 w-36 bg-balt p-5" src="{{ asset('img/Absen.png') }}" alt="">
+                            <img class="rounded-xl pb-3 w-36 bg-balt p-5 block mx-auto" src="{{ asset('img/Absen.png') }}" alt="">
                             <h1 class="font-semibold text-xl py-2">Fitur Presensi</h1>
                             <p>Fitur Utama pada Besmart yaitu presensi. Fitur ini berguna untuk memudahkan guru untuk mengetahui daftar kehadiran siswanya</p>
                         </div>
                         <div class="box-border md:box-content max-w-xs hidden md:inline">
-                            <img class="rounded-xl pb-3 w-36 bg-balt p-5" src="{{ asset('img/tugas.png') }}" alt="">
+                            <img class="rounded-xl pb-3 w-36 bg-balt p-5 block mx-auto" src="{{ asset('img/tugas.png') }}" alt="">
                             <h1 class="font-semibold text-xl py-2">Tugas</h1>
                             <p>fitur yang kedua yaitu tugas. Fitur ini berguna untuk memudahkan guru memberi tugas kepada siswa-siswanya.</p>
                         </div>
-                        <div class="box-border md:box-content max-w-xs">
-                            <img class="rounded-xl pb-3 w-36 bg-balt p-5" src="{{ asset('img/materi.png') }}" alt="">
+                        <div class="box-border md:box-content justify-center justify-item-center max-w-xs">
+                            <img class="rounded-xl pb-3 w-36 bg-balt p-5 block mx-auto" src="{{ asset('img/materi.png') }}" alt="">
                             <h1 class="font-semibold text-xl py-2">Materi</h1>
                             <p>Fitur yang ketiga yaitu Materi. Fitur ini berguna untuk memudahkan guru memberi materi kepada siswa-siswanya</p>
                         </div>

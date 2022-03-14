@@ -12,13 +12,13 @@
             <i data-feather="users" class="mr-3 text-bwhite "></i>
             Biodata Siswa
         </a>
-        <a href="/dashboard/task" data-turbolink="true" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item {{ Request::is('dashboard/task*') ? 'active-nav-link' : '' }}">
-            <i data-feather="edit-3" class="mr-3 text-bwhite "></i>
-            Tugas
-        </a>
         <a href="/dashboard/materi" data-turbolink="true"  class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item {{ Request::is('dashboard/materi*') ? 'active-nav-link' : '' }}">
             <i data-feather="book-open" class="mr-3 text-bwhite "></i>
             Materi
+        </a>
+        <a href="/dashboard/task" data-turbolink="true" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item {{ Request::is('dashboard/task*') ? 'active-nav-link' : '' }}">
+            <i data-feather="edit-3" class="mr-3 text-bwhite "></i>
+            Tugas
         </a>
 
         <a href="/dashboard/motivasi" data-turbolink="true" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item {{ Request::is('dashboard/motivasi') ? 'active-nav-link' : '' }}">
