@@ -124,8 +124,6 @@ Route::group(['middleware' => ['auth','ceklevel:guru']], function() {
         ->name('rekap-presensi-admin');
     Route::get('/cetak-laporan', [DashboardPresensiController::class, 'cetakLaporan'])
         ->name('cetak-laporan');
-    Route::get('/test', [DashboardPresensiController::class, 'test'])
-        ->name('test');
 
     // motivasi
     Route::get('/dashboard/motivasi/checkSlug', [DashboardMotivasiController::class, 'checkSlug']);

@@ -34,7 +34,6 @@ class UserSeeder extends Seeder
         ]);
         //user
         User::Create([
-            // 'id' => 1,
             'name' => 'Pak Arsyad',
             'level' => 'guru',
             'grade_id' => '1',

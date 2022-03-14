@@ -51,7 +51,7 @@ class DashboardTaskController extends Controller
     public function show(Post $post)
     {
         return view('dashboard.tugas.show', [
-            'motivation' => $post
+            'posts' => $post
         ]);
     }
 
