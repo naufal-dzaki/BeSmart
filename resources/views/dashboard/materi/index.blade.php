@@ -2,6 +2,7 @@
 @extends('dashboard.main')
 
 @section('DashboardContent')
+@include('dashboard.theme')
 <h1 class="text-3xl text-black pb-4">Dashboard</h1>
 
 @if(session()->has('success'))
@@ -30,6 +31,7 @@
       </thead>
       <tbody>
         @foreach ($posts as $post)
+        @if($post->subject->grade_id == auth()->user()->grade_id)
             <tr>
                 <th>{{ $loop->iteration }}</th>
                 <td>{{ $post->subject->name }}</td>
@@ -54,6 +56,7 @@
                         </form>
                     </td>
             </tr>
+        @endif
         @endforeach
       </tbody>
     </table>

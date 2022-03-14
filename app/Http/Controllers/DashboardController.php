@@ -14,7 +14,6 @@ class DashboardController extends Controller
     {
         $count['tugas'] = Post::where('user_id', auth()->user()->id)->where('tipe', 1)->with('subject')->count();
         $count['materi'] = Post::where('user_id', auth()->user()->id)->where('tipe', 0)->with('subject')->count();
-        // dd($count['materi']);
         $count['user'] = User::count();
         return view('dashboard.index', [
             'title' => ' | Home',

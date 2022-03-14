@@ -1,6 +1,7 @@
 @extends('dashboard.main')
 
 @section('DashboardContent')
+@include('dashboard.theme')
     <h1 class="text-3xl text-black pb-4">Membuat Tugas Baru</h1>
 
     <div class="form-control ">

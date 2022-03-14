@@ -22,7 +22,8 @@ class RegisteredUserController extends Controller
     public function create()
     {
         return view('auth.register', [
-            'grades' => Grade::all()
+            'grades' => Grade::all(),
+            'user' => User::all()
         ]);
     }
 
@@ -39,21 +40,25 @@ class RegisteredUserController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'grade_id' => 'required',
-            'email' => ['required', 'string', 'email:rfc,dns', 'max:255', 'unique:users'],
+            'level' => 'required',
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
         $user = User::create([
             'name' => $request->name,
             'grade_id' => $request->grade_id,
+            'level' => $request->level,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
 
         event(new Registered($user));
 
-        Auth::login($user);
+        return redirect()->intended('login');
 
-        return redirect(RouteServiceProvider::HOME);
+        // Auth::login($user);
+
+        // return redirect(RouteServiceProvider::HOME);
     }
 }

@@ -3,6 +3,7 @@
         <div class="bg-balt lg:w-24 md:w-20 sm:w-16 w-14 my-1 mx-1">
             <img src="{{ asset('img/user-profille.png') }}" class="lg:w-24 md:w-20 sm:w-16 w-14" alt="">
         </div>
+
         <div class="block">
             <div class="flex">
                 <h1
@@ -11,7 +12,7 @@
 
                     <form action="/logout" method="post">
                         @csrf
-                        <button type="submit" class="border-1 absolute lg:right-8 md:right-7 sm:right-6 right-5  md:top-0 top-3 font-bsans text-bblue md:text-base sm:text-sm text-xs">Logout</button>
+                        <button type="submit" class="border-1 absolute lg:right-8 md:right-7 sm:right-6 right-5  md:top-4 sm:top-3 top-2 font-bsans text-bblue md:text-base sm:text-sm text-xs bg-bblue"><i data-feather="log-out" class="text-bblue"></i></button>
                     </form>
             </div>
             <div class="flex">

@@ -12,6 +12,9 @@
     {{-- daisyui --}}
     <link href="https://cdn.jsdelivr.net/npm/daisyui@2.1.0/dist/full.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
+    {{-- feather icon --}}
+    <script src="{{ asset('https://unpkg.com/feather-icons') }}"></script>
+
 </head>
 
 <body class="bg-bwhite lg:mx-12 md:mx-10 sm:mx-8 mx-6 lg:my-6 md:my-5 sm:my-4 my-3">
@@ -35,6 +38,9 @@
             autoplaySpeed: 3000,
             infinite: true,
         });
+    </script>
+    <script>
+        feather.replace()
     </script>
 </body>
 

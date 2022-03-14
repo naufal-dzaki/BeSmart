@@ -2,6 +2,7 @@
 @extends('dashboard.main')
 
 @section('DashboardContent')
+@include('dashboard.theme')
 <div class="">
 
     <div class="mt-4 w-10/12">

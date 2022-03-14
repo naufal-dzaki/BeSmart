@@ -1,6 +1,7 @@
 @extends('dashboard.main')
 
 @section('DashboardContent')
+@include('dashboard.theme')
 <p> asd{{$motivation->slug}} </p>
 <h1 class="text-3xl text-black pb-4">Edit Motivasi</h1>
 

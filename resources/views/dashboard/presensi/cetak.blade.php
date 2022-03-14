@@ -1,70 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    {{-- feather icon --}}
-    <script src="{{ asset('https://unpkg.com/feather-icons') }}"></script>
-
-
-    <title>Laporan Absensi</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Cetak Laporan Presensi</title>
+  <style>
+    table {
+        border-collapse: collapse;
+    }
+    table, th, td {
+        border: 1px solid #342E37;
+    }
+    th, td {
+        padding: 10px;
+    }
+    th {
+        background-color: #3C91E6;
+        color: #FAFFFD;
+    }
+</style>
 </head>
+<body>
+  <!-- Awal Content -->
+  <section>
+    <div class="container-fluid content">
+      <div class="container text-center col-md-8">
+        {{-- <img src="{{ asset('frontend/img/logo.png') }}" alt="Logo-Presensi" width="220px" class="mt-4"> <br> --}}
+        <small>Tanggal : {{ date('d-M-Y') }} </small>
+        <hr class="mt-4 mb-5">
+        <h1>Data Presensi Siswa</h1>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Nama Siswa</th>
+              <th scope="col">Tanggal</th>
+              <th scope="col">Jam Masuk</th>
+              <th scope="col">Jam Keluar</th>
+            </tr>
+          </thead>
+          <tbody>
+            @foreach ($presensi as $item)
+              <tr>
+                <td>{{ $item->user->name }}</td>
+                <td>{{ $item->tgl }}</td>
+                <td>{{ $item->jam_masuk }}</td>
+                <td>{{ $item->jam_keluar }}</td>
+              </tr>
+            @endforeach
+          </tbody>
+        </table>
 
-<body class="bg-bwhite">
-        <section>
-            <div class="container text-center w-2/3">
-                <small>Tanggal : {{ date('d-M-Y') }}</small>
-                <div class="h-2 bg-gray-500"></div>
-                <h1>Data Presensi Siswa</h1>
-                <div class="flex flex-col justify-center items-center">
-                    <div class="max-h-80 overflow-x-auto overflow-x-auto sm:-mx-6 lg:-mx-8 w-full">
-                    <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
-                        <div class="overflow-hidden">
-                        <table class="min-w-full border text-center">
-                            <thead class="border-b">
-                            <tr>
-                                <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 border-r">
-                                Nama
-                                </th>
-                                <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 border-r">
-                                Tanggal
-                                </th>
-                                <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 border-r">
-                                Jam Masuk
-                                </th>
-                                <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4">
-                                Jam Keluar
-                                </th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($presensi as $item)
-                                        <tr class="border-b">
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 border-r">
-                                            {{ $item->user->name }}
-                                        </td>
-                                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r">
-                                            {{ $item->tgl }}
-                                        </td>
-                                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r">
-                                            {{ $item->jam_masuk }}
-                                        </td>
-                                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            {{ $item->jam_keluar }}
-                                        </td>
-                                        </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+      </div>
+    </div>
+  </section>
+  <!-- Akhir Content -->
 </body>
-
 </html>

@@ -16,10 +16,10 @@ class PostSeeder extends Seeder
     {
                 //post
                 Post::create([
-                    'judul' => 'ini judul',
-                    'slug' => 'ini-judul',
+                    'judul' => 'Larutan Elektrolit dan Non Elektrolit',
+                    'slug' => 'larutan-elektroit',
                     'bab' => '1',
-                    'body' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex, repellat rem sed inventore a omnis eius vero quaerat porro dolores expedita corporis, totam harum quidem nihil numquam accusamus beatae atque illo quo. Facilis illum perferendis accusantium hic, nesciunt corporis nulla amet obcaecati inventore maxime, corrupti dolore nemo, sed impedit repellat itaque unde incidunt quae asperiores! Similique et error quod adipisci at autem dolore iure reprehenderit? Consequuntur quibusdam quaerat ipsam fugit incidunt eligendi ratione quos ducimus aliquam consequatur. Nesciunt architecto earum alias dolorum quasi, illum enim tenetur sequi repellat beatae hic ab, dicta omnis tempora magni quod eum vitae eos! Ab, id voluptas nulla explicabo magni tempora cupiditate autem, molestiae praesentium voluptatem quod consequuntur quas et! Quo totam ducimus illo optio!',
+                    'body' => 'Larutan nonelektrolit adalah larutan yang tidak dapat menghantarkan arus listrik. Hal ini karena larutan nonelektrolit tidak dapat menghasilkan ion-ion. Yang termasuk larutan nonelektrolit antara lain: Larutan urea Larutan sukrosa Larutan glukosa Larutan alkohol',
                     'tipe' => '0',
                     'subject_id' => '2',
                     'user_id' => '1'
@@ -28,7 +28,8 @@ class PostSeeder extends Seeder
                     'judul' => 'Geometri',
                     'slug' => 'ini-adalah-mapel-pertama',
                     'bab' => '1',
-                    'body' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex, repellat rem sed inventore a omnis eius vero quaerat porro dolores expedita corporis, totam harum quidem nihil numquam accusamus beatae atque illo quo. Facilis illum perferendis accusantium hic, nesciunt corporis nulla amet obcaecati inventore maxime, corrupti dolore nemo, sed impedit repellat itaque unde incidunt quae asperiores! Similique et error quod adipisci at autem dolore iure reprehenderit? Consequuntur quibusdam quaerat ipsam fugit incidunt eligendi ratione quos ducimus aliquam consequatur. Nesciunt architecto earum alias dolorum quasi, illum enim tenetur sequi repellat beatae hic ab, dicta omnis tempora magni quod eum vitae eos! Ab, id voluptas nulla explicabo magni tempora cupiditate autem, molestiae praesentium voluptatem quod consequuntur quas et! Quo totam ducimus illo optio!',
+                    'body' => '
+                    GEOMETRI. Geometri berasal dari bahasa latin “ Geometria”, Geo : Tanah dan Metria : Ukuran. Geometri di Indonesia diterjemahkan Ilmu Ukur. Geometri : Cabang Matematika yang mempelajari titik, garis, bidang dan benda-benda ruang beserta sifat, ukuran dan hubungannya dengan yang lain.',
                     'tipe' => '0',
                     'subject_id' => '1',
                     'user_id' => '2'

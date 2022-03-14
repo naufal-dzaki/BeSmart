@@ -16,44 +16,51 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-                //user
-                User::Create([
-                    'id' => 1,
-                    'name' => 'naufal',
-                    'level' => 'siswa',
-                    'grade_id' => '2',
-                    'email' => 'naufal@gmail.com',
-                    'password' => bcrypt('password')
-                ]);
-                User::Create([
-                    'id' => 2,
-                    'name' => 'bilal',
-                    'level' => 'siswa',
-                    'grade_id' => '1',
-                    'email' => 'bilal@gmail.com',
-                    'password' => bcrypt('password')
-                ]);
-
-                // user detail
-                Biodata::Create([
-                    'user_id' => 1,
-                    'slug' => 'muhammad-naufal',
-                    'tgl_lahir' => 'Surabaya, 9 Mei 2003',
-                    'nisn' => '988123098',
-                    'no_hp' => '08154567984',
-                    'jenis_kelamin' => 'laki-laki',
-                    'agama' => 'islam',
-                    'nama_ayah' => 'Ini nama ayahnya',
-                    'nama_ibu' => 'ini nama ibunya'
-                ]);
-                Biodata::Create([
-                    'user_id' => 2,
-                    'slug' => 'muhammad-bilal',
-                    'tgl_lahir' => 'Surabaya, 9 Mei 2004',
-                    'nisn' => '988123098',
-                    'no_hp' => '0815456798129',
-                    'jenis_kelamin' => 'laki-laki',
-                    'agama' => 'islam',
+        User::Create([
+            // 'id' => 1,
+            'name' => 'Muhammad Naufal',
+            'level' => 'siswa',
+            'grade_id' => '2',
+            'email' => 'naufal@gmail.com',
+            'password' => bcrypt('password')
+            ]);
+        User::Create([
+            // 'id' => 2,
+            'name' => 'Muhammad Bilal',
+            'level' => 'siswa',
+            'grade_id' => '1',
+            'email' => 'bilal@gmail.com',
+            'password' => bcrypt('password')
+        ]);
+        //user
+        User::Create([
+            // 'id' => 1,
+            'name' => 'Pak Arsyad',
+            'level' => 'guru',
+            'grade_id' => '1',
+            'email' => 'pakarsyad@gmail.com',
+            'password' => bcrypt('password')
+        ]);
+        // user detail
+        Biodata::Create([
+            'user_id' => 1,
+                'slug' => 'muhammad-naufal',
+                'tgl_lahir' => 'Surabaya, 9 Mei 2003',
+                'nisn' => '988123098',
+                'no_hp' => '08154567984',
+                'jenis_kelamin' => 'laki-laki',
+                'agama' => 'islam',
+                'nama_ayah' => 'Ini nama ayahnya',
+                'nama_ibu' => 'ini nama ibunya'
+            ]);
+            Biodata::Create([
+                'user_id' => 2,
+                'slug' => 'muhammad-bilal',
+                'tgl_lahir' => 'Surabaya, 9 Mei 2004',
+             'nisn' => '988123098',
+                'no_hp' => '0815456798129',
+                'jenis_kelamin' => 'laki-laki',
+                'agama' => 'islam',
                     'nama_ayah' => 'Ini nama ayahnya',
                     'nama_ibu' => 'ini nama ibunya'
                 ]);
@@ -64,8 +71,9 @@ class UserSeeder extends Seeder
 
                 for ($i = $total+1; $i <= $total+10; $i++) {
                     $user = User::Create([
-                        'id' => $i,
+                        // 'id' => $i,
                         'name' => $faker->name,
+                        'level' => 'siswa',
                         'grade_id' => '2',
                         'email' => $faker->email,
                         'password' => bcrypt('password')

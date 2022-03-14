@@ -14,7 +14,7 @@ class HomeController extends Controller
         return view('home.index', [
             'title' => ' | Home',
             'subjects' => Subject::where('grade_id', auth()->user()->grade_id)->get(),
-            'biodata' => Biodata::all(),
+            'biodata' => Biodata::where('user_id', auth()->user()->id)->get(),
             'motivations' => Motivation::all()
         ]);
     }

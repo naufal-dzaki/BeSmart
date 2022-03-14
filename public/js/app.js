@@ -1276,6 +1276,11 @@ function queueJob(job) {
     queue.push(job);
   queueFlush();
 }
+function dequeueJob(job) {
+  let index = queue.indexOf(job);
+  if (index !== -1)
+    queue.splice(index, 1);
+}
 function queueFlush() {
   if (!flushing && !flushPending) {
     flushPending = true;
@@ -1349,8 +1354,15 @@ var onElAddeds = [];
 function onElAdded(callback) {
   onElAddeds.push(callback);
 }
-function onElRemoved(callback) {
-  onElRemoveds.push(callback);
+function onElRemoved(el, callback) {
+  if (typeof callback === "function") {
+    if (!el._x_cleanups)
+      el._x_cleanups = [];
+    el._x_cleanups.push(callback);
+  } else {
+    callback = el;
+    onElRemoveds.push(callback);
+  }
 }
 function onAttributesAdded(callback) {
   onAttributeAddeds.push(callback);
@@ -1467,6 +1479,13 @@ function onMutate(mutations) {
     if (addedNodes.includes(node))
       continue;
     onElRemoveds.forEach((i) => i(node));
+<<<<<<< HEAD
+=======
+    if (node._x_cleanups) {
+      while (node._x_cleanups.length)
+        node._x_cleanups.pop()();
+    }
+>>>>>>> 0a6256ea36d7880e5bccedf4ac4f96278229e59b
   }
   addedNodes.forEach((node) => {
     node._x_ignoreSelf = true;
@@ -1641,7 +1660,10 @@ function injectMagics(obj, el) {
   Object.entries(magics).forEach(([name, callback]) => {
     Object.defineProperty(obj, `$${name}`, {
       get() {
-        return callback(el, {Alpine: alpine_default, interceptor});
+        let [utilities, cleanup] = getElementBoundUtilities(el);
+        utilities = {interceptor, ...utilities};
+        onElRemoved(el, cleanup);
+        return callback(el, utilities);
       },
       enumerable: false
     });
@@ -1792,10 +1814,7 @@ function deferHandlingDirectives(callback) {
   callback(flushHandlers);
   stopDeferring();
 }
-function getDirectiveHandler(el, directive2) {
-  let noop = () => {
-  };
-  let handler3 = directiveHandlers[directive2.type] || noop;
+function getElementBoundUtilities(el) {
   let cleanups = [];
   let cleanup = (callback) => cleanups.push(callback);
   let [effect3, cleanupEffect] = elementBoundEffect(el);
@@ -1808,7 +1827,14 @@ function getDirectiveHandler(el, directive2) {
     evaluate: evaluate.bind(evaluate, el)
   };
   let doCleanup = () => cleanups.forEach((i) => i());
-  onAttributeRemoved(el, directive2.original, doCleanup);
+  return [utilities, doCleanup];
+}
+function getDirectiveHandler(el, directive2) {
+  let noop = () => {
+  };
+  let handler3 = directiveHandlers[directive2.type] || noop;
+  let [utilities, cleanup] = getElementBoundUtilities(el);
+  onAttributeRemoved(el, directive2.original, cleanup);
   let fullHandler = () => {
     if (el._x_ignore || el._x_ignoreSelf)
       return;
@@ -1816,7 +1842,7 @@ function getDirectiveHandler(el, directive2) {
     handler3 = handler3.bind(handler3, el, directive2, utilities);
     isDeferringHandlers ? directiveHandlerStacks.get(currentHandlerStackKey).push(handler3) : handler3();
   };
-  fullHandler.runCleanups = doCleanup;
+  fullHandler.runCleanups = cleanup;
   return fullHandler;
 }
 var startingWith = (subject, replacement) => ({name, value}) => {
@@ -1869,6 +1895,7 @@ var directiveOrder = [
   "init",
   "for",
   "model",
+  "modelable",
   "transition",
   "show",
   "if",
@@ -2057,7 +2084,10 @@ function setStylesFromObject(el, value) {
   let previousStyles = {};
   Object.entries(value).forEach(([key, value2]) => {
     previousStyles[key] = el.style[key];
-    el.style.setProperty(kebabCase(key), value2);
+    if (!key.startsWith("--")) {
+      key = kebabCase(key);
+    }
+    el.style.setProperty(key, value2);
   });
   setTimeout(() => {
     if (el.style.length === 0) {
@@ -2646,7 +2676,11 @@ var Alpine = {
   get raw() {
     return raw;
   },
+<<<<<<< HEAD
   version: "3.8.1",
+=======
+  version: "3.9.1",
+>>>>>>> 0a6256ea36d7880e5bccedf4ac4f96278229e59b
   flushAndStopDeferringMutations,
   disableEffectScheduling,
   setReactivityEngine,
@@ -2687,7 +2721,11 @@ var Alpine = {
 var alpine_default = Alpine;
 
 // packages/alpinejs/src/index.js
+<<<<<<< HEAD
 var import_reactivity9 = __toModule(require_reactivity());
+=======
+var import_reactivity8 = __toModule(require_reactivity());
+>>>>>>> 0a6256ea36d7880e5bccedf4ac4f96278229e59b
 
 // packages/alpinejs/src/magics/$nextTick.js
 magic("nextTick", () => nextTick);
@@ -2696,11 +2734,19 @@ magic("nextTick", () => nextTick);
 magic("dispatch", (el) => dispatch.bind(dispatch, el));
 
 // packages/alpinejs/src/magics/$watch.js
+<<<<<<< HEAD
 magic("watch", (el) => (key, callback) => {
   let evaluate2 = evaluateLater(el, key);
   let firstTime = true;
   let oldValue;
   effect(() => evaluate2((value) => {
+=======
+magic("watch", (el, {evaluateLater: evaluateLater2, effect: effect3}) => (key, callback) => {
+  let evaluate2 = evaluateLater2(key);
+  let firstTime = true;
+  let oldValue;
+  effect3(() => evaluate2((value) => {
+>>>>>>> 0a6256ea36d7880e5bccedf4ac4f96278229e59b
     JSON.stringify(value);
     if (!firstTime) {
       queueMicrotask(() => {
@@ -2771,6 +2817,34 @@ magic("id", (el) => (name, key = null) => {
 // packages/alpinejs/src/magics/$el.js
 magic("el", (el) => el);
 
+<<<<<<< HEAD
+=======
+// packages/alpinejs/src/directives/x-modelable.js
+directive("modelable", (el, {expression}, {effect: effect3, evaluate: evaluate2, evaluateLater: evaluateLater2}) => {
+  let func = evaluateLater2(expression);
+  let innerGet = () => {
+    let result;
+    func((i) => result = i);
+    return result;
+  };
+  let evaluateInnerSet = evaluateLater2(`${expression} = __placeholder`);
+  let innerSet = (val) => evaluateInnerSet(() => {
+  }, {scope: {__placeholder: val}});
+  let initialValue = innerGet();
+  if (el._x_modelable_hook)
+    initialValue = el._x_modelable_hook(initialValue);
+  innerSet(initialValue);
+  queueMicrotask(() => {
+    if (!el._x_model)
+      return;
+    let outerGet = el._x_model.get;
+    let outerSet = el._x_model.set;
+    effect3(() => innerSet(outerGet()));
+    effect3(() => outerSet(innerGet()));
+  });
+});
+
+>>>>>>> 0a6256ea36d7880e5bccedf4ac4f96278229e59b
 // packages/alpinejs/src/directives/x-teleport.js
 directive("teleport", (el, {expression}, {cleanup}) => {
   if (el.tagName.toLowerCase() !== "template")
@@ -3043,11 +3117,11 @@ directive("cloak", (el) => queueMicrotask(() => mutateDom(() => el.removeAttribu
 
 // packages/alpinejs/src/directives/x-init.js
 addInitSelector(() => `[${prefix("init")}]`);
-directive("init", skipDuringClone((el, {expression}) => {
+directive("init", skipDuringClone((el, {expression}, {evaluate: evaluate2}) => {
   if (typeof expression === "string") {
-    return !!expression.trim() && evaluate(el, expression, {}, false);
+    return !!expression.trim() && evaluate2(expression, {}, false);
   }
-  return evaluate(el, expression, {}, false);
+  return evaluate2(expression, {}, false);
 }));
 
 // packages/alpinejs/src/directives/x-text.js
@@ -3244,6 +3318,9 @@ function loop(el, iteratorNames, evaluateItems, evaluateKey) {
     }
     for (let i = 0; i < removes.length; i++) {
       let key = removes[i];
+      if (!!lookup[key]._x_effects) {
+        lookup[key]._x_effects.forEach(dequeueJob);
+      }
       lookup[key].remove();
       lookup[key] = null;
       delete lookup[key];
@@ -3360,6 +3437,11 @@ directive("if", (el, {expression}, {effect: effect3, cleanup}) => {
     });
     el._x_currentIfEl = clone2;
     el._x_undoIf = () => {
+      walk(clone2, (node) => {
+        if (!!node._x_effects) {
+          node._x_effects.forEach(dequeueJob);
+        }
+      });
       clone2.remove();
       delete el._x_currentIfEl;
     };
@@ -3403,7 +3485,7 @@ directive("on", skipDuringClone((el, {value, modifiers, expression}, {cleanup}) 
 
 // packages/alpinejs/src/index.js
 alpine_default.setEvaluator(normalEvaluator);
-alpine_default.setReactivityEngine({reactive: import_reactivity9.reactive, effect: import_reactivity9.effect, release: import_reactivity9.stop, raw: import_reactivity9.toRaw});
+alpine_default.setReactivityEngine({reactive: import_reactivity8.reactive, effect: import_reactivity8.effect, release: import_reactivity8.stop, raw: import_reactivity8.toRaw});
 var src_default = alpine_default;
 
 // packages/alpinejs/builds/module.js
@@ -22736,7 +22818,11 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
   \*******************************/
 /***/ (() => {
 
+<<<<<<< HEAD
 throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/postcss-loader/dist/cjs.js):\nSyntaxError\n\n(6:56) C:\\Users\\DELL\\Documents\\projext\\BeSmart_\\resources\\css\\app.css The `border-1` class does not exist, but `order-1` does. If you're sure that `border-1` exists, make sure that any `@import` statements are being properly processed before Tailwind CSS sees your CSS, as `@apply` can only be used for classes in the same CSS tree.\n\n \u001b[90m 4 | \u001b[39m\n \u001b[90m 5 | \u001b[39m\u001b[33m.btn-primary\u001b[39m\u001b[33m{\u001b[39m\n\u001b[1m\u001b[31m>\u001b[39m\u001b[22m\u001b[90m 6 | \u001b[39m    \u001b[36m@apply\u001b[39m bg-bblue px-5 py-2 text-white font-semibold border-1 border-prime hover\u001b[33m:\u001b[39mbg-white hover\u001b[33m:\u001b[39mtext-prime hover\u001b[33m:\u001b[39mborder-prime hover\u001b[33m:\u001b[39mborder-1 active\u001b[33m:\u001b[39mscale-75 cursor-pointer transition duration-150 ease-in-out flex justify-center items-center outline-none\n \u001b[90m   | \u001b[39m                                                       \u001b[1m\u001b[31m^\u001b[39m\u001b[22m\n \u001b[90m 7 | \u001b[39m\u001b[33m}\u001b[39m\n \u001b[90m 8 | \u001b[39m\n\n    at processResult (C:\\Users\\DELL\\Documents\\projext\\BeSmart_\\node_modules\\webpack\\lib\\NormalModule.js:753:19)\n    at C:\\Users\\DELL\\Documents\\projext\\BeSmart_\\node_modules\\webpack\\lib\\NormalModule.js:855:5\n    at C:\\Users\\DELL\\Documents\\projext\\BeSmart_\\node_modules\\loader-runner\\lib\\LoaderRunner.js:399:11\n    at C:\\Users\\DELL\\Documents\\projext\\BeSmart_\\node_modules\\loader-runner\\lib\\LoaderRunner.js:251:18\n    at context.callback (C:\\Users\\DELL\\Documents\\projext\\BeSmart_\\node_modules\\loader-runner\\lib\\LoaderRunner.js:124:13)\n    at Object.loader (C:\\Users\\DELL\\Documents\\projext\\BeSmart_\\node_modules\\postcss-loader\\dist\\index.js:140:7)");
+=======
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/postcss-loader/dist/cjs.js):\nError: Expected a pseudo-class or pseudo-element.\n    at /home/dell/Documents/project/tugas akhir/BeSmart_/resources/css/app.css:11:5\n    at Root._error (/home/dell/Documents/project/tugas akhir/BeSmart_/node_modules/postcss-selector-parser/dist/parser.js:174:16)\n    at Root.error (/home/dell/Documents/project/tugas akhir/BeSmart_/node_modules/postcss-selector-parser/dist/selectors/root.js:43:19)\n    at Parser.error (/home/dell/Documents/project/tugas akhir/BeSmart_/node_modules/postcss-selector-parser/dist/parser.js:740:21)\n    at Parser.expected (/home/dell/Documents/project/tugas akhir/BeSmart_/node_modules/postcss-selector-parser/dist/parser.js:1133:19)\n    at Parser.pseudo (/home/dell/Documents/project/tugas akhir/BeSmart_/node_modules/postcss-selector-parser/dist/parser.js:875:19)\n    at Parser.parse (/home/dell/Documents/project/tugas akhir/BeSmart_/node_modules/postcss-selector-parser/dist/parser.js:1084:14)\n    at Parser.loop (/home/dell/Documents/project/tugas akhir/BeSmart_/node_modules/postcss-selector-parser/dist/parser.js:1043:12)\n    at new Parser (/home/dell/Documents/project/tugas akhir/BeSmart_/node_modules/postcss-selector-parser/dist/parser.js:164:10)\n    at Processor._root (/home/dell/Documents/project/tugas akhir/BeSmart_/node_modules/postcss-selector-parser/dist/processor.js:53:18)\n    at Processor._runSync (/home/dell/Documents/project/tugas akhir/BeSmart_/node_modules/postcss-selector-parser/dist/processor.js:100:21)\n    at processResult (/home/dell/Documents/project/tugas akhir/BeSmart_/node_modules/webpack/lib/NormalModule.js:758:19)\n    at /home/dell/Documents/project/tugas akhir/BeSmart_/node_modules/webpack/lib/NormalModule.js:860:5\n    at /home/dell/Documents/project/tugas akhir/BeSmart_/node_modules/loader-runner/lib/LoaderRunner.js:399:11\n    at /home/dell/Documents/project/tugas akhir/BeSmart_/node_modules/loader-runner/lib/LoaderRunner.js:251:18\n    at context.callback (/home/dell/Documents/project/tugas akhir/BeSmart_/node_modules/loader-runner/lib/LoaderRunner.js:124:13)\n    at Object.loader (/home/dell/Documents/project/tugas akhir/BeSmart_/node_modules/postcss-loader/dist/index.js:142:7)");
+>>>>>>> 0a6256ea36d7880e5bccedf4ac4f96278229e59b
 
 /***/ }),
 
