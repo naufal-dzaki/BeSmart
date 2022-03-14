@@ -28,12 +28,7 @@
         "aos": "^2.3.4",
         "daisyui": "^2.1.0",
         "feather-icons": "^4.28.0",
-<<<<<<< HEAD
         "rails-ujs": "^5.2.7",
         "turbolinks": "^5.2.0"
-=======
-        "turbolinks": "^5.2.0",
-        "uuidv7": "^0.1.8"
->>>>>>> 0a6256ea36d7880e5bccedf4ac4f96278229e59b
     }
 }

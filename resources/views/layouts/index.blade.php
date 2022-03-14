@@ -14,10 +14,12 @@
                         BeSmart
                     </h2>
                     <p class="text-bookmark-grey text-lg text-center lg:text-left mb-6">
-                        Besmart adalah aplikasi belajar online yang menyediakan layanan bimbingan belajar terbaik dan terbesar di Indonesia, yang akan membantu siswa dan guru dalam belajar dan mengajar.
+                        Besmart adalah aplikasi belajar online yang menyediakan layanan bimbingan belajar terbaik dan
+                        terbesar di Indonesia, yang akan membantu siswa dan guru dalam belajar dan mengajar.
                     </p>
                     <div class="flex justify-center flex-wrap gap-6">
-                        <button type="button" class="btn bg-gradient-to-r from-purple-600 to-blue-500 text-white hover:bg-white hover:text-black">
+                        <button type="button"
+                            class="btn bg-gradient-to-r from-purple-600 to-blue-500 text-white hover:bg-white hover:text-black">
                             Daftar Sekarang ->
                         </button>
                     </div>
@@ -38,8 +40,8 @@
             <div class="px-10 mt-24">
                 <h1 class="text-3xl font-bold">Mengapa Memilih</h1>
                 <h1 class="text-3xl font-bold text-purple-700">BeSmart</h1>
-                    <p>BeSmart merupakan aplikasi terbaik di dunia pendidikan dan dapat memudahkan siswa dan
-                        Guru untuk belajar dan mengajar</p>
+                <p>BeSmart merupakan aplikasi terbaik di dunia pendidikan dan dapat memudahkan siswa dan
+                    Guru untuk belajar dan mengajar</p>
             </div>
             {{-- item kanan --}}
             <div
@@ -52,12 +54,14 @@
                 <div>
                     <img class="w-14 my-4 rounded-full" src="{{ asset('img/02.png') }}" alt="">
                     <h1 class="font-bold font-xl">Besmart terbuka untuk umum</h1>
-                    <p>Kamu bisa daftar via website BeSmart.com. Jika ada hal yang kurang jelas bisa kamu tanyakan langsung via chat</p>
+                    <p>Kamu bisa daftar via website BeSmart.com. Jika ada hal yang kurang jelas bisa kamu tanyakan langsung
+                        via chat</p>
                 </div>
                 <div>
                     <img class="w-14 my-4 rounded-full" src="{{ asset('img/03.png') }}" alt="">
                     <h1 class="font-bold font-xl">Biaya yang relatif murah</h1>
-                    <p>Untuk harganya bisa kamu liat langsung di website BeSmart, sering-sering chechk ya lumayan loh! ada banyak promo yang tersedia</p>
+                    <p>Untuk harganya bisa kamu liat langsung di website BeSmart, sering-sering chechk ya lumayan loh! ada
+                        banyak promo yang tersedia</p>
                 </div>
                 <div>
                     <img class="w-14 my-4 rounded-full" src="{{ asset('img/04.png') }}" alt="">
@@ -67,12 +71,14 @@
                 <div>
                     <img class="w-14 my-4 rounded-full" src="{{ asset('img/05.png') }}" alt="">
                     <h1 class="font-bold font-xl">Anak bisa belajar dengan fleksibel</h1>
-                    <p>Bimbel online BeSmart adalah metode belajar terbaru yang kekinian karena menggunakan gadget. Selain itu, karena hadir dalam </p>
+                    <p>Bimbel online BeSmart adalah metode belajar terbaru yang kekinian karena menggunakan gadget. Selain
+                        itu, karena hadir dalam </p>
                 </div>
                 <div>
                     <img class="w-14 my-4 rounded-full" src="{{ asset('img/06.png') }}" alt="">
                     <h1 class="font-bold font-xl">Materi pelajaran lengkap tersedia</h1>
-                    <p>Anda tak perlu khawatir, BeSmart menyediakan materi pelajaran secara lengkap. Mulai dari tingkatan SD, SMP, SMA, hingga SMK!</p>
+                    <p>Anda tak perlu khawatir, BeSmart menyediakan materi pelajaran secara lengkap. Mulai dari tingkatan
+                        SD, SMP, SMA, hingga SMK!</p>
                 </div>
             </div>
         </section>
@@ -94,7 +100,9 @@
                         Sejarah BeSmart
                     </h2>
                     <p class="text-bookmark-grey text-lg text-center lg:text-left mb-6">
-                        BeSmart didirikan pada April 2022 oleh Muhammad Bilal dan Muhammad Naufal Dzaki Ardani untuk membantu para pelajar menemukan berbagai pembimbing di dunia maya. Belva merupakan lulusan Universitas Teknologi Nanyang dengan gelar ganda (double degree) di bidang bisnis dan ilmu komputer
+                        BeSmart didirikan pada April 2022 oleh Muhammad Bilal dan Muhammad Naufal Dzaki Ardani untuk
+                        membantu para pelajar menemukan berbagai pembimbing di dunia maya. Belva merupakan lulusan
+                        Universitas Teknologi Nanyang dengan gelar ganda (double degree) di bidang bisnis dan ilmu komputer
                     </p>
                     <div class="grid md:grid-flow-ro    w grid-flow-col grid-cols-3 grid-rows-1 gap-12 text-center">
                         <div>
@@ -127,19 +135,24 @@
                 <div class="mySlides fade">
                     <div class="flex md:flex-none px-16 justify-center gap-4">
                         <div class="box-border md:box-content max-w-xs hidden md:inline">
-                            <img class="rounded-xl pb-3 w-36 bg-balt p-5" src="{{ asset('img/Absen.png') }}" alt="">
+                            <div class="flex justify-item-center mx-auto">
+                                <img class="rounded-xl pb-3 w-36 bg-balt p-5 block mx-auto" src="{{ asset('img/Absen.png') }}" alt="">
+                            </div>
                             <h1 class="font-semibold text-xl py-2">Fitur Presensi</h1>
-                            <p>Fitur Utama pada Besmart yaitu presensi. Fitur ini berguna untuk memudahkan guru untuk mengetahui daftar kehadiran siswanya</p>
+                            <p>Fitur Utama pada Besmart yaitu presensi. Fitur ini berguna untuk memudahkan guru untuk
+                                mengetahui daftar kehadiran siswanya</p>
                         </div>
                         <div class="box-border md:box-content max-w-xs hidden md:inline">
-                            <img class="rounded-xl pb-3 w-36 bg-balt p-5" src="{{ asset('img/tugas.png') }}" alt="">
+                            <img class="rounded-xl pb-3 w-36 bg-balt p-5  block mx-auto" src="{{ asset('img/tugas.png') }}" alt="">
                             <h1 class="font-semibold text-xl py-2">Tugas</h1>
-                            <p>fitur yang kedua yaitu tugas. Fitur ini berguna untuk memudahkan guru memberi tugas kepada siswa-siswanya.</p>
+                            <p>fitur yang kedua yaitu tugas. Fitur ini berguna untuk memudahkan guru memberi tugas kepada
+                                siswa-siswanya.</p>
                         </div>
                         <div class="box-border md:box-content max-w-xs">
-                            <img class="rounded-xl pb-3 w-36 bg-balt p-5" src="{{ asset('img/materi.png') }}" alt="">
+                            <img class="rounded-xl pb-3 w-36 bg-balt p-5  block mx-auto" src="{{ asset('img/materi.png') }}" alt="">
                             <h1 class="font-semibold text-xl py-2">Materi</h1>
-                            <p>Fitur yang ketiga yaitu Materi. Fitur ini berguna untuk memudahkan guru memberi materi kepada siswa-siswanya</p>
+                            <p>Fitur yang ketiga yaitu Materi. Fitur ini berguna untuk memudahkan guru memberi materi kepada
+                                siswa-siswanya</p>
                         </div>
                     </div>
                 </div>
@@ -176,10 +189,13 @@
                         Apa Keunggulan BeSmart?
                     </h2>
                     <p class="text-bookmark-grey text-lg text-center lg:text-left mb-6">
-                        Besmart adalah aplikasi belajar online yang menyediakan layanan bimbel (bimbingan belajar) terbaik dan terbesar di Indonesia, dimana akan membantu siswa dalam menyelesaikan permasalahan belajar.
+                        Besmart adalah aplikasi belajar online yang menyediakan layanan bimbel (bimbingan belajar) terbaik
+                        dan terbesar di Indonesia, dimana akan membantu siswa dalam menyelesaikan permasalahan belajar.
                     </p>
                     <p>
-                        Dengan aplikasi bimbingan belajar online BeSmart, kamu akan dimudahkan dalam memahami beragam materi pelajaran serta dapat diakses kapan pun dan di mana pun. Sampai dengan saat ini 75% total pelajar di Indonesia telah mempercayakan Ruangguru sebagai solusi belajar terbaik.</p>
+                        Dengan aplikasi bimbingan belajar online BeSmart, kamu akan dimudahkan dalam memahami beragam materi
+                        pelajaran serta dapat diakses kapan pun dan di mana pun. Sampai dengan saat ini 75% total pelajar di
+                        Indonesia telah mempercayakan Ruangguru sebagai solusi belajar terbaik.</p>
 
                 </div>
             </div>
@@ -195,7 +211,9 @@
                 </div>
                 <div class="flex flex-col md:flex-row justify-center pt-10 md:pt-0" style="width: 24vw">
                     <button type="button" class="btn bg-white" style="width: 120%">Lets Get Started</button>
-                    <button class="btn hover:bg-white border-2 border-white mt-3 md:mt-0 w-full text-white hover:text-black">Contact us</button>
+                    <button
+                        class="btn hover:bg-white border-2 border-white mt-3 md:mt-0 w-full text-white hover:text-black">Contact
+                        us</button>
                 </div>
             </div>
         </section>
@@ -247,12 +265,15 @@
     <script>
         var slideIndex = 1;
         showSlides(slideIndex);
+
         function plusSlides(n) {
             showSlides(slideIndex += n);
         }
+
         function currentSlide(n) {
             showSlides(slideIndex = n);
         }
+
         function showSlides(n) {
             var i;
             var slides = document.getElementsByClassName("mySlides");

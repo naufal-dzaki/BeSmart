@@ -28,10 +28,12 @@
         @yield('content')
     </main>
 
+    {{-- js --}}
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
-      </script>
+    </script>
+    <script src="{{ mix('js/app.js') }}"></script>
 </body>
 
 </html>

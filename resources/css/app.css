@@ -1,7 +1,12 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-.btn-primary{
-    @apply bg-bblue px-5 py-2 text-white font-semibold border-1 border-prime hover:bg-white hover:text-prime hover:border-prime hover:border-1 active:scale-75 cursor-pointer transition duration-150 ease-in-out flex justify-center items-center outline-none
+.btn {
+    @apply shadow-md py-3 px-6 transition duration-300;
 }
+
+/* .btn-primary {
+    @apply hover:bg-white hover:text-prime hover:border-prime hover:border-1
+    @apply bg-gradient-to-r from-purple-600 to-blue-500 hover: bg-white text-white hover:text-bblue hover:border-bblue border-0
+} */
