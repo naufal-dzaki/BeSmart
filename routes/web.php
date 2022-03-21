@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\BiodataController;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\DashboardBiodataController;
@@ -8,6 +7,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PresensiController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\MotivationController;
 use App\Http\Controllers\SubjectController;
@@ -15,8 +15,6 @@ use App\Http\Controllers\DashboardMateriController;
 use App\Http\Controllers\DashboardPresensiController;
 use App\Http\Controllers\DashboardTaskController;
 use App\Http\Controllers\DashboardMotivasiController;
-use Illuminate\Support\Facades\Auth;
-use App\Models\Biodata;
 
 /*
 |--------------------------------------------------------------------------

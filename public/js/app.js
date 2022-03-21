@@ -1276,11 +1276,6 @@ function queueJob(job) {
     queue.push(job);
   queueFlush();
 }
-function dequeueJob(job) {
-  let index = queue.indexOf(job);
-  if (index !== -1)
-    queue.splice(index, 1);
-}
 function queueFlush() {
   if (!flushing && !flushPending) {
     flushPending = true;
@@ -1354,15 +1349,8 @@ var onElAddeds = [];
 function onElAdded(callback) {
   onElAddeds.push(callback);
 }
-function onElRemoved(el, callback) {
-  if (typeof callback === "function") {
-    if (!el._x_cleanups)
-      el._x_cleanups = [];
-    el._x_cleanups.push(callback);
-  } else {
-    callback = el;
-    onElRemoveds.push(callback);
-  }
+function onElRemoved(callback) {
+  onElRemoveds.push(callback);
 }
 function onAttributesAdded(callback) {
   onAttributeAddeds.push(callback);
@@ -1479,10 +1467,6 @@ function onMutate(mutations) {
     if (addedNodes.includes(node))
       continue;
     onElRemoveds.forEach((i) => i(node));
-    if (node._x_cleanups) {
-      while (node._x_cleanups.length)
-        node._x_cleanups.pop()();
-    }
   }
   addedNodes.forEach((node) => {
     node._x_ignoreSelf = true;
@@ -1657,10 +1641,7 @@ function injectMagics(obj, el) {
   Object.entries(magics).forEach(([name, callback]) => {
     Object.defineProperty(obj, `$${name}`, {
       get() {
-        let [utilities, cleanup] = getElementBoundUtilities(el);
-        utilities = {interceptor, ...utilities};
-        onElRemoved(el, cleanup);
-        return callback(el, utilities);
+        return callback(el, {Alpine: alpine_default, interceptor});
       },
       enumerable: false
     });
@@ -1811,7 +1792,10 @@ function deferHandlingDirectives(callback) {
   callback(flushHandlers);
   stopDeferring();
 }
-function getElementBoundUtilities(el) {
+function getDirectiveHandler(el, directive2) {
+  let noop = () => {
+  };
+  let handler3 = directiveHandlers[directive2.type] || noop;
   let cleanups = [];
   let cleanup = (callback) => cleanups.push(callback);
   let [effect3, cleanupEffect] = elementBoundEffect(el);
@@ -1824,14 +1808,7 @@ function getElementBoundUtilities(el) {
     evaluate: evaluate.bind(evaluate, el)
   };
   let doCleanup = () => cleanups.forEach((i) => i());
-  return [utilities, doCleanup];
-}
-function getDirectiveHandler(el, directive2) {
-  let noop = () => {
-  };
-  let handler3 = directiveHandlers[directive2.type] || noop;
-  let [utilities, cleanup] = getElementBoundUtilities(el);
-  onAttributeRemoved(el, directive2.original, cleanup);
+  onAttributeRemoved(el, directive2.original, doCleanup);
   let fullHandler = () => {
     if (el._x_ignore || el._x_ignoreSelf)
       return;
@@ -1839,7 +1816,7 @@ function getDirectiveHandler(el, directive2) {
     handler3 = handler3.bind(handler3, el, directive2, utilities);
     isDeferringHandlers ? directiveHandlerStacks.get(currentHandlerStackKey).push(handler3) : handler3();
   };
-  fullHandler.runCleanups = cleanup;
+  fullHandler.runCleanups = doCleanup;
   return fullHandler;
 }
 var startingWith = (subject, replacement) => ({name, value}) => {
@@ -1892,7 +1869,6 @@ var directiveOrder = [
   "init",
   "for",
   "model",
-  "modelable",
   "transition",
   "show",
   "if",
@@ -2081,10 +2057,7 @@ function setStylesFromObject(el, value) {
   let previousStyles = {};
   Object.entries(value).forEach(([key, value2]) => {
     previousStyles[key] = el.style[key];
-    if (!key.startsWith("--")) {
-      key = kebabCase(key);
-    }
-    el.style.setProperty(key, value2);
+    el.style.setProperty(kebabCase(key), value2);
   });
   setTimeout(() => {
     if (el.style.length === 0) {
@@ -2673,7 +2646,7 @@ var Alpine = {
   get raw() {
     return raw;
   },
-  version: "3.9.1",
+  version: "3.8.1",
   flushAndStopDeferringMutations,
   disableEffectScheduling,
   setReactivityEngine,
@@ -2714,7 +2687,7 @@ var Alpine = {
 var alpine_default = Alpine;
 
 // packages/alpinejs/src/index.js
-var import_reactivity8 = __toModule(require_reactivity());
+var import_reactivity9 = __toModule(require_reactivity());
 
 // packages/alpinejs/src/magics/$nextTick.js
 magic("nextTick", () => nextTick);
@@ -2723,11 +2696,11 @@ magic("nextTick", () => nextTick);
 magic("dispatch", (el) => dispatch.bind(dispatch, el));
 
 // packages/alpinejs/src/magics/$watch.js
-magic("watch", (el, {evaluateLater: evaluateLater2, effect: effect3}) => (key, callback) => {
-  let evaluate2 = evaluateLater2(key);
+magic("watch", (el) => (key, callback) => {
+  let evaluate2 = evaluateLater(el, key);
   let firstTime = true;
   let oldValue;
-  effect3(() => evaluate2((value) => {
+  effect(() => evaluate2((value) => {
     JSON.stringify(value);
     if (!firstTime) {
       queueMicrotask(() => {
@@ -2797,31 +2770,6 @@ magic("id", (el) => (name, key = null) => {
 
 // packages/alpinejs/src/magics/$el.js
 magic("el", (el) => el);
-
-// packages/alpinejs/src/directives/x-modelable.js
-directive("modelable", (el, {expression}, {effect: effect3, evaluate: evaluate2, evaluateLater: evaluateLater2}) => {
-  let func = evaluateLater2(expression);
-  let innerGet = () => {
-    let result;
-    func((i) => result = i);
-    return result;
-  };
-  let evaluateInnerSet = evaluateLater2(`${expression} = __placeholder`);
-  let innerSet = (val) => evaluateInnerSet(() => {
-  }, {scope: {__placeholder: val}});
-  let initialValue = innerGet();
-  if (el._x_modelable_hook)
-    initialValue = el._x_modelable_hook(initialValue);
-  innerSet(initialValue);
-  queueMicrotask(() => {
-    if (!el._x_model)
-      return;
-    let outerGet = el._x_model.get;
-    let outerSet = el._x_model.set;
-    effect3(() => innerSet(outerGet()));
-    effect3(() => outerSet(innerGet()));
-  });
-});
 
 // packages/alpinejs/src/directives/x-teleport.js
 directive("teleport", (el, {expression}, {cleanup}) => {
@@ -3095,11 +3043,11 @@ directive("cloak", (el) => queueMicrotask(() => mutateDom(() => el.removeAttribu
 
 // packages/alpinejs/src/directives/x-init.js
 addInitSelector(() => `[${prefix("init")}]`);
-directive("init", skipDuringClone((el, {expression}, {evaluate: evaluate2}) => {
+directive("init", skipDuringClone((el, {expression}) => {
   if (typeof expression === "string") {
-    return !!expression.trim() && evaluate2(expression, {}, false);
+    return !!expression.trim() && evaluate(el, expression, {}, false);
   }
-  return evaluate2(expression, {}, false);
+  return evaluate(el, expression, {}, false);
 }));
 
 // packages/alpinejs/src/directives/x-text.js
@@ -3296,9 +3244,6 @@ function loop(el, iteratorNames, evaluateItems, evaluateKey) {
     }
     for (let i = 0; i < removes.length; i++) {
       let key = removes[i];
-      if (!!lookup[key]._x_effects) {
-        lookup[key]._x_effects.forEach(dequeueJob);
-      }
       lookup[key].remove();
       lookup[key] = null;
       delete lookup[key];
@@ -3415,11 +3360,6 @@ directive("if", (el, {expression}, {effect: effect3, cleanup}) => {
     });
     el._x_currentIfEl = clone2;
     el._x_undoIf = () => {
-      walk(clone2, (node) => {
-        if (!!node._x_effects) {
-          node._x_effects.forEach(dequeueJob);
-        }
-      });
       clone2.remove();
       delete el._x_currentIfEl;
     };
@@ -3463,7 +3403,7 @@ directive("on", skipDuringClone((el, {value, modifiers, expression}, {cleanup}) 
 
 // packages/alpinejs/src/index.js
 alpine_default.setEvaluator(normalEvaluator);
-alpine_default.setReactivityEngine({reactive: import_reactivity8.reactive, effect: import_reactivity8.effect, release: import_reactivity8.stop, raw: import_reactivity8.toRaw});
+alpine_default.setReactivityEngine({reactive: import_reactivity9.reactive, effect: import_reactivity9.effect, release: import_reactivity9.stop, raw: import_reactivity9.toRaw});
 var src_default = alpine_default;
 
 // packages/alpinejs/builds/module.js
@@ -22794,9 +22734,12 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 /*!*******************************!*\
   !*** ./resources/css/app.css ***!
   \*******************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/postcss-loader/dist/cjs.js):\nError: Expected a pseudo-class or pseudo-element.\n    at /home/dell/Documents/project/tugas akhir/BeSmart_/resources/css/app.css:11:5\n    at Root._error (/home/dell/Documents/project/tugas akhir/BeSmart_/node_modules/postcss-selector-parser/dist/parser.js:174:16)\n    at Root.error (/home/dell/Documents/project/tugas akhir/BeSmart_/node_modules/postcss-selector-parser/dist/selectors/root.js:43:19)\n    at Parser.error (/home/dell/Documents/project/tugas akhir/BeSmart_/node_modules/postcss-selector-parser/dist/parser.js:740:21)\n    at Parser.expected (/home/dell/Documents/project/tugas akhir/BeSmart_/node_modules/postcss-selector-parser/dist/parser.js:1133:19)\n    at Parser.pseudo (/home/dell/Documents/project/tugas akhir/BeSmart_/node_modules/postcss-selector-parser/dist/parser.js:875:19)\n    at Parser.parse (/home/dell/Documents/project/tugas akhir/BeSmart_/node_modules/postcss-selector-parser/dist/parser.js:1084:14)\n    at Parser.loop (/home/dell/Documents/project/tugas akhir/BeSmart_/node_modules/postcss-selector-parser/dist/parser.js:1043:12)\n    at new Parser (/home/dell/Documents/project/tugas akhir/BeSmart_/node_modules/postcss-selector-parser/dist/parser.js:164:10)\n    at Processor._root (/home/dell/Documents/project/tugas akhir/BeSmart_/node_modules/postcss-selector-parser/dist/processor.js:53:18)\n    at Processor._runSync (/home/dell/Documents/project/tugas akhir/BeSmart_/node_modules/postcss-selector-parser/dist/processor.js:100:21)\n    at processResult (/home/dell/Documents/project/tugas akhir/BeSmart_/node_modules/webpack/lib/NormalModule.js:758:19)\n    at /home/dell/Documents/project/tugas akhir/BeSmart_/node_modules/webpack/lib/NormalModule.js:860:5\n    at /home/dell/Documents/project/tugas akhir/BeSmart_/node_modules/loader-runner/lib/LoaderRunner.js:399:11\n    at /home/dell/Documents/project/tugas akhir/BeSmart_/node_modules/loader-runner/lib/LoaderRunner.js:251:18\n    at context.callback (/home/dell/Documents/project/tugas akhir/BeSmart_/node_modules/loader-runner/lib/LoaderRunner.js:124:13)\n    at Object.loader (/home/dell/Documents/project/tugas akhir/BeSmart_/node_modules/postcss-loader/dist/index.js:142:7)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
 
 /***/ }),
 
@@ -23053,7 +22996,42 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		return module.exports;
 /******/ 	}
 /******/ 	
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = __webpack_modules__;
+/******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/chunk loaded */
+/******/ 	(() => {
+/******/ 		var deferred = [];
+/******/ 		__webpack_require__.O = (result, chunkIds, fn, priority) => {
+/******/ 			if(chunkIds) {
+/******/ 				priority = priority || 0;
+/******/ 				for(var i = deferred.length; i > 0 && deferred[i - 1][2] > priority; i--) deferred[i] = deferred[i - 1];
+/******/ 				deferred[i] = [chunkIds, fn, priority];
+/******/ 				return;
+/******/ 			}
+/******/ 			var notFulfilled = Infinity;
+/******/ 			for (var i = 0; i < deferred.length; i++) {
+/******/ 				var [chunkIds, fn, priority] = deferred[i];
+/******/ 				var fulfilled = true;
+/******/ 				for (var j = 0; j < chunkIds.length; j++) {
+/******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every((key) => (__webpack_require__.O[key](chunkIds[j])))) {
+/******/ 						chunkIds.splice(j--, 1);
+/******/ 					} else {
+/******/ 						fulfilled = false;
+/******/ 						if(priority < notFulfilled) notFulfilled = priority;
+/******/ 					}
+/******/ 				}
+/******/ 				if(fulfilled) {
+/******/ 					deferred.splice(i--, 1)
+/******/ 					var r = fn();
+/******/ 					if (r !== undefined) result = r;
+/******/ 				}
+/******/ 			}
+/******/ 			return result;
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -23103,13 +23081,68 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/jsonp chunk loading */
+/******/ 	(() => {
+/******/ 		// no baseURI
+/******/ 		
+/******/ 		// object to store loaded and loading chunks
+/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
+/******/ 		var installedChunks = {
+/******/ 			"/js/app": 0,
+/******/ 			"css/app": 0
+/******/ 		};
+/******/ 		
+/******/ 		// no chunk on demand loading
+/******/ 		
+/******/ 		// no prefetching
+/******/ 		
+/******/ 		// no preloaded
+/******/ 		
+/******/ 		// no HMR
+/******/ 		
+/******/ 		// no HMR manifest
+/******/ 		
+/******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
+/******/ 		
+/******/ 		// install a JSONP callback for chunk loading
+/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
+/******/ 			var [chunkIds, moreModules, runtime] = data;
+/******/ 			// add "moreModules" to the modules object,
+/******/ 			// then flag all "chunkIds" as loaded and fire callback
+/******/ 			var moduleId, chunkId, i = 0;
+/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
+/******/ 				for(moduleId in moreModules) {
+/******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
+/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
+/******/ 					}
+/******/ 				}
+/******/ 				if(runtime) var result = runtime(__webpack_require__);
+/******/ 			}
+/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
+/******/ 			for(;i < chunkIds.length; i++) {
+/******/ 				chunkId = chunkIds[i];
+/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 					installedChunks[chunkId][0]();
+/******/ 				}
+/******/ 				installedChunks[chunkId] = 0;
+/******/ 			}
+/******/ 			return __webpack_require__.O(result);
+/******/ 		}
+/******/ 		
+/******/ 		var chunkLoadingGlobal = self["webpackChunk"] = self["webpackChunk"] || [];
+/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
+/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
+/******/ 	})();
+/******/ 	
 /************************************************************************/
 /******/ 	
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
-/******/ 	__webpack_require__("./resources/js/app.js");
-/******/ 	// This entry module doesn't tell about it's top-level declarations so it can't be inlined
-/******/ 	var __webpack_exports__ = __webpack_require__("./resources/css/app.css");
+/******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
+/******/ 	__webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/css/app.css")))
+/******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
 ;
