@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Subject;
-use App\Models\Biodata;
 use App\Models\Motivation;
 use Illuminate\Support\Facades\Storage;
 use Cviebrock\EloquentSluggable\Services\SlugService;
@@ -18,7 +17,7 @@ class DashboardMotivasiController extends Controller
         return view('dashboard.motivasi.index', [
             'title' => ' | Home',
             'subjects' => Subject::where('grade_id', auth()->user()->grade_id)->get(),
-            'biodata' => Biodata::all(),
+            // 'biodata' => user::all(),
             'motivations' => Motivation::all()
         ]);
     }

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Motivation;
 use Illuminate\Http\Request;
-use App\Models\Biodata;
+// use App\Models\Biodata;
 use App\Models\Post;
 use App\Models\User;
 
@@ -17,7 +17,7 @@ class DashboardController extends Controller
         $count['user'] = User::count();
         return view('dashboard.index', [
             'title' => ' | Home',
-            'biodata' => Biodata::all(),
+            'biodata' => User::all(),
             'motivations' => Motivation::all(),
             'tugas' =>  Post::where('user_id', auth()->user()->id)->where('tipe', 1)->with('subject')->get(),
             'materi' => Post::where('user_id', auth()->user()->id)->where('tipe', 0)->with('subject')->get(),

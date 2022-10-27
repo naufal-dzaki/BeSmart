@@ -11,6 +11,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
+use Cviebrock\EloquentSluggable\Services\SlugService;
+use Illuminate\Support\Str;
 
 class RegisteredUserController extends Controller
 {
@@ -43,10 +45,22 @@ class RegisteredUserController extends Controller
             'level' => 'required',
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'image' =>  'image|file|max:2048',
+            // 'tgl_lahir' => '',
+            'nisn' => 'min:8|max:12',
+            'no_hp' => 'min:11|max:14',
+            // 'jenis_kelamin' => '',
+            // 'agama' => '',
+            'nama_ayah' => 'max:30',
+            'nama_ibu' => 'max:30',
         ]);
 
+        $name = $request->name;
+        $slug = \Str::slug($name);
+
         $user = User::create([
-            'name' => $request->name,
+            'name' => $name,
+            'slug' => $slug,
             'grade_id' => $request->grade_id,
             'level' => $request->level,
             'email' => $request->email,

@@ -2,19 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-// use App\Models\Biodata;
 use App\Models\User;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Request;
 
-class BiodataController extends Controller
+class BiodataUserController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         return view('home.biodata.index', [
             'title' => 'Biodata',
             'biodata' => User::where('id', auth()->user()->id)->get()
         ]);
-
     }
 
     public function edit(User $user)
@@ -30,7 +28,7 @@ class BiodataController extends Controller
         $rules = ([
             'image' =>  'image|file|max:2048',
             'tgl_lahir' => 'required',
-            'nisn' => 'required',
+            'nisn' => 'required|min:8|max:12',
             'no_hp' => 'required|min:11|max:14',
             'jenis_kelamin' => 'required',
             'agama' => 'required',

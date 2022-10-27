@@ -4,7 +4,8 @@
     <div>
         <div class="flex justify-item-between gap-x-5">
             {{-- siswa --}}
-            <div class="flex gap-x-5 text-blue bg-white lg:order-1 p-3 lg:row-span-1 2xl:row-span-1 lg:col-span-2 rounded-lg shadow-xl mb-3 lg:mb-0"  data-aos="fade-up" data-aos-duration="1500"'>
+            <div class="flex gap-x-5 text-blue bg-white lg:order-1 p-3 lg:row-span-1 2xl:row-span-1 lg:col-span-2 rounded-lg shadow-xl mb-3 lg:mb-0"
+                data-aos="fade-up" data-aos-duration="1500"'>
                 <div>
                     <h1 class="text-bold font-xl">Siswa</h1>
                     <p>{{ $count['user'] }} </p>
@@ -14,7 +15,8 @@
                 </div>
             </div>
             {{-- materi --}}
-            <div class="flex gap-x-5 text-blue bg-white lg:order-1 p-3 lg:row-span-1 2xl:row-span-1 lg:col-span-2 rounded-lg shadow-xl mb-3 lg:mb-0"  data-aos="fade-up" data-aos-duration="1500">
+            <div class="flex gap-x-5 text-blue bg-white lg:order-1 p-3 lg:row-span-1 2xl:row-span-1 lg:col-span-2 rounded-lg shadow-xl mb-3 lg:mb-0"
+                data-aos="fade-up" data-aos-duration="1500">
                 <div>
                     <h1 class="text-bold font-xl">Materi</h1>
                     {{ $count['materi'] }}
@@ -24,7 +26,8 @@
                 </div>
             </div>
             {{-- tugas --}}
-            <div class="flex gap-x-5 text-blue bg-white lg:order-1 p-3 lg:row-span-1 2xl:row-span-1 lg:col-span-2 rounded-lg shadow-xl mb-3 lg:mb-0"  data-aos="fade-up" data-aos-duration="1500">
+            <div class="flex gap-x-5 text-blue bg-white lg:order-1 p-3 lg:row-span-1 2xl:row-span-1 lg:col-span-2 rounded-lg shadow-xl mb-3 lg:mb-0"
+                data-aos="fade-up" data-aos-duration="1500">
                 <div>
                     <h1 class="text-bold font-xl">Tugas</h1>
                     {{ $count['tugas'] }}
@@ -38,8 +41,8 @@
             {{-- content 1 --}}
             <div class="w-4/5">
                 {{-- tugas --}}
-                <div
-                    class="text-blue bg-white lg:order-1 p-3 lg:row-span-1 2xl:row-span-1 lg:col-span-2 rounded-lg shadow-xl mb-3 lg:mb-0"  data-aos="fade-up" data-aos-duration="1500">
+                <div class="text-blue bg-white lg:order-1 p-3 lg:row-span-1 2xl:row-span-1 lg:col-span-2 rounded-lg shadow-xl mb-3 lg:mb-0"
+                    data-aos="fade-up" data-aos-duration="1500">
                     <div class="overflow-x-auto w-full">
                         <h1 class="text-2xl font-bold">Tugas</h1>
                         <table class="table table-compact w-full">
@@ -53,22 +56,22 @@
                             </td>
                             <tbody>
                                 @foreach ($tugas as $tugas)
-                                {{-- @if($tugas->subject->grade_id == auth()->user()->grade_id) --}}
+                                    {{-- @if ($tugas->subject->grade_id == auth()->user()->grade_id) --}}
                                     <tr>
                                         <th>{{ $loop->iteration }}</th>
                                         <td>{{ $tugas->subject->name }}</td>
                                         <td>{{ $tugas->judul }}</td>
                                         <td>{{ $tugas->bab }}</td>
                                     </tr>
-                                {{-- @endif --}}
+                                    {{-- @endif --}}
                                 @endforeach
                             </tbody>
                         </table>
                     </div>
                 </div>
                 {{-- materi --}}
-                <div
-                    class="text-blue bg-white lg:order-1 p-3 lg:row-span-1 2xl:row-span-1 lg:col-span-2 rounded-lg shadow-xl mb-3 lg:mb-0"  data-aos="fade-up" data-aos-duration="1500">
+                <div class="text-blue bg-white lg:order-1 p-3 lg:row-span-1 2xl:row-span-1 lg:col-span-2 rounded-lg shadow-xl mb-3 lg:mb-0"
+                    data-aos="fade-up" data-aos-duration="1500">
                     <div class="overflow-x-auto w-full">
                         <h1 class="text-2xl font-bold">Materi</h1>
                         <table class="table table-compact w-full">
@@ -82,14 +85,14 @@
                             </td>
                             <tbody>
                                 @foreach ($materi as $materi)
-                                {{-- @if($materi->subject->grade_id == auth()->user()->grade_id) --}}
+                                    {{-- @if ($materi->subject->grade_id == auth()->user()->grade_id) --}}
                                     <tr>
                                         <th>{{ $loop->iteration }}</th>
                                         <td>{{ $materi->subject->name }}</td>
                                         <td>{{ $materi->judul }}</td>
                                         <td>{{ $materi->bab }}</td>
                                     </tr>
-                                {{-- @endif --}}
+                                    {{-- @endif --}}
                                 @endforeach
                             </tbody>
                         </table>
@@ -97,8 +100,8 @@
                 </div>
 
                 {{-- motivasi --}}
-                <div
-                    class="text-blue bg-white lg:order-1 p-3 lg:row-span-1 2xl:row-span-1 lg:col-span-2 rounded-lg shadow-xl mb-5 lg:mb-0"  data-aos="fade-up" data-aos-duration="1500">
+                <div class="text-blue bg-white lg:order-1 p-3 lg:row-span-1 2xl:row-span-1 lg:col-span-2 rounded-lg shadow-xl mb-5 lg:mb-0"
+                    data-aos="fade-up" data-aos-duration="1500">
                     <table class="table table-compact w-full">
                         <h1 class="text-2xl font-bold">Motivasi</h1>
                         <thead>
@@ -119,19 +122,24 @@
                 </div>
             </div>
             {{-- content 2 --}}
-            <div
-                class="bg-white p-2 lg:order-3 lg:row-span-2 2xl:row-span-1 lg:col-span-1 rounded-lg shadow-xl mb-5 lg:mb-0 2xl:mb-8"  data-aos="fade-up" data-aos-duration="1500">
+            <div class="bg-white p-2 lg:order-3 lg:row-span-2 2xl:row-span-1 lg:col-span-1 rounded-lg shadow-xl mb-5 lg:mb-0 2xl:mb-8"
+                data-aos="fade-up" data-aos-duration="1500">
                 <h1 class="text-xl font-bold ml-5">Siswa</h1>
-                @foreach ($biodata as $biodata)
+                @foreach ($biodata as $data)
                     <div class="flex gap-x-5 my-2">
                         <div>
                         </div>
                         <div>
-                            <img src="{{ asset('AdminLte/dist/img/user8.jpg') }}" class="w-14 h-14">
+                            @if ($data->image)
+                                <img src="{{ asset('storage/' . $data->image) }}" class="w-14" alt="">
+                            @else
+                                <img src="/img/user-profille.png" class="w-14" alt="">
+                            @endif
+                            {{-- <img src="{{ asset('AdminLte/dist/img/user8.jpg') }}" class="w-14 h-14"> --}}
                             {{-- <p>{{ $biodata->image}} </p> --}}
                         </div>
                         <div>
-                            <p>{{ $biodata->user->name }}</p>
+                            <p>{{ $data->name }}</p>
                         </div>
                     </div>
                 @endforeach

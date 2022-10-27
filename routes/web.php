@@ -5,6 +5,7 @@ use App\Http\Controllers\ChatController;
 use App\Http\Controllers\DashboardBiodataController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserBiodataController;
 use App\Http\Controllers\PresensiController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -55,9 +56,9 @@ Route::group(['middleware' =>  ['auth','ceklevel:siswa']], function () {
 
     Route::get('/biodata', [BiodataController::class, 'index'])
         ->name('biodata.show');
-    Route::get('/biodata/{biodata:slug}/edit', [BiodataController::class, 'edit'])
+    Route::get('/biodata/{user:slug}/edit', [BiodataController::class, 'edit'])
         ->name('biodata.edit');
-    Route::put('/biodata/{biodata:slug}', [BiodataController::class, 'update'])
+    Route::put('/biodata/{user:slug}', [BiodataController::class, 'update'])
         ->name('biodata.update');
 
     Route::get('/home/{motivation:slug}', [MotivationController::class, 'index'])
@@ -126,7 +127,11 @@ Route::group(['middleware' => ['auth','ceklevel:guru']], function() {
     // motivasi
     Route::get('/dashboard/motivasi/checkSlug', [DashboardMotivasiController::class, 'checkSlug']);
     Route::delete('/dashboard/motivasi/{motivation}', [DashboardMotivasiController::class, 'destroy'])->name('motivation.destroy');
-    Route::resource('dashboard/motivasi', DashboardMotivasiController::class);
-    Route::get('/dashboard/{motivation:slug}', [DashboardMotivasiController::class, 'show'])->name('motivation');
+    Route::get('dashboard/motivasi', [DashboardMotivasiController::class, 'index'])->name('motivation.index');
+    Route::get('dashboard/motivasi/create', [DashboardMotivasiController::class, 'create'])->name('motivation.create');
+    Route::post('dashboard/motivasi', [DashboardMotivasiController::class, 'store'])->name('motivation.store');
+    Route::get('/dashboard/motivasi/{motivation}', [DashboardMotivasiController::class, 'show'])->name('motivation');
+    Route::get('/dashboard/motivasi/{motivation}/edit', [DashboardMotivasiController::class, 'edit'])->name('motivation.edit');
+    Route::put('/dashboard/motivasi/{motivation}', [DashboardMotivasiController::class, 'update'])->name('motivation.update');
 
 });

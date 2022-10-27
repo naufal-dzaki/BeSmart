@@ -19,7 +19,8 @@
             <div>
                 <x-label for="name" :value="__('Name')" />
 
-                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
+                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')"
+                    required autofocus />
             </div>
 
             {{-- grade --}}
@@ -27,11 +28,11 @@
                 <x-label for="grade_id" :value="__('Kelas ')" />
                 <select class="rounded-md shadow-sm border-gray-300" name="grade_id">
                     @foreach ($grades as $grade)
-                    @if ( old('grade_id') == $grade->id)
-                    <option value="{{ $grade->id }}" selected>{{ $grade->grade }}</option>
-                    @else
-                    <option value="{{ $grade->id }}">{{ $grade->grade }}</option>
-                    @endif
+                        @if (old('grade_id') == $grade->id)
+                            <option value="{{ $grade->id }}" selected>{{ $grade->grade }}</option>
+                        @else
+                            <option value="{{ $grade->id }}">{{ $grade->grade }}</option>
+                        @endif
                     @endforeach
                 </select>
             </div>
@@ -40,8 +41,8 @@
                 {{-- <label for="grade_id" class="form-label">Grade</label> --}}
                 <x-label for="level" :value="__('Status')" />
                 <select class="rounded-md shadow-sm border-gray-300" name="level">
-                        <option value="siswa">siswa</option>
-                        <option value="guru">guru</option>
+                    <option value="siswa">siswa</option>
+                    <option value="guru">guru</option>
                 </select>
             </div>
 
@@ -49,26 +50,24 @@
             <div class="mt-4">
                 <x-label for="email" :value="__('email')" />
 
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
+                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')"
+                    required />
             </div>
 
             <!-- Password -->
             <div class="mt-4">
                 <x-label for="password" :value="__('Password')" />
 
-                <x-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="new-password" />
+                <x-input id="password" class="block mt-1 w-full" type="password" name="password" required
+                    autocomplete="new-password" />
             </div>
 
             <!-- Confirm Password -->
             <div class="mt-4">
                 <x-label for="password_confirmation" :value="__('Confirm Password')" />
 
-                <x-input id="password_confirmation" class="block mt-1 w-full"
-                                type="password"
-                                name="password_confirmation" required />
+                <x-input id="password_confirmation" class="block mt-1 w-full" type="password"
+                    name="password_confirmation" required />
             </div>
 
             <div class="flex items-center justify-end mt-4">
@@ -76,9 +75,9 @@
                     {{ __('Already registered?') }}
                 </a>
 
-                <x-button class="ml-4" >
-                    <a href="{{  route('login') }}">
-                    {{ __('Register') }}</a>
+                <x-button class="ml-4">
+                    <a href="{{ route('login') }}">
+                        {{ __('Register') }}</a>
                 </x-button>
             </div>
         </form>
