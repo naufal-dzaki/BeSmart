@@ -67,8 +67,8 @@ Route::group(['middleware' =>  ['auth','ceklevel:siswa']], function () {
     Route::post('chat/store', [ChatController::class, 'store'])
         ->name('chat.store');
 
-        Route::get('/presensi', [PresensiController::class, 'index'])
-        ->name('presensi');
+    Route::get('/presensi', [PresensiController::class, 'index'])
+    ->name('presensi');
     Route::get('/presensi-masuk', [PresensiController::class, 'presensiMasuk'])
         ->name('presensi-masuk');
     Route::post('/post-presensi-masuk', [PresensiController::class, 'postPresensiMasuk'])
